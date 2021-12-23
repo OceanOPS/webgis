@@ -1,8 +1,8 @@
 define(["require", "exports", "tslib", "esri/core/Accessor", "esri/core/accessorSupport/decorators", "esri/widgets/Sketch/SketchViewModel"], function (require, exports, tslib_1, Accessor, decorators_1, SketchViewModel_1) {
     "use strict";
-    SketchViewModel_1 = tslib_1.__importDefault(SketchViewModel_1);
+    SketchViewModel_1 = (0, tslib_1.__importDefault)(SketchViewModel_1);
     var ScreenshotToolViewModel = /** @class */ (function (_super) {
-        tslib_1.__extends(ScreenshotToolViewModel, _super);
+        (0, tslib_1.__extends)(ScreenshotToolViewModel, _super);
         function ScreenshotToolViewModel(props) {
             var _this = _super.call(this) || this;
             _this.takeScreenshotWholeView = function () {
@@ -99,23 +99,23 @@ define(["require", "exports", "tslib", "esri/core/Accessor", "esri/core/accessor
             _this._handleSketchVMCreate = _this._handleSketchVMCreate.bind(_this);
             return _this;
         }
-        tslib_1.__decorate([
-            decorators_1.property()
+        (0, tslib_1.__decorate)([
+            (0, decorators_1.property)()
         ], ScreenshotToolViewModel.prototype, "view", void 0);
-        tslib_1.__decorate([
-            decorators_1.property()
+        (0, tslib_1.__decorate)([
+            (0, decorators_1.property)()
         ], ScreenshotToolViewModel.prototype, "sketchViewModel", void 0);
-        tslib_1.__decorate([
-            decorators_1.property()
+        (0, tslib_1.__decorate)([
+            (0, decorators_1.property)()
         ], ScreenshotToolViewModel.prototype, "sketchLayer", void 0);
-        tslib_1.__decorate([
-            decorators_1.property()
+        (0, tslib_1.__decorate)([
+            (0, decorators_1.property)()
         ], ScreenshotToolViewModel.prototype, "pixelRatio", void 0);
-        tslib_1.__decorate([
-            decorators_1.property()
+        (0, tslib_1.__decorate)([
+            (0, decorators_1.property)()
         ], ScreenshotToolViewModel.prototype, "dataUrl", void 0);
-        ScreenshotToolViewModel = tslib_1.__decorate([
-            decorators_1.subclass("esri.widgets.ScreenshotToolViewModel")
+        ScreenshotToolViewModel = (0, tslib_1.__decorate)([
+            (0, decorators_1.subclass)("esri.widgets.ScreenshotToolViewModel")
         ], ScreenshotToolViewModel);
         return ScreenshotToolViewModel;
     }(Accessor));
