@@ -1,3 +1,9 @@
+# Custom
+release
+src/widgets/**/*.js
+src/widgets/**/*.js.map
+.vscode
+
 # Logs
 logs
 *.log

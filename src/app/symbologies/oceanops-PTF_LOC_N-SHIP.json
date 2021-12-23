@@ -1,0 +1,755 @@
+{
+    "type": "unique-value",
+    "field": "SHIP",
+    "field2": null,
+    "field3": null,
+    "fieldDelimiter": ", ",
+    "defaultSymbol": {
+     "type": "simple-marker",
+       "style": "circle",
+       "color": [202,219,193,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],     "width": 1  }
+    },
+    "defaultLabel": "OTHER",
+    "uniqueValueInfos": [
+     {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [255,255,0,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "KAHAROA",
+      "label": "KAHAROA",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [255,200,232,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "MIRAI",
+      "label": "MIRAI",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [132,0,0,168],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "KA'IMIMOANA",
+      "label": "KA'IMIMOANA",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [56,168,0,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "RONALD H. BROWN",
+      "label": "RONALD H. BROWN",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [255,0,0,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "POLARSTERN",
+      "label": "POLARSTERN",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [237,55,88,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "AURORA AUSTRALIS",
+      "label": "AURORA AUSTRALIS",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [0,255,0,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "RYOFU MARU",
+      "label": "RYOFU MARU",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [150,8,34,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "NATHANIEL B. PALMER",
+      "label": "NATHANIEL B. PALMER",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [79,120,255,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "C-130 AIRCRAFT",
+      "label": "C-130 AIRCRAFT",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [255,255,255,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "ROGER REVELLE",
+      "label": "ROGER REVELLE",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [255,133,0,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "HUDSON",
+      "label": "HUDSON",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [110,133,0,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "KNORR",
+      "label": "KNORR",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [138,28,189,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "KEIFU MARU",
+      "label": "KEIFU MARU",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [99,201,255,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "SAGAR KANYA",
+      "label": "SAGAR KANYA",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [235,0,199,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "JAMES CLARK ROSS",
+      "label": "JAMES CLARK ROSS",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [152,255,61,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "SAGAR NIDHI",
+      "label": "SAGAR NIDHI",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [235,78,0,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "KILO MOANA",
+      "label": "KILO MOANA",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [94,0,194,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "THOMAS G. THOMPSON",
+      "label": "THOMAS G. THOMPSON",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [0,77,28,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "TANGAROA",
+      "label": "TANGAROA",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [0,197,255,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "S.A. AGULHAS",
+      "label": "S.A. AGULHAS",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [255,255,0,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "HAKUHO MARU",
+      "label": "HAKUHO MARU",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [156,117,0,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "JOHN P. TULLY",
+      "label": "JOHN P. TULLY",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [0,194,84,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "MELVILLE",
+      "label": "MELVILLE",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [178,178,178,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "METEOR",
+      "label": "METEOR",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [178,178,59,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "THALASSA",
+      "label": "THALASSA",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [245,122,122,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "MARION DUFRESNE",
+      "label": "MARION DUFRESNE",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [179,250,255,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "JAMES COOK",
+      "label": "JAMES COOK",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [0,197,255,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "SA Agulhas II",
+      "label": "SA Agulhas II",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [230,0,0,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "LADY AMBER",
+      "label": "LADY AMBER",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [168,112,0,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "UMITAKA MARU",
+      "label": "UMITAKA MARU",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [56,168,0,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "MV EXPLORER",
+      "label": "MV EXPLORER",
+      "description": null
+     },{
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [169,214,45,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "ATALANTE",
+      "label": "ATALANTE",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [255,255,0,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "MARIA S. MERIAN",
+      "label": "MARIA S. MERIAN",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [80,133,148,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "ARAON",
+      "label": "ARAON",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [201,233,242,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "LE SUROIT",
+      "label": "LE SUROIT",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [57,111,237,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "DISCOVERY",
+      "label": "DISCOVERY",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [194,163,163,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "ROBERT C. SEAMANS",
+      "label": "ROBERT C. SEAMANS",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [214,9,183,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "INVESTIGATOR",
+      "label": "INVESTIGATOR",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [255,0,13,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "POURQUOI PAS?",
+      "label": "POURQUOI PAS?",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [153,0,153,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "SHONAN MARU",
+      "label": "SHONAN MARU",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [214,153,9,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "OSHORO MARU",
+      "label": "OSHORO MARU",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [255,153,0,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "POSEIDON",
+      "label": "POSEIDON",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [170,194,163,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "MAERSK VILNIUS",
+      "label": "MAERSK VILNIUS",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [78,203,237,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "SOUTHERN SURVEYOR",
+      "label": "SOUTHERN SURVEYOR",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [0,204,255,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "KAIYO MARU",
+      "label": "KAIYO MARU",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [133,242,235,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "GOLDEN BEAR",
+      "label": "GOLDEN BEAR",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [167,220,235,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "BLUEFIN",
+      "label": "BLUEFIN",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [12,232,206,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "SIR WILFRID LAURIER",
+      "label": "SIR WILFRID LAURIER",
+      "description": null
+     },
+      {
+      "symbol": {
+       "type": "simple-marker",
+       "style": "circle",
+       "color": [97,201,71,255],
+       "size": 6,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "outline":    {       "color": [0,0,0,255],       "width": 1  }
+      },
+      "value": "AKADEMIK SERGUIEI VAVILOV",
+      "label": "AKADEMIK SERGUIEI VAVILOV",
+      "description": null
+     }
+     
+    ]
+   }

@@ -1,0 +1,396 @@
+{
+   "type": "unique-value",
+   "field": "PTF_TYPE",
+   "field2": null,
+   "field3": null,
+   "fieldDelimiter": ", ",
+   "defaultSymbol": {
+    "type": "simple-marker",
+	  "style": "circle",
+	  "color": [202,219,193,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [202,219,193,255],		"width": 1	}
+   },
+   "defaultLabel": "OTHER",
+   "uniqueValueInfos": [
+    {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [255,255,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "FLOAT",
+     "label": "FLOAT",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [255,200,232,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "FLOAT_DEEP",
+     "label": "FLOAT_DEEP",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [132,0,0,168],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "PFLOAT",
+     "label": "PFLOAT",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [56,168,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "ICE_TETHERED_PROFILER",
+     "label": "ICE_TETHERED_PROFILER",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [255,0,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "FLOAT_COASTAL",
+     "label": "FLOAT_COASTAL",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [0,255,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "POLAR_OCEAN_PROFILING_SYSTEM",
+     "label": "POLAR_OCEAN_PROFILING_SYSTEM",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [79,120,255,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "TSUNAMETER",
+     "label": "TSUNAMETER",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [255,255,255,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "TROPICAL",
+     "label": "TROPICAL",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [255,133,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "GLIDER",
+     "label": "GLIDER",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [110,133,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "ATLAS",
+     "label": "ATLAS",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [0,0,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "TRITON",
+     "label": "TRITON",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [99,201,255,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "SEAWATCH",
+     "label": "SEAWATCH",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [235,0,199,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "METMB",
+     "label": "METMB",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [152,255,61,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "WAVEBUOY",
+     "label": "WAVEBUOY",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [235,78,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "OTHERMB",
+     "label": "OTHERMB",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [94,0,194,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "FLEX",
+     "label": "FLEX",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [0,77,28,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "DB",
+     "label": "DB",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [0,197,255,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "ICEBUOY",
+     "label": "ICEBUOY",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [255,255,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "MET_BUOY",
+     "label": "MET_BUOY",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [156,117,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "SURFACE",
+     "label": "SURFACE",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [0,194,84,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "SUBSURFACE",
+     "label": "SUBSURFACE",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [178,178,59,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "OBSERVATORY",
+     "label": "OBSERVATORY",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [245,122,122,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "TRNASPORT",
+     "label": "TRNASPORT",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [179,250,255,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "UNKNOWN",
+     "label": "UNKNOWN",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [0,197,255,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "FIXED",
+     "label": "FIXED",
+     "description": null
+    }
+    
+   ]
+  }

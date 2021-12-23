@@ -1,0 +1,516 @@
+{
+   "type": "unique-value",
+   "field": "COUNTRY",
+   "field2": null,
+   "field3": null,
+   "fieldDelimiter": ", ",
+   "defaultSymbol": {
+    "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [202,219,193,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [202,219,193,255],		"width": 1	}
+   },
+   "defaultLabel": "OTHER",
+   "uniqueValueInfos": [
+    {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [255,255,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "ARGENTINA",
+     "label": "ARGENTINA",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [255,200,232,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "AUSTRALIA",
+     "label": "AUSTRALIA",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [132,0,0,168],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "BRAZIL",
+     "label": "BRAZIL",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [56,168,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "BULGARIA",
+     "label": "BULGARIA",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [255,0,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "CANADA",
+     "label": "CANADA",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [237,55,88,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "CHILE",
+     "label": "CHILE",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [0,255,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "CHINA",
+     "label": "CHINA",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [150,8,34,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "DENMARK",
+     "label": "DENMARK",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [79,120,255,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "ECUADOR",
+     "label": "ECUADOR",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [36,224,206,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "EUROPE",
+     "label": "EUROPE",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [255,255,255,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "FINLAND",
+     "label": "FINLAND",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [255,133,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "FRANCE",
+     "label": "FRANCE",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [110,133,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "GABON",
+     "label": "GABON",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [0,0,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "GERMANY",
+     "label": "GERMANY",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [99,201,255,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "GREECE",
+     "label": "GREECE",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [235,0,199,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "INDIA",
+     "label": "INDIA",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [152,255,61,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "IRELAND",
+     "label": "IRELAND",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [235,78,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "ITALY",
+     "label": "ITALY",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [94,0,194,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "JAPAN",
+     "label": "JAPAN",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [0,77,28,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "KENYA",
+     "label": "KENYA",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [0,197,255,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "SOUTH KOREA",
+     "label": "SOUTH KOREA)",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [255,255,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "LEBANON",
+     "label": "LEBANON",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [156,117,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "MAURITIUS",
+     "label": "MAURITIUS",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [0,194,84,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "MEXICO",
+     "label": "MEXICO",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [178,178,178,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "NETHERLANDS",
+     "label": "NETHERLANDS",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [178,178,59,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "NEW ZEALAND",
+     "label": "NEW ZEALAND",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [245,122,122,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "NORWAY",
+     "label": "NORWAY",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [179,250,255,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "SOUTH AFRICA",
+     "label": "SOUTH AFRICA",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [0,197,255,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "SPAIN",
+     "label": "SPAIN",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [255,115,223,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "SRI LANKA",
+     "label": "SRI LANKA",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [230,0,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "TURKEY",
+     "label": "TURKEY",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [168,112,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "UK",
+     "label": "UK",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "diamond",
+	  "color": [56,168,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "USA",
+     "label": "USA",
+     "description": null
+    }
+    
+   ]
+  }

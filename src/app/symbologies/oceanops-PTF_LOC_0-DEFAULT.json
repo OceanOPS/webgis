@@ -1,0 +1,502 @@
+{
+    "legendOptions": {
+        "title": "Ocean Observing Systems"
+    },
+    "type": "unique-value",
+    "valueExpression": "When($feature.PTF_TYPE == 'FLOAT_DEEP', 'ARGO_DEEP', Find('Argo BioGeoChemical', $feature.NETWORK) > -1, 'ARGO_BGC', Find('Argo', $feature.NETWORK) > -1 && Find('Argo Deep', $feature.NETWORK) == -1 && Find('Argo BioGeoChemical', $feature.NETWORK) == -1, 'ARGO_CORE', $feature.PTF_FAMILY == 'DB', 'DBCP_DB', $feature.PTF_FAMILY == 'ICE_BUOYS', 'DBCP_ICEB', $feature.PTF_FAMILY == 'FIXED' && $feature.PTF_TYPE != 'HF_RADAR' && Find('GLOSS', $feature.NETWORK) == -1, 'DBCP_FIXED', $feature.PTF_FAMILY == 'MB' && $feature.PTF_TYPE != 'TSUNAMETER' && Find('OceanSITES', $feature.NETWORK) == -1, 'DBCP_MB', $feature.PTF_TYPE == 'TSUNAMETER', 'DBCP_TSUNA', $feature.PTF_TYPE == 'SAILING_DRONE', 'DBCP_SAILDRONE', Find('OceanSITES', $feature.NETWORK) > -1, 'OCEANSITES', Find('GLOSS', $feature.NETWORK) > -1, 'GLOSS', Find('VOS', $feature.NETWORK) > -1 && $feature.PTF_TYPE == 'VOS_MWS', 'SOT_MWS', Find('VOS', $feature.NETWORK) > -1 && $feature.PTF_TYPE == 'VOS_AWS', 'SOT_AWS', Find('ASAP', $feature.NETWORK) > -1, 'SOT_ASAP', Find('SOOP XBT', $feature.NETWORK) > -1, 'SOT_SOOP_XBT', $feature.PTF_FAMILY == 'ANIMAL', 'ANIMAL', $feature.PTF_TYPE == 'HF_RADAR', 'HF_RADAR', 'others')",
+    "uniqueValueInfos": [
+        {
+            "value": "TITLE_ARGO",
+            "label": "Profiling Floats (Argo)",
+            "symbol": {
+                "type": "simple-line",
+                "width": 2,
+                "style":"dash-dot",
+                "join": "miter",
+                "color": [
+                    50,
+                    50,
+                    50,
+                    255
+                ]
+            }
+        },
+        {
+            "value": "ARGO_CORE",
+            "label": "Core",
+            "symbol": {
+                "type": "simple-marker",
+                "size": 6,
+                "color": [
+                    74,
+                    105,
+                    189,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        30,
+                        55,
+                        153,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "ARGO_DEEP",
+            "label": "Deep",
+            "symbol": {
+                "type": "simple-marker",
+                "size": 6,
+                "color": [
+                    39,
+                    60,
+                    117,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        9,
+                        30,
+                        87,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "ARGO_BGC",
+            "label": "BioGeoChemical",
+            "symbol": {
+                "type": "simple-marker",
+                "size": 6,
+                "color": [
+                    76,
+                    209,
+                    55,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        0,
+                        100,
+                        0,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "TITLE_DBCP",
+            "label": "Data Buoys (DBCP)",
+            "symbol": {
+                "type": "simple-line",
+                "width": 2,
+                "style":"dash-dot",
+                "join": "miter",
+                "color": [
+                    50,
+                    50,
+                    50,
+                    255
+                ]
+            }
+        },
+        {
+            "value": "DBCP_DB",
+            "label": "Surface Drifters",
+            "symbol": {
+                "type": "simple-marker",
+                "size": 6,
+                "color": [
+                    49,
+                    197,
+                    253,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        21,
+                        101,
+                        155,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "DBCP_FIXED",
+            "label": "Offshore Platforms",
+            "symbol": {
+                "type": "simple-marker",
+                "style": "square",
+                "size": 6,
+                "color": [
+                    178,
+                    178,
+                    178,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        80,
+                        80,
+                        80,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "DBCP_ICEB",
+            "label": "Ice Buoys",
+            "symbol": {
+                "type": "simple-marker",
+                "size": 6,
+                "color": [
+                    255,
+                    255,
+                    255,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        80,
+                        80,
+                        80,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "DBCP_MB",
+            "label": "Moored Buoys",
+            "symbol": {
+                "type": "simple-marker",
+                "style": "square",
+                "size": 6,
+                "color": [
+                    232,
+                    65,
+                    24,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        123,
+                        0,
+                        0,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "DBCP_TSUNA",
+            "label": "Tsunameters",
+            "symbol": {
+                "type": "simple-marker",
+                "style": "triangle",
+                "size": 7,
+                "color": [
+                    255,
+                    255,
+                    0,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        80,
+                        80,
+                        0,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "DBCP_SAILDRONE",
+            "label": "Sail Drones",
+            "symbol": {
+                "type": "simple-marker",
+                "size": 6,
+                "color": [
+                    245,
+                    205,
+                    121,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        156,
+                        116,
+                        32,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "TITLE_OS",
+            "label": "Timeseries (OceanSITES)",
+            "symbol": {
+                "type": "simple-line",
+                "width": 2,
+                "style":"dash-dot",
+                "join": "miter",
+                "color": [
+                    50,
+                    50,
+                    50,
+                    255
+                ]
+            }
+        },
+        {
+            "value": "OCEANSITES",
+            "label": "Interdisciplinary Moorings",
+            "symbol": {
+                "type": "simple-marker",
+                "style": "square",
+                "size": 6,
+                "color": [
+                    76,
+                    209,
+                    55,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        0,
+                        100,
+                        0,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "TITLE_GLOSS",
+            "label": "Sea Level (GLOSS)",
+            "symbol": {
+                "type": "simple-line",
+                "width": 2,
+                "style":"dash-dot",
+                "join": "miter",
+                "color": [
+                    50,
+                    50,
+                    50,
+                    255
+                ]
+            }
+        },
+        {
+            "value": "GLOSS",
+            "label": "Tide Gauges",
+            "symbol": {
+                "type": "simple-marker",
+                "style": "square",
+                "size": 6,
+                "color": [
+                    255,
+                    139,
+                    0,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        183,
+                        67,
+                        0,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "TITLE_SOT",
+            "label": "Ship-based Measurements (SOT)",
+            "symbol": {
+                "type": "simple-line",
+                "width": 2,
+                "style":"dash-dot",
+                "join": "miter",
+                "color": [
+                    50,
+                    50,
+                    50,
+                    255
+                ]
+            }
+        },
+        {
+            "value": "SOT_AWS",
+            "label": "Automated Weather Stations",
+            "symbol": {
+                "type": "simple-marker",
+                "style": "diamond",
+                "size": 7,
+                "color": [
+                    255,
+                    184,
+                    184,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        175,
+                        104,
+                        104,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "SOT_MWS",
+            "label": "Manned Weather Stations",
+            "symbol": {
+                "type": "simple-marker",
+                "style": "diamond",
+                "size": 7,
+                "color": [
+                    254,
+                    211,
+                    48,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        151,
+                        108,
+                        0,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "SOT_ASAP",
+            "label": "Radiosondes",
+            "symbol": {
+                "type": "simple-marker",
+                "style": "diamond",
+                "size": 7,
+                "color": [
+                    49,
+                    197,
+                    253,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        21,
+                        101,
+                        155,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "SOT_SOOP_XBT",
+            "label": "eXpendable BathyThermographs",
+            "symbol": {
+                "type": "simple-marker",
+                "style": "diamond",
+                "size": 7,
+                "color": [
+                    74,
+                    105,
+                    189,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        30,
+                        55,
+                        153,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "TITLE_OT",
+            "label": "Other Networks",
+            "symbol": {
+                "type": "simple-line",
+                "width": 2,
+                "style":"dash-dot",
+                "join": "miter",
+                "color": [
+                    50,
+                    50,
+                    50,
+                    255
+                ]
+            }
+        },
+        {
+            "value": "HF_RADAR",
+            "label": "HF Radars",
+            "symbol": {
+                "type": "simple-marker",
+                "style": "square",
+                "size": 6,
+                "color": "white",
+                "outline": {
+                    "color": [
+                        80,
+                        80,
+                        80,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "ANIMAL",
+            "label": "Animal Borne Sensors",
+            "symbol": {
+                "type": "simple-marker",
+                "style": "circle",
+                "size": 6,
+                "color": [
+                    255,
+                    121,
+                    121,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        195,
+                        61,
+                        61,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        }
+    ]
+}

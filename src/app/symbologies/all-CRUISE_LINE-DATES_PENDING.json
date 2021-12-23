@@ -1,0 +1,49 @@
+{
+ "type": "unique-value",
+ "field": "DATES_PENDING",
+ "field2": "",
+ "field3": "",
+ "fieldDelimiter": ",",
+ "defaultSymbol": {
+  "type": "simple-line",
+  "style": "solid",
+  "width": 1
+ },
+ "defaultLabel": "",
+ "uniqueValueInfos": [
+  {
+   "value": "no",
+   "count": 3798,
+   "label": "no",
+   "description": "",
+   "symbol": {
+    "type": "simple-line",
+    "style": "solid",
+    "width": 1,
+    "color": [
+     115,
+     76,
+     0,
+     255
+    ]
+   }
+  },
+  {
+   "value": "yes",
+   "count": 67,
+   "label": "yes",
+   "description": "",
+   "symbol": {
+    "type": "simple-line",
+    "style": "solid",
+    "width": 1,
+    "color": [
+     255,
+     25,
+     86,
+     255
+    ]
+   }
+  }
+ ]
+}

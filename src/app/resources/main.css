@@ -1,0 +1,322 @@
+@font-face {
+    font-family: Montserrat-Light;
+    src: url('//www.ocean-ops.org/static/fonts/Montserrat/Montserrat-Light.ttf');
+}
+
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url('//www.ocean-ops.org/static/fonts/Montserrat/Montserrat-Regular.ttf');
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+html, body, #mapViewDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.esri-view .esri-view-surface--inset-outline:focus::after {
+    outline: none !important;
+}  
+
+a.no-decoration {
+    text-decoration: none;
+    color: inherit;
+}
+
+button > span.esri-icon {
+    margin: auto;
+}
+
+.map {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+}
+
+#moreToolsBtn a, #projectionBtn a {
+    font-size: 0.9em;
+}
+
+#main-loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: rgb(243, 243, 243);
+    text-shadow: -1px 0 gray, 0 1px gray, 1px 0 gray, 0 -1px gray;
+}
+
+.esri-icon-loader {
+    transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-animation: Rotate 500ms infinite linear;
+    -moz-animation: Rotate 500ms infinite linear;
+    -ms-animation: Rotate 500ms infinite linear;
+    -o-animation: Rotate 500ms infinite linear;
+    animation: Rotate 500ms infinite linear;
+}
+
+span.esri-popup__action-text{
+    margin-left: 5px;
+}
+
+@-o-keyframes Rotate {
+    from {
+        -o-transform: rotate(0deg);
+    }
+    to {
+        -o-transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes Rotate {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-ms-keyframes Rotate {
+    from {
+        -ms-transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes Rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes Rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ESRI UI tweak for widget buttons */
+
+.esri-ui-corner {
+    visibility: hidden;
+}
+
+.esri-ui-overflow {
+    overflow: visible !important;
+}
+
+.esri-ui-top-right {
+    max-height: 90%;
+}
+
+.esri-ui-bottom-left {
+    flex-flow: column nowrap;
+    align-items: flex-start;
+}
+
+.esri-ui-top-right{
+    flex-flow: row-reverse nowrap;
+    align-items: flex-start;
+}
+
+.esri-ui-top-right > .esri-icon-close {
+    margin: 0 !important;
+}
+
+.esri-widget-custom{
+    padding: 12px 15px 12px 15px;
+}
+
+header.custom-widget-header{
+    font-weight: bold;
+}
+
+.modal-lg {
+    max-width: 90% !important;
+}
+.modal-md {
+    max-width: 60% !important;
+}/*
+#attributesModal .modal-content{
+    max-height: 90vh;
+}*/
+
+.modal-body img {
+    max-width: 100%;
+}
+
+/* Add layer Model fram style */
+
+#addLayerModal {
+    font-size: 0.9em;
+}
+
+img.basemap-thumbnail {
+    height: 75px;
+}
+
+.thumbnail > div.badges {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.thumbnail > div.badges > a.badge {
+    margin-bottom: 2px;
+    font-size: 0.8em;
+    position: relative;
+    display: block;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(250, 250, 250);
+}
+
+/* Footer style (FUTURE) */
+
+div#footerDrawer {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+    bottom: 15.45px;
+    display: none;
+}
+
+div#footerDrawer .content {
+    height: 25%;
+    background-color: #eeeeee;
+    display: none;
+}
+
+div#footerDrawer .arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid black;
+}
+
+/* Widget specific style */
+
+/* Height Slider */
+
+#heightSlider {
+    height: 400px;
+}
+
+/* Measure widget */
+
+button.action-button {
+    font-size: 14px;
+    background-color: transparent;
+    border: 1px solid #D3D3D3;
+    color: #6e6e6e;
+    height: 32px;
+    width: 32px;
+    text-align: center;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
+span#measureToolActions button.action-button:hover, span#measureToolActions button.action-button:focus {
+    background: #0079c1;
+    color: #e4e4e4;
+}
+
+button.active {
+    background: #0079c1;
+    color: #e4e4e4;
+}
+
+div#measureTool>span {
+    margin: 5px;
+}
+div#editTool button {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.top-left-hint{
+    position: absolute;
+    left: 100px !important;
+	opacity: 1 !important;
+	top: 60px;
+	width: 250px;
+	text-align: center;
+}
+
+input.popup-input-expand{
+    width: 100%;
+}
+
+.sml-theme-img{
+	padding-top: 3px;
+	opacity: .95;
+}
+
+.sml-theme-img:hover{
+	opacity: 1 !important;
+}
+
+.standby-btn{
+	position: absolute !important;
+	top: 15px !important;
+	left: 65px !important;
+	opacity: 0.6;
+	color: #fafafa;
+}
+
+.standby-btn:hover{
+	opacity: 1;
+	color: #ffffff;
+	cursor: pointer;
+}
+
+.sml-link{
+	cursor: pointer !important;
+	padding-top: 2px;
+	padding-bottom: 5px;
+	
+}
+
+#timeSlider {
+    visibility: hidden;
+    position: fixed;
+    resize: horizontal;
+    left: 10%;
+    right: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 20px;
+}
+
+#photo-viewer{
+    width:  30%;
+    opacity: 0;
+    display: block;
+    z-index: 1000000;
+    position: fixed;
+    bottom: 2%;
+    right: 0%;
+}

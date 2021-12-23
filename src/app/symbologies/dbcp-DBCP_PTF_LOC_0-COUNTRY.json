@@ -1,0 +1,556 @@
+{
+ "type": "unique-value",
+ "field": "COUNTRY",
+ "field2": "",
+ "field3": "",
+ "fieldDelimiter": ",",
+ "defaultSymbol": {
+  "type": "simple-marker",
+  "style": "circle",
+  "color": [202,219,193,255],
+  "size": 6
+ },
+ "defaultLabel": "OTHER",
+ "uniqueValueInfos": [
+  {
+   "value": "AUSTRALIA",
+   "count": 89,
+   "label": "AUSTRALIA",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     254,
+     208,
+     22,
+     255
+    ]
+   }
+  },
+  {
+   "value": "BR-FR-US",
+   "count": 18,
+   "label": "BR-FR-US",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     254,
+     109,
+     11,
+     255
+    ]
+   }
+  },
+  {
+   "value": "BRAZIL",
+   "count": 13,
+   "label": "BRAZIL",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     254,
+     160,
+     17,
+     255
+    ]
+   }
+  },
+  {
+   "value": "CANADA",
+   "count": 116,
+   "label": "CANADA",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     255,
+     56,
+     6,
+     255
+    ]
+   }
+  },
+  {
+   "value": "CHILE",
+   "count": 2,
+   "label": "CHILE",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     253,
+     254,
+     28,
+     255
+    ]
+   }
+  },
+  {
+   "value": "COLOMBIA",
+   "count": 1,
+   "label": "COLOMBIA",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     208,
+     253,
+     33,
+     255
+    ]
+   }
+  },
+  {
+   "value": "ECUADOR",
+   "count": 1,
+   "label": "ECUADOR",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     166,
+     253,
+     39,
+     255
+    ]
+   }
+  },
+  {
+   "value": "EUROPE",
+   "count": 192,
+   "label": "EUROPE",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     127,
+     253,
+     44,
+     255
+    ]
+   }
+  },
+  {
+   "value": "FRANCE",
+   "count": 118,
+   "label": "FRANCE",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     6,
+     138,
+     39,
+     255
+    ]
+   }
+  },
+  {
+   "value": "GERMANY",
+   "count": 40,
+   "label": "GERMANY",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     112,
+     112,
+     112,
+     255
+    ]
+   }
+  },
+  {
+   "value": "GREECE",
+   "count": 4,
+   "label": "GREECE",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     61,
+     252,
+     100,
+     255
+    ]
+   }
+  },
+  {
+   "value": "HONG KONG",
+   "count": 1,
+   "label": "HONG KONG",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     66,
+     251,
+     142,
+     255
+    ]
+   }
+  },
+  {
+   "value": "INDIA",
+   "count": 51,
+   "label": "INDIA",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     71,
+     251,
+     181,
+     255
+    ]
+   }
+  },
+  {
+   "value": "IRELAND",
+   "count": 6,
+   "label": "IRELAND",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     77,
+     251,
+     217,
+     255
+    ]
+   }
+  },
+  {
+   "value": "ITALY",
+   "count": 25,
+   "label": "ITALY",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     82,
+     249,
+     251,
+     255
+    ]
+   }
+  },
+  {
+   "value": "JAPAN",
+   "count": 40,
+   "label": "JAPAN",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     158,
+     102,
+     52,
+     255
+    ]
+   }
+  },
+  {
+   "value": "NEW ZEALAND",
+   "count": 18,
+   "label": "NEW ZEALAND",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     93,
+     186,
+     250,
+     255
+    ]
+   }
+  },
+  {
+   "value": "NORWAY",
+   "count": 9,
+   "label": "NORWAY",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     98,
+     157,
+     250,
+     255
+    ]
+   }
+  },
+  {
+   "value": "RUSSIA",
+   "count": 6658,
+   "label": "RUSSIA",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     247,
+     141,
+     224,
+     255
+    ]
+   }
+  },
+  {
+   "value": "SOUTH AFRICA",
+   "count": 1,
+   "label": "SOUTH AFRICA",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     189,
+     0,
+     207,
+     255
+    ]
+   }
+  },
+  {
+   "value": "SOUTH KOREA",
+   "count": 24,
+   "label": "SOUTH KOREA",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     143,
+     114,
+     249,
+     255
+    ]
+   }
+  },
+  {
+   "value": "SPAIN",
+   "count": 16,
+   "label": "SPAIN",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     173,
+     120,
+     248,
+     255
+    ]
+   }
+  },
+  {
+   "value": "UK",
+   "count": 145,
+   "label": "UK",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     201,
+     125,
+     248,
+     255
+    ]
+   }
+  },
+  {
+   "value": "UK-FR",
+   "count": 1,
+   "label": "UK-FR",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     122,
+     59,
+     173,
+     255
+    ]
+   }
+  },
+  {
+   "value": "US-FR",
+   "count": 34,
+   "label": "US-FR",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     248,
+     136,
+     246,
+     255
+    ]
+   }
+  },
+  {
+   "value": "USA",
+   "count": 5,
+   "label": "USA",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     0,
+     0,
+     255,
+     255
+    ]
+   }
+  },
+  {
+   "value": "USA-IN",
+   "count": 23,
+   "label": "USA-IN",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "color": [
+     247,
+     146,
+     205,
+     255
+    ]
+   }
+  }
+ ]
+}

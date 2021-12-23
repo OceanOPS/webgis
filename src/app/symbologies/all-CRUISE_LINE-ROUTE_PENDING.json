@@ -1,0 +1,49 @@
+{
+ "type": "unique-value",
+ "field": "ROUTE_PENDING",
+ "field2": "",
+ "field3": "",
+ "fieldDelimiter": ",",
+ "defaultSymbol": {
+  "type": "simple-line",
+  "style": "solid",
+  "width": 1
+ },
+ "defaultLabel": "unknown",
+ "uniqueValueInfos": [
+  {
+   "value": "no",
+   "count": 3854,
+   "label": "no",
+   "description": "",
+   "symbol": {
+    "type": "simple-line",
+    "style": "solid",
+    "width": 1,
+    "color": [
+     115,
+     76,
+     0,
+     255
+    ]
+   }
+  },
+  {
+   "value": "yes",
+   "count": 11,
+   "label": "yes",
+   "description": "",
+   "symbol": {
+    "type": "simple-line",
+    "style": "solid",
+    "width": 1,
+    "color": [
+     255,
+     25,
+     86,
+     255
+    ]
+   }
+  }
+ ]
+}

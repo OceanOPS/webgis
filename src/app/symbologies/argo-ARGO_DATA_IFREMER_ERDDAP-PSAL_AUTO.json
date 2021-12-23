@@ -1,0 +1,22 @@
+{
+  "type": "smartContinuousRenderer",
+  "field": "psal",
+  "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "color": [
+    0,
+    255,
+    0,
+    255
+    ],
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+    "color": [255,255,255,255],
+    "width": 0
+    }
+  }
+}

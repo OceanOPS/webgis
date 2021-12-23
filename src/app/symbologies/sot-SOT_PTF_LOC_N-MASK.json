@@ -1,0 +1,62 @@
+{
+  "type": "unique-value",
+  "field": "IS_MASK",
+  "field2": "",
+  "field3": "",
+  "fieldDelimiter": ",",
+  "uniqueValueInfos": [{
+    "value": "0",
+    "label": "is not masked",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        9,
+        150,
+        185,
+        255
+      ]
+    }
+  }, {
+    "value": "1",
+    "label": "is masked",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        255,
+        25,
+        86,
+        255
+      ]
+    }
+  }]
+}

@@ -1,0 +1,873 @@
+{
+  "type": "unique-value",
+  "field": "PTF_MODEL",
+  "field2": null,
+  "field3": null,
+  "fieldDelimiter": ", ",
+  "defaultSymbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "color": [
+      202,
+      219,
+      193,
+      255
+    ],
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+      "color": [
+        202,
+        219,
+        193,
+        255
+      ],
+      "width": 1
+    }
+  },
+  "defaultLabel": "OTHER",
+  "uniqueValueInfos": [
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          169,
+          214,
+          45,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "APEX",
+      "label": "APEX",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          255,
+          255,
+          0,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "APEX2",
+      "label": "APEX2",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          80,
+          133,
+          148,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "ARVOR",
+      "label": "ARVOR",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          201,
+          233,
+          242,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "ARVOR_C",
+      "label": "ARVOR_C",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          57,
+          111,
+          237,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "ARVOR_D",
+      "label": "ARVOR_D",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          194,
+          163,
+          163,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "ITP",
+      "label": "ITP",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          214,
+          9,
+          183,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "NAVIS_A",
+      "label": "NAVIS_A",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          255,
+          0,
+          13,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "NEMO",
+      "label": "NEMO",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          153,
+          0,
+          153,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "NINJA",
+      "label": "NINJA",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          214,
+          153,
+          9,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "NOVA",
+      "label": "NOVA",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          255,
+          153,
+          0,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "PALACE",
+      "label": "PALACE",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          170,
+          194,
+          163,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "POPS",
+      "label": "POPS",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          78,
+          203,
+          237,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "PROVOR",
+      "label": "PROVOR",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          0,
+          204,
+          255,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "PROVOR-M",
+      "label": "PROVOR-M",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          133,
+          242,
+          235,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "PROVOR_MT",
+      "label": "PROVOR_MT",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          167,
+          220,
+          235,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "PROVOR_II",
+      "label": "PROVOR_II",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          0,
+          0,
+          255,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "PROVOR_III",
+      "label": "PROVOR_III",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          12,
+          232,
+          206,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "S2A",
+      "label": "S2A",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          97,
+          201,
+          71,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "SOLO",
+      "label": "SOLO",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          186,
+          245,
+          238,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "SOLO_II",
+      "label": "SOLO_II",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          175,
+          255,
+          156,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "SOLO_D",
+      "label": "SOLO_D",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "circle",
+        "color": [
+          68,
+          138,
+          51,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "SOLO_W",
+      "label": "SOLO_W",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "diamond",
+        "color": [
+          8,
+          149,
+          126,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "ALTO",
+      "label": "ALTO",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "diamond",
+        "color": [
+          255,
+          6,
+          15,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "HM2000",
+      "label": "HM2000",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "diamond",
+        "color": [
+          103,
+          207,
+          173,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "S2X",
+      "label": "S2X",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "diamond",
+        "color": [
+          0,
+          195,
+          15,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "SOLO_D_MRV",
+      "label": "SOLO_D_MRV",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "diamond",
+        "color": [
+          255,
+          255,
+          0,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "APEX_D",
+      "label": "APEX_D",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "diamond",
+        "color": [
+          243,
+          179,
+          222,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "NAVIS_EBR",
+      "label": "NAVIS_EBR",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "diamond",
+        "color": [
+          67,
+          111,
+          234,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "ARVOR_L",
+      "label": "ARVOR_L",
+      "description": null
+    },
+    {
+      "symbol": {
+        "type": "simple-marker",
+        "style": "diamond",
+        "color": [
+          151,
+          0,
+          151,
+          255
+        ],
+        "size": 6,
+        "angle": 0,
+        "xoffset": 0,
+        "yoffset": 0,
+        "outline": {
+          "color": [
+            0,
+            0,
+            0,
+            255
+          ],
+          "width": 1
+        }
+      },
+      "value": "PROVOR_IV",
+      "label": "PROVOR_IV",
+      "description": null
+    }
+  ]
+}

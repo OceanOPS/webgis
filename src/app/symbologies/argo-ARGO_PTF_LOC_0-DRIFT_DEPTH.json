@@ -1,0 +1,98 @@
+{
+   "type": "classBreaks",
+   "field": "DRIFT_PRESSURE",
+   "defaultSymbol": {
+    "type": "simple-marker",
+	  "style": "square",
+	  "color": [202,219,193,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [202,219,193,255],		"width": 1	}
+   },
+   "minValue" : 0, 
+   "classBreakInfos": [
+    {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "square",
+	  "color": [255,255,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "classMinValue" : 0,
+     "classMaxValue" : 750,
+     "label": "< 750m",
+     "description": ""
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "square",
+	  "color": [255,204,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "classMinValue" : 751,
+     "classMaxValue" : 1250,
+     "label": "750 - 1250m",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "square",
+	  "color": [51,204,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "classMinValue" : 1251,
+     "classMaxValue" : 1750,
+     "label": "1250 - 1750m",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "square",
+	  "color": [0,153,204,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "classMinValue" : 1751,
+     "classMaxValue" : 2250,
+     "label": "1750 - 2250m",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "square",
+	  "color": [0,153,204,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "classMinValue" : 2251,
+     "classMaxValue" : 10000,
+     "label": "> 2250m",
+     "description": null
+    }
+    
+   ]
+  }

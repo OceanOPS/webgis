@@ -1,0 +1,66 @@
+{
+   "type": "unique-value",
+   "field": "TELECOM_TYPE",
+   "field2": null,
+   "field3": null,
+   "fieldDelimiter": ", ",
+   "defaultSymbol": {
+    "type": "simple-marker",
+	  "style": "square",
+	  "color": [202,219,193,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [202,219,193,255],		"width": 1	}
+   },
+   "defaultLabel": "OTHER",
+   "uniqueValueInfos": [
+    {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "square",
+	  "color": [0,204,255,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "ARGOS3",
+     "label": "ARGOS3",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "square",
+	  "color": [0,51,153,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "ARGOS",
+     "label": "ARGOS",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "square",
+	  "color": [255,0,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "IRIDIUM",
+     "label": "IRIDIUM",
+     "description": null
+    }
+     
+   ]
+  }

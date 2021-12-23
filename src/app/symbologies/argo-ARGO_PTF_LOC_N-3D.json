@@ -1,0 +1,62 @@
+{
+    "type":"simple",
+    "symbol":{
+        "type": "point-3d",
+        "symbolLayers": [
+            {
+                "material": {
+                    "color": [
+                        112,
+                        112,
+                        112
+                    ]
+                },
+                "type": "object",
+                "resource": {
+                    "primitive": "cylinder"
+                },
+                "width": 20000,
+                "height": 50000,
+                "depth": 20000,
+                "anchor": "center"
+            },
+            {
+                "material": {
+                    "color": [
+                        36,
+                        36,
+                        36
+                    ]
+                },
+                "type": "object",
+                "resource": {
+                    "primitive": "cylinder"
+                },
+                "width": 5000,
+                "height": 50000,
+                "depth": 5000,
+                "anchor": "bottom"
+            },
+            {
+                "type": "object",
+                "resource": {
+                    "primitive": "cylinder"
+                },
+                "width": 11000,
+                "height": 38000,
+                "depth": 11000,
+                "anchor": "bottom"
+            },
+            {
+                "type": "object",
+                "resource": {
+                    "primitive": "cylinder"
+                },
+                "width": 22000,
+                "height": 1000,
+                "depth": 22000,
+                "anchor": "center"
+            }
+        ]
+    }
+}

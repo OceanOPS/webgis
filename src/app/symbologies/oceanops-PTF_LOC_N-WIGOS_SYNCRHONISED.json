@@ -1,0 +1,65 @@
+{
+ "type": "unique-value",
+ "field": "WIGOS_SYNCHRONISED",
+ "field2": "",
+ "field3": "",
+ "fieldDelimiter": ",",
+ "uniqueValueInfos": [
+  {
+   "value": "1",
+   "label": "Synchronised",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+     "color": [
+      80,
+      80,
+      80,
+      255
+     ],
+     "width": 1
+    },
+    "color": [
+        0,
+        255,
+        0,
+        255
+    ]
+   }
+  },
+  {
+   "value": "0",
+   "label": "Not synchronised",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+     "color": [
+      80,
+      80,
+      80,
+      255
+     ],
+     "width": 1
+    },
+    "color": [
+        255,
+        0,
+        0,
+        255
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,316 @@
+{
+  "type": "unique-value",
+  "field": "PTF_MODEL",
+  "field2": "",
+  "field3": "",
+  "fieldDelimiter": ",",
+  "uniqueValueInfos": [{
+    "value": "10 - Selected",
+    "count": 1012,
+    "label": "10 - Selected",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        0,
+        255,
+        0,
+        255
+      ]
+    }
+  }, {
+    "value": "15 - Selected (AWS)",
+    "count": 67,
+    "label": "15 - Selected (AWS)",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        54,
+        166,
+        0,
+        255
+      ]
+    }
+  }, {
+    "value": "30 - VOSClim",
+    "count": 400,
+    "label": "30 - VOSClim",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        255,
+        169,
+        0,
+        255
+      ]
+    }
+  }, {
+    "value": "35 - VOSClim (AWS)",
+    "count": 112,
+    "label": "35 - VOSClim (AWS)",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        255,
+        0,
+        0,
+        255
+      ]
+    }
+  }, {
+    "value": "40 - Supplementary",
+    "count": 473,
+    "label": "40 - Supplementary",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        255,
+        189,
+        232,
+        255
+      ]
+    }
+  }, {
+    "value": "45 - Supplementary (AWS)",
+    "count": 86,
+    "label": "45 - Supplementary (AWS)",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        203,
+        100,
+        152,
+        255
+      ]
+    }
+  }, {
+    "value": "70 - Auxiliary",
+    "count": 196,
+    "label": "70 - Auxiliary",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        0,
+        195,
+        255,
+        255
+      ]
+    }
+  }, {
+    "value": "75 - Auxiliary (AWS)",
+    "count": 3,
+    "label": "75 - Auxiliary (AWS)",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        0,
+        0,
+        255,
+        255
+      ]
+    }
+  }, {
+    "value": "80 - Third Party Support",
+    "count": 13,
+    "label": "80 - Third Party Support",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        245,
+        162,
+        122,
+        255
+      ]
+    }
+  }, {
+    "value": "85 - Third Party Support (AWS)",
+    "count": 2,
+    "label": "85 - Third Party Support (AWS)",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        137,
+        68,
+        68,
+        255
+      ]
+    }
+  }, {
+    "value": "OT - Other Class",
+    "count": 42,
+    "label": "OT - Other Class",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        0,
+        0,
+        0,
+        255
+      ]
+    }
+  }]
+}

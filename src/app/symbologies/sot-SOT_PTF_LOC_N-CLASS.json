@@ -1,0 +1,582 @@
+{
+  "type": "unique-value",
+  "field": "PTF_MODEL",
+  "field2": "",
+  "field3": "",
+  "fieldDelimiter": ",",
+  "defaultSymbol": {
+    "type": "simple-marker",
+    "style": "diamond",
+    "color": [202, 219, 193, 255],
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+      "color": [202, 219, 193, 255],
+      "width": 1
+    }
+  },
+  "defaultLabel": "OTHER",
+  "uniqueValueInfos": [{
+    "value": "10 - Selected",
+    "count": 1012,
+    "label": "10 - Selected",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        115,
+        76,
+        0,
+        255
+      ]
+    }
+  }, {
+    "value": "15 - Selected (AWS)",
+    "count": 67,
+    "label": "15 - Selected (AWS)",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        122,
+        114,
+        1,
+        255
+      ]
+    }
+  }, {
+    "value": "2 - LM-3A Hand-Held",
+    "count": 3,
+    "label": "2 - LM-3A Hand-Held",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        105,
+        130,
+        1,
+        255
+      ]
+    }
+  }, {
+    "value": "30 - VOSClim",
+    "count": 400,
+    "label": "30 - VOSClim",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        75,
+        137,
+        2,
+        255
+      ]
+    }
+  }, {
+    "value": "35 - VOSClim (AWS)",
+    "count": 112,
+    "label": "35 - VOSClim (AWS)",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        41,
+        144,
+        3,
+        255
+      ]
+    }
+  }, {
+    "value": "40 - Supplementary",
+    "count": 473,
+    "label": "40 - Supplementary",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        4,
+        152,
+        4,
+        255
+      ]
+    }
+  }, {
+    "value": "45 - Supplementary (AWS)",
+    "count": 86,
+    "label": "45 - Supplementary (AWS)",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        5,
+        159,
+        46,
+        255
+      ]
+    }
+  }, {
+    "value": "70 - Auxiliary",
+    "count": 196,
+    "label": "70 - Auxiliary",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        6,
+        167,
+        91,
+        255
+      ]
+    }
+  }, {
+    "value": "75 - Auxiliary (AWS)",
+    "count": 3,
+    "label": "75 - Auxiliary (AWS)",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        7,
+        174,
+        140,
+        255
+      ]
+    }
+  }, {
+    "value": "80 - Third Party Support",
+    "count": 13,
+    "label": "80 - Third Party Support",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        8,
+        170,
+        181,
+        255
+      ]
+    }
+  }, {
+    "value": "85 - Third Party Support (AWS)",
+    "count": 2,
+    "label": "85 - Third Party Support (AWS)",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        10,
+        129,
+        189,
+        255
+      ]
+    }
+  }, {
+    "value": "DIS - Built-in semi automatic launcher",
+    "count": 1,
+    "label": "DIS - Built-in semi automatic launcher",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        11,
+        85,
+        196,
+        255
+      ]
+    }
+  }, {
+    "value": "DIS - Fixed manual deck launcher",
+    "count": 6,
+    "label": "DIS - Fixed manual deck launcher",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        13,
+        38,
+        203,
+        255
+      ]
+    }
+  }, {
+    "value": "DIS - Generic",
+    "count": 1,
+    "label": "DIS - Generic",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        40,
+        14,
+        211,
+        255
+      ]
+    }
+  }, {
+    "value": "DIS - Portable manual deck launcher",
+    "count": 1,
+    "label": "DIS - Portable manual deck launcher",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        97,
+        16,
+        218,
+        255
+      ]
+    }
+  }, {
+    "value": "DIS - Semi automatic 10ft container launcher",
+    "count": 8,
+    "label": "DIS - Semi automatic 10ft container launcher",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        156,
+        17,
+        226,
+        255
+      ]
+    }
+  }, {
+    "value": "INT - Semi automatic 10ft container launcher",
+    "count": 2,
+    "label": "INT - Semi automatic 10ft container launcher",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        219,
+        19,
+        233,
+        255
+      ]
+    }
+  }, {
+    "value": "INT - Semi automatic 20ft container launcher",
+    "count": 2,
+    "label": "INT - Semi automatic 20ft container launcher",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        240,
+        21,
+        196,
+        255
+      ]
+    }
+  }, {
+    "value": "OT - Other Class",
+    "count": 42,
+    "label": "OT - Other Class",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        248,
+        23,
+        143,
+        255
+      ]
+    }
+  }, {
+    "value": "OT ASAP",
+    "count": 1,
+    "label": "OT ASAP",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        255,
+        25,
+        86,
+        255
+      ]
+    }
+  }]
+}

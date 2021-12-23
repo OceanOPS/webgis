@@ -1,0 +1,50 @@
+
+{
+ "type": "unique-value",
+ "field": "LINE_FAMILY",
+ "field2": "",
+ "field3": "",
+ "fieldDelimiter": ",",
+ "defaultSymbol": {
+  "type": "simple-line",
+  "style": "solid",
+  "width": 1
+ },
+ "defaultLabel": "Others",
+ "uniqueValueInfos": [
+  {
+   "value": "GO-SHIP Line",
+   "count": 61,
+   "label": "GO-SHIP Line",
+   "description": "",
+   "symbol": {
+    "type": "simple-line",
+    "style": "solid",
+    "width": 1,
+    "color": [
+     115,
+     76,
+     0,
+     255
+    ]
+   }
+  },
+  {
+   "value": "SOOP XBT Line",
+   "count": 56,
+   "label": "SOOP XBT Line",
+   "description": "",
+   "symbol": {
+    "type": "simple-line",
+    "style": "solid",
+    "width": 1,
+    "color": [
+     255,
+     25,
+     86,
+     255
+    ]
+   }
+  }
+ ]
+}

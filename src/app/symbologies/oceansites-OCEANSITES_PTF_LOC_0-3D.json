@@ -1,0 +1,86 @@
+{
+    "type":"simple",
+    "symbol":{
+    "type": "point-3d",
+    "symbolLayers": [
+        {
+            "type": "object",
+            "resource": {
+                "primitive": "cylinder"
+            },
+            "width": 10000,
+            "height": 60000,
+            "depth": 10000,
+            "anchor": "bottom"
+        },
+        {
+            "material": {
+                "color": [
+                    226,
+                    201,
+                    70
+                ]
+            },
+            "type": "object",
+            "resource": {
+                "primitive": "cylinder"
+            },
+            "width": 55000,
+            "height": 5000,
+            "depth": 55000,
+            "anchor": "bottom"
+        },
+        {
+            "material": {
+                "color": [
+                    226,
+                    201,
+                    70
+                ]
+            },
+            "type": "object",
+            "resource": {
+                "primitive": "cone"
+            },
+            "width": 45000,
+            "height": 60000,
+            "depth": 45000,
+            "anchor": "bottom"
+        },
+        {
+            "material": {
+                "color": [
+                    71,
+                    71,
+                    71
+                ]
+            },
+            "type": "object",
+            "resource": {
+                "primitive": "cylinder"
+            },
+            "width": 50000,
+            "height": 20000,
+            "depth": 50000,
+            "anchor": "center"
+        },
+        {
+            "material": {
+                "color": [
+                    71,
+                    71,
+                    71
+                ]
+            },
+            "type": "object",
+            "resource": {
+                "primitive": "cylinder"
+            },
+            "width": 2000,
+            "height": 200000,
+            "depth": 5000,
+            "anchor": "top"
+        }
+    ]
+}
+}

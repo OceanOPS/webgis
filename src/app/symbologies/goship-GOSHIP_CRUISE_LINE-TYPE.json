@@ -1,0 +1,126 @@
+{
+  "type": "unique-value",
+  "field": "CRUISE_TYPE",
+  "field2": "",
+  "field3": "",
+  "fieldDelimiter": ",",
+  "defaultSymbol": {
+    "type": "simple-line",
+    "style": "solid",
+    "width": 1
+  },
+  "defaultLabel": "Others",
+  "uniqueValueInfos": [{
+    "value": "Academic",
+    "count": 3841,
+    "label": "Academic",
+    "description": "",
+    "symbol": {
+      "type": "simple-line",
+      "style": "solid",
+      "width": 1,
+      "color": [
+        69,
+        138,
+        2,
+        255
+      ]
+    }
+  }, {
+    "value": "Charter",
+    "count": 2,
+    "label": "Charter",
+    "description": "",
+    "symbol": {
+      "type": "simple-line",
+      "style": "solid",
+      "width": 1,
+      "color": [
+        5,
+        162,
+        60,
+        255
+      ]
+    }
+  }, {
+    "value": "Civil Society",
+    "count": 9,
+    "label": "Civil Society",
+    "description": "",
+    "symbol": {
+      "type": "simple-line",
+      "style": "solid",
+      "width": 1,
+      "color": [
+        9,
+        150,
+        185,
+        255
+      ]
+    }
+  }, {
+    "value": "Commercial: Freight",
+    "count": 6,
+    "label": "Commercial: Freight",
+    "description": "",
+    "symbol": {
+      "type": "simple-line",
+      "style": "solid",
+      "width": 1,
+      "color": [
+        22,
+        14,
+        208,
+        255
+      ]
+    }
+  }, {
+    "value": "Commercial: Liner",
+    "count": 1,
+    "label": "Commercial: Liner",
+    "description": "",
+    "symbol": {
+      "type": "simple-line",
+      "style": "solid",
+      "width": 1,
+      "color": [
+        208,
+        19,
+        232,
+        255
+      ]
+    }
+  }, {
+    "value": "Tourism",
+    "count": 1,
+    "label": "Tourism",
+    "description": "",
+    "symbol": {
+      "type": "simple-line",
+      "style": "solid",
+      "width": 1,
+      "color": [
+        255,
+        25,
+        86,
+        255
+      ]
+    }
+  },{
+    "value": "",
+    "count": 5,
+    "label": "Unknown",
+    "description": "",
+    "symbol": {
+      "type": "simple-line",
+      "style": "solid",
+      "width": 1,
+      "color": [
+        115,
+        76,
+        0,
+        255
+      ]
+    }
+  }]
+}

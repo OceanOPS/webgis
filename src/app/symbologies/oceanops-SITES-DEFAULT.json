@@ -1,0 +1,16 @@
+{
+    "legendOptions": {
+        "title": "Reference sites"
+    },
+	"type":"simple",
+	"label":"Reference sites",
+    "symbol": {
+        "type": "simple-fill",
+        "style": "solid",
+        "color": [88,124,12,0.5],
+        "outline": {
+            "width": 1,
+            "color": [88,124,12,1]
+        }
+    }
+}

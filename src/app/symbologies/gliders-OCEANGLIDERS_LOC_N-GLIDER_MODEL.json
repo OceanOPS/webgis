@@ -1,0 +1,78 @@
+{
+   "type": "unique-value",
+   "valueExpression": "When(Find('Seaexplorer', $feature.PTF_MODEL) > -1, 'SEAEXPLORER', Find('Seaglider', $feature.PTF_MODEL) > -1, 'SEAGLIDER', Find('Slocum', $feature.PTF_MODEL) > -1, 'SLOCUM', Find('Spray', $feature.PTF_MODEL) > -1, 'SPRAY', 'others')",
+   "fieldDelimiter": ", ",
+   "defaultSymbol": {
+    "type": "simple-marker",
+	  "style": "circle",
+	  "color": [202,219,193,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [202,219,193,255],		"width": 1	}
+   },
+   "defaultLabel": "Other",
+   "uniqueValueInfos": [
+    {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [255,0,174,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "SEAGLIDER",
+     "label": "Seaglider",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [255,221,0,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "SLOCUM",
+     "label": "Slocum",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "circle",
+	  "color": [255,0,0,168],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "value": "SPRAY",
+     "label": "Spray",
+     "description": null
+    },
+    {
+    "symbol": {
+     "type": "simple-marker",
+     "style": "circle",
+     "color": [0,0,0,168],
+     "size": 6,
+     "angle": 0,
+     "xoffset": 0,
+     "yoffset": 0,
+     "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+    },
+    "value": "SEAEXPLORER",
+    "label": "SeaExplorer",
+    "description": null
+   }  
+   ]
+  }

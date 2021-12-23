@@ -1,0 +1,320 @@
+{
+ "type": "unique-value",
+ "field": "PTF_FAMILY",
+ "field2": "",
+ "field3": "",
+ "fieldDelimiter": ",",
+ "defaultSymbol": {
+  "type": "simple-marker",
+  "style": "circle",
+  "size": 6,
+  "outline": {
+   "color": [
+    0,
+    0,
+    0,
+    255
+   ],
+   "width": 1
+  },
+    "color": [
+     255,
+     255,
+     255,
+     255
+    ]
+ },
+ "defaultLabel": "Others",
+ "uniqueValueInfos": [
+  {
+   "value": "ATM_P",
+   "count": 22,
+   "label": "Atmospheric Balloon",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "diamond",
+    "size": 7,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+     "color": [
+      80,
+      80,
+      80,
+      255
+     ],
+     "width": 1
+    },
+    "color": [
+     0,
+     197,
+     255,
+     255
+    ]
+   }
+  },
+  {
+   "value": "DB",
+   "count": 15546,
+   "label": "Drifting Buoy",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+     "color": [
+      80,
+      80,
+      80,
+      255
+     ],
+     "width": 1
+    },
+    "color": [
+     0,
+     197,
+     255,
+     255
+    ]
+   }
+  },
+  {
+   "value": "FIXED",
+   "count": 114,
+   "label": "Fixed Station",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "square",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+     "color": [
+      80,
+      80,
+      80,
+      255
+     ],
+     "width": 1
+    },
+    "color": [
+     181,
+     187,
+     151,
+     255
+    ]
+   }
+  },
+  {
+   "value": "ICE_BUOYS",
+   "count": 122,
+   "label": "Ice Buoy",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+     "color": [
+      80,
+      80,
+      80,
+      255
+     ],
+     "width": 1
+    },
+    "color": [
+     236,
+     62,
+     255,
+     255
+    ]
+   }
+  },
+  {
+   "value": "MB",
+   "count": 891,
+   "label": "Surface Moored Buoy",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "square",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+     "color": [
+      80,
+      80,
+      80,
+      255
+     ],
+     "width": 1
+    },
+    "color": [
+     0,
+     255,
+     0,
+     255
+    ]
+   }
+  },
+  {
+   "value": "SUB_FLOAT",
+   "count": 13891,
+   "label": "Subsurface Float",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "circle",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+     "color": [
+      80,
+      80,
+      80,
+      255
+     ],
+     "width": 1
+    },
+    "color": [
+     0,
+     50,
+     255,
+     255
+    ]
+   }
+  },
+  {
+   "value": "SUB_MB",
+   "count": 196,
+   "label": "Subsurface Moored Station",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "square",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+     "color": [
+      80,
+      80,
+      80,
+      255
+     ],
+     "width": 1
+    },
+    "color": [
+     0,
+     170,
+     100,
+     255
+    ]
+   }
+  },
+  {
+   "value": "TIDE_GAUGE",
+   "count": 252,
+   "label": "Tide Gauge",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "square",
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+     "color": [
+      80,
+      80,
+      80,
+      255
+     ],
+     "width": 1
+    },
+    "color": [
+     255,
+     130,
+     0,
+     255
+    ]
+   }
+  },
+  {
+   "value": "VOS_WS",
+   "count": 2731,
+   "label": "Ship Weather Station",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "diamond",
+    "size": 7,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+     "color": [
+      80,
+      80,
+      80,
+      255
+     ],
+     "width": 1
+    },
+    "color": [
+     255,
+     0,
+     0,
+     255
+    ]
+   }
+  },
+  {
+   "value": "X_SYS",
+   "count": 7,
+   "label": "Expandable Profiling System",
+   "description": "",
+   "symbol": {
+    "type": "simple-marker",
+    "style": "diamond",
+    "size": 7,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+     "color": [
+      80,
+      80,
+      80,
+      255
+     ],
+     "width": 1
+    },
+    "color": [
+     181,
+     187,
+     151,
+     255
+    ]
+   }
+  }
+ ]
+}

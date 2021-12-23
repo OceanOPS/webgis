@@ -1,0 +1,43 @@
+{
+    "legendOptions": {
+        "title": "Reference lines"
+    },
+    "type": "unique-value",
+    "field": "LINE_FAMILY",
+    "uniqueValueInfos": [
+        {
+            "value": "GO-SHIP Line",
+            "count": 61,
+            "label": "Repeat hydrography - GO-SHIP",
+            "description": "",
+            "symbol": {
+                "type": "simple-line",
+                "style": "solid",
+                "width": 1,
+                "color": [
+                    232,
+                    65,
+                    24,
+                    255
+                ]
+            }
+        },
+        {
+            "value": "SOOP XBT Line",
+            "count": 56,
+            "label": "eXpendable BathyThermographs - SOT/SOOP",
+            "description": "",
+            "symbol": {
+                "type": "simple-line",
+                "style": "solid",
+                "width": 1,
+                "color": [
+                    255,
+                    139,
+                    0,
+                    255
+                ]
+            }
+        }
+    ]
+}

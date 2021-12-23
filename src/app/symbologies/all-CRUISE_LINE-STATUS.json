@@ -1,0 +1,29 @@
+{
+ "type": "unique-value",
+ "field": "CRUISE_STATUS",
+ "field2": "",
+ "field3": "",
+ "fieldDelimiter": ",",
+ "defaultSymbol": {
+  "type": "simple-line",
+  "style": "solid",
+  "width": 1
+ },
+ "defaultLabel": "Others",
+ "uniqueValueInfos": [{
+  "value": "",
+  "label": "Unknown",
+  "description": "",
+  "symbol": {
+   "type": "simple-line",
+   "style": "solid",
+   "width": 1,
+   "color": [
+    115,
+    76,
+    0,
+    255
+   ]
+  }
+ }]
+}

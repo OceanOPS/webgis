@@ -1,0 +1,190 @@
+{
+  "type": "unique-value",
+  "field": "PTF_TYPE",
+  "field2": "",
+  "field3": "",
+  "fieldDelimiter": ",",
+  "defaultSymbol": {
+    "type": "simple-marker",
+    "style": "diamond",
+    "color": [202, 219, 193, 255],
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+      "color": [202, 219, 193, 255],
+      "width": 1
+    }
+  },
+  "defaultLabel": "OTHER",
+  "uniqueValueInfos": [{
+    "value": "ASAP",
+    "count": 1,
+    "label": "ASAP",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        115,
+        76,
+        0,
+        255
+      ]
+    }
+  }, {
+    "value": "ASAP DIS",
+    "count": 17,
+    "label": "ASAP DIS",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        48,
+        143,
+        3,
+        255
+      ]
+    }
+  }, {
+    "value": "ASAP INT",
+    "count": 4,
+    "label": "ASAP INT",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        7,
+        171,
+        120,
+        255
+      ]
+    }
+  }, {
+    "value": "SOOP TSG",
+    "count": 3,
+    "label": "SOOP TSG",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        12,
+        67,
+        199,
+        255
+      ]
+    }
+  }, {
+    "value": "VOS Automatic Weather Station",
+    "count": 270,
+    "label": "VOS Automatic Weather Station",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        168,
+        18,
+        227,
+        255
+      ]
+    }
+  }, {
+    "value": "VOS Manual Weather Station",
+    "count": 2136,
+    "label": "VOS Manual Weather Station",
+    "description": "",
+    "symbol": {
+      "type": "simple-marker",
+      "style": "diamond",
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+      "outline": {
+        "color": [
+          0,
+          0,
+          0,
+          255
+        ],
+        "width": 1
+      },
+      "color": [
+        255,
+        25,
+        86,
+        255
+      ]
+    }
+  }]
+}

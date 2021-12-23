@@ -1,0 +1,60 @@
+{
+ "type": "unique-value",
+ "field": "CRUISE_CLASS",
+ "field2": "",
+ "field3": "",
+ "fieldDelimiter": ",",
+ "uniqueValueInfos": [
+  {
+   "value": "Associated GO-SHIP",
+   "count": 1,
+   "label": "Associated GO-SHIP",
+   "description": "",
+   "symbol": {
+    "type": "simple-line",
+    "style": "solid",
+    "width": 1,
+    "color": [
+     5,
+     162,
+     60,
+     255
+    ]
+   }
+  },
+  {
+   "value": "Full GO-SHIP",
+   "count": 13,
+   "label": "Full GO-SHIP",
+   "description": "",
+   "symbol": {
+    "type": "simple-line",
+    "style": "solid",
+    "width": 1,
+    "color": [
+     22,
+     14,
+     208,
+     255
+    ]
+   }
+  },
+  {
+   "value": "High Frequency GO-SHIP",
+   "count": 7,
+   "label": "High Frequency GO-SHIP",
+   "description": "",
+   "symbol": {
+    "type": "simple-line",
+    "style": "solid",
+    "width": 1,
+    "color": [
+     255,
+     25,
+     86,
+     255
+    ]
+   }
+  }
+ ]
+}

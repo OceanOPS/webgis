@@ -1,0 +1,146 @@
+{
+   "type": "classBreaks",
+   "field": "CYCLE_TIME",
+   "defaultSymbol": {
+    "type": "simple-marker",
+	  "style": "square",
+	  "color": [202,219,193,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [202,219,193,255],		"width": 1	}
+   },
+   "minValue" : 0, 
+   "classBreakInfos": [
+    {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "square",
+	  "color": [227,227,64,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "classMinValue" : 0,
+     "classMaxValue" : 24,
+     "label": "< 1 Day",
+     "description": ""
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "square",
+	  "color": [225,165,138,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "classMinValue" : 25,
+     "classMaxValue" : 48,
+     "label": "1 - 2 day(s)",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "square",
+	  "color": [250,136,65,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "classMinValue" : 49,
+     "classMaxValue" : 120,
+     "label": "2 - 5 days",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "square",
+	  "color": [150,65,12,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "classMinValue" : 121,
+     "classMaxValue" : 216,
+     "label": "5 - 9 days",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "square",
+	  "color": [70,232,49,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "classMinValue" : 217,
+     "classMaxValue" : 264,
+     "label": "9 - 11 days",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "square",
+	  "color": [57,212,247,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "classMinValue" : 265,
+     "classMaxValue" : 480,
+     "label": "11 - 20 days",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "square",
+	  "color": [40,92,181,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "classMinValue" : 481,
+     "classMaxValue" : 720,
+     "label": "20 - 30 days",
+     "description": null
+    },
+     {
+     "symbol": {
+      "type": "simple-marker",
+	  "style": "square",
+	  "color": [23,9,99,255],
+      "size": 6,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0,
+	  "outline": 	{		"color": [0,0,0,255],		"width": 1	}
+     },
+     "classMinValue" : 720,
+     "classMaxValue" : 10000,
+     "label": "> 30 days",
+     "description": null
+    }
+    
+   ]
+  }
