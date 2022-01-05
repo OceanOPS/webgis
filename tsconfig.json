@@ -10,9 +10,13 @@
       "target": "ES5",
       "experimentalDecorators": true,
       "preserveConstEnums": true,
+      "resolveJsonModule": true,
+      "strict": true,
+      "strictPropertyInitialization": false,
       "suppressImplicitAnyIndexErrors": true,
       "importHelpers": true,
-      "moduleResolution": "node"
+      "moduleResolution": "node",
+      "outDir": "./src/app/modules/"
     },
     "include": ["./src/widgets/*"],
     "exclude": ["node_modules"]

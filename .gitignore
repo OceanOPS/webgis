@@ -1,7 +1,7 @@
 # Custom
 release
 src/widgets/**/*.js
-src/widgets/**/*.js.map
+src/**/*.js.map
 .vscode
 
 # Logs

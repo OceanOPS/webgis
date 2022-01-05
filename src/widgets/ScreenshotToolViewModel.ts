@@ -1,4 +1,4 @@
-import Accessor = require("esri/core/Accessor");
+import Accessor from "esri/core/Accessor";
 
 import { property, subclass } from "esri/core/accessorSupport/decorators";
 import GraphicsLayer from "esri/layers/GraphicsLayer";
@@ -43,7 +43,7 @@ class ScreenshotToolViewModel extends Accessor {
     }
 
     
-    initSketchViewModel = function () {
+    initSketchViewModel = (): void => {
         // create a new sketch view model
         this.sketchViewModel = new SketchViewModel({
             view: this.view,

@@ -1,4 +1,4 @@
-import Accessor = require("esri/core/Accessor");
+import Accessor from "esri/core/Accessor";
 
 import Layer from "esri/layers/Layer";
 

@@ -1,5 +1,6 @@
-define(["require", "exports", "tslib", "esri/core/Accessor", "esri/core/accessorSupport/decorators", "esri/widgets/Sketch/SketchViewModel"], function (require, exports, tslib_1, Accessor, decorators_1, SketchViewModel_1) {
+define(["require", "exports", "tslib", "esri/core/Accessor", "esri/core/accessorSupport/decorators", "esri/widgets/Sketch/SketchViewModel"], function (require, exports, tslib_1, Accessor_1, decorators_1, SketchViewModel_1) {
     "use strict";
+    Accessor_1 = (0, tslib_1.__importDefault)(Accessor_1);
     SketchViewModel_1 = (0, tslib_1.__importDefault)(SketchViewModel_1);
     var ScreenshotToolViewModel = /** @class */ (function (_super) {
         (0, tslib_1.__extends)(ScreenshotToolViewModel, _super);
@@ -16,10 +17,10 @@ define(["require", "exports", "tslib", "esri/core/Accessor", "esri/core/accessor
             };
             _this.initSketchViewModel = function () {
                 // create a new sketch view model
-                this.sketchViewModel = new SketchViewModel_1.default({
-                    view: this.view,
+                _this.sketchViewModel = new SketchViewModel_1.default({
+                    view: _this.view,
                     updateOnGraphicClick: false,
-                    layer: this.sketchLayer,
+                    layer: _this.sketchLayer,
                     pointSymbol: {
                         type: "simple-marker",
                         style: "cross",
@@ -46,9 +47,9 @@ define(["require", "exports", "tslib", "esri/core/Accessor", "esri/core/accessor
                         }
                     }
                 });
-                this.sketchViewModel.create('rectangle', { mode: "freehand" });
+                _this.sketchViewModel.create('rectangle', { mode: "freehand" });
                 // Listen the sketchViewModel's update-complete and update-cancel events
-                this.sketchViewModel.on("create", this._handleSketchVMCreate);
+                _this.sketchViewModel.on("create", _this._handleSketchVMCreate);
             };
             _this._handleSketchVMCreate = function (event) {
                 if (event.state === "complete") {
@@ -118,7 +119,7 @@ define(["require", "exports", "tslib", "esri/core/Accessor", "esri/core/accessor
             (0, decorators_1.subclass)("esri.widgets.ScreenshotToolViewModel")
         ], ScreenshotToolViewModel);
         return ScreenshotToolViewModel;
-    }(Accessor));
+    }(Accessor_1.default));
     return ScreenshotToolViewModel;
 });
 //# sourceMappingURL=ScreenshotToolViewModel.js.map

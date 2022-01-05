@@ -1,21 +1,11 @@
 {
-  "name": "gisviewer",
+  "name": "webgis",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/OceanOPS/webgis.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "OceanOPS",
+  "type": "module",
   "dependencies": {
     "@arcgis/core": "^4.22.2",
-    "@types/arcgis-js-api": "^4.20.1",
+    "@types/arcgis-js-api": "^4.22.0",
     "tslib": "^2.3.1"
   }
 }
