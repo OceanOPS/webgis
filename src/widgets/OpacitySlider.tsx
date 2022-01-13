@@ -1,9 +1,9 @@
-import { subclass, property, aliasOf } from "esri/core/accessorSupport/decorators";
+import { subclass, property, aliasOf } from "@arcgis/core/core/accessorSupport/decorators";
 
-import Widget from "esri/widgets/Widget";
+import Widget from "@arcgis/core/widgets/Widget";
 import OpacitySliderViewModel from "./OpacitySliderViewModel";
 
-import { tsx } from "esri/widgets/support/widget";
+import { tsx } from "@arcgis/core/widgets/support/widget";
 
 const CSS = {
   base: "esri-widget",
@@ -49,4 +49,4 @@ class OpacitySlider extends Widget {
   };
 }
 
-export = OpacitySlider;
+export default OpacitySlider;

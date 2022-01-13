@@ -1,12 +1,12 @@
-import Accessor from "esri/core/Accessor";
+import Accessor from "@arcgis/core/core/Accessor";
 
-import { property, subclass } from "esri/core/accessorSupport/decorators";
-import GraphicsLayer from "esri/layers/GraphicsLayer";
-import MapView from "esri/views/MapView";
-import SceneView from "esri/views/SceneView";
-import SketchViewModel from "esri/widgets/Sketch/SketchViewModel";
-import Graphic from "esri/Graphic";
-import Polygon from "esri/geometry/Polygon";
+import { property, subclass } from "@arcgis/core/core/accessorSupport/decorators";
+import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
+import MapView from "@arcgis/core/views/MapView";
+import SceneView from "@arcgis/core/views/SceneView";
+import SketchViewModel from "@arcgis/core/widgets/Sketch/SketchViewModel";
+import Graphic from "@arcgis/core/Graphic";
+import Polygon from "@arcgis/core/geometry/Polygon";
 
 @subclass("esri.widgets.ScreenshotToolViewModel")
 class ScreenshotToolViewModel extends Accessor {
@@ -129,4 +129,4 @@ class ScreenshotToolViewModel extends Accessor {
     };
 }
 
-export = ScreenshotToolViewModel;
+export default ScreenshotToolViewModel;

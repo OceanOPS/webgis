@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>OceanOPS Web GIS</title>
+    <meta name="description" content="OceanOPS web Geographical Information System. A web mapping tool to explore greographical OceanOPS' metadata.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg" href="https://www.ocean-ops.org/static/images/oceanops/logos/oceanops-earth.svg">
+</head>
+
+<body style="visibility: hidden;">
+    <!-- Map Container  -->
+    <div class="map container-fluid">
+        <div id="mapViewDiv"></div>
+    </div>
+
+    <div id="timeSlider"></div>
+    <div id="addLayerModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="addLayerModal">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add layer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+    <div id="screenshotImageModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="screenshotImageModal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Screenshot</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="screenshotImage"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="attributesModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="attributesModal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="featureCount">Features' attribute</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <table id="attributesTable">
+                            <thead><tr></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="alertModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="alertModal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="color-container" class="esri-widget">
+        <div id="color-slider"></div>
+    </div>
+    <span class="esri-icon-loader esri-icon-loading-indicator" id="main-loader"></span>
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

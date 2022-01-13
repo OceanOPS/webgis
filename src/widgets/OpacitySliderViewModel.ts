@@ -1,8 +1,6 @@
-import Accessor from "esri/core/Accessor";
-
-import Layer from "esri/layers/Layer";
-
-import { property, subclass } from "esri/core/accessorSupport/decorators";
+import Accessor from "@arcgis/core/core/Accessor";
+import Layer from "@arcgis/core/layers/Layer";
+import { property, subclass } from "@arcgis/core/core/accessorSupport/decorators";
 
 @subclass("esri.widgets.OpacitySliderViewModel")
 class OpacitySliderViewModel extends Accessor {
@@ -23,4 +21,4 @@ class OpacitySliderViewModel extends Accessor {
     }
 }
 
-export = OpacitySliderViewModel;
+export default OpacitySliderViewModel;

@@ -3,6 +3,7 @@ release
 src/widgets/**/*.js
 src/**/*.js.map
 .vscode
+package-lock.json
 
 # Logs
 logs
