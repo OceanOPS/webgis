@@ -239,19 +239,11 @@ class MapMenu{
             animationRotateLink.title = "Use this tool to customize and start a rotating animation";
             animationRotateLink.innerHTML = "<span class=\"esri-icon esri-icon-play-circled\" aria-label=\"animation rotate icon\"></span> animate view (rotate)";
             moreToolsHtml.appendChild(animationRotateLink);
-            /*@todo
-            on(link, "click", function(evt){
-                if(evt.target.classList.contains("active")){
-                    app.controllers.map.activateCustomWidget(false, animationRotateTool);
-                    setActive(evt.target, false);
-                    self.updateExpandLabelTools();
-                }
-                else{
-                    app.controllers.map.activateCustomWidget(true, animationRotateTool);
-                    setActive(evt.target, true);
-                    self.updateExpandLabelTools();
-                }
-            });*/
+            animationRotateLink.onclick = (evt: any) => {
+                this.map.activateAnimationRotate();
+                this.setActive(evt.target, this.map.isAnimationRotateActivated());
+                this.updateExpandLabelTools();
+            };
             
             var animationWaypointLink = document.createElement("a");
             animationWaypointLink.id = "animationWaypointLink";
