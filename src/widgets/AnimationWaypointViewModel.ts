@@ -4,7 +4,9 @@ import { property, subclass } from "@arcgis/core/core/accessorSupport/decorators
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
 import SceneView from "@arcgis/core/views/SceneView";
 import Config from "../Config";
+import DataDisplay from "../DataDisplay";
 import GISMap from "../Map";
+import SensorDisplay from "../SensorDisplay";
 
 @subclass("esri.widgets.AnimationWaypointViewModel")
 class AnimationWaypointViewModel extends Accessor{    
@@ -154,8 +156,8 @@ class AnimationWaypointViewModel extends Accessor{
             }
         }
         else if(currentWaypoint.action && currentWaypoint.action == "argo-data-display"){
-                //@todo dataDisplay.init(app);
-                //dataDisplay.displayDataArgo(currentWaypoint.objectRef, "SEA TEMPERATURE");
+                var dataDisplay = new DataDisplay({map: this.map});
+                dataDisplay.displayDataArgo(currentWaypoint.objectRef, "SEA TEMPERATURE");
                 
                 this.nextWaypointIndex();
         }
@@ -172,9 +174,9 @@ class AnimationWaypointViewModel extends Accessor{
 
             this.nextWaypointIndex();
         }
-        else if(currentWaypoint.action && currentWaypoint.action == "os-sensor-display"){
-            //@todo sensorDisplay.init(app);
-            //sensorDisplay.displaySensorsOceanSITES(currentWaypoint.objectRef);  
+        else if(currentWaypoint.action && currentWaypoint.action == "os-sensor-display"){ 
+            var sensorDisplay = new SensorDisplay({map: this.map});
+            sensorDisplay.displaySensorsOceanSITES(currentWaypoint.objectRef);
             this.nextWaypointIndex();
         }
         else if(currentWaypoint.action && currentWaypoint.action == "dbcp-track-display"){

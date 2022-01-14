@@ -51,6 +51,8 @@ import SelectionLayer from "./SelectionLayer";
 import AnimationRotate from "./widgets/AnimationRotate";
 import AnimationWaypoint from "./widgets/AnimationWaypoint";
 import AddLogo from "./widgets/AddLogo";
+import DataDisplay from "./DataDisplay";
+import SensorDisplay from "./SensorDisplay";
 
 class GISMap {
     // ========================================================================
@@ -2299,25 +2301,15 @@ class GISMap {
                 Utils.displayAlert("Limited display functionalities", "You can switch to a 3D projection to benefit from the 'in-depth' experience.");
             }
             var objectRef = feature.attributes.PTF_REF;
-            // @todo
-            /*require([
-                "app/modules/dataDisplay"
-            ], function(dataDisplay){
-                dataDisplay.init(app);
-                dataDisplay.displayDataArgo(objectRef, "SEA TEMPERATURE", null);                    
-            });*/
+            var dataDisplay = new DataDisplay({map: this});
+            dataDisplay.displayDataArgo(objectRef, "SEA TEMPERATURE");
         }
         else if(id === "ptf-oceansites-sensors"){
             // Show OceanSITES sensors
             if(this.is3D || this.is3DFlat){
                 var objectRef = feature.attributes.PTF_REF;
-                // @todo
-                /*require([
-                    "app/modules/sensorDisplay"
-                ], function(sensorDisplay){
-                    sensorDisplay.init(app);
-                    sensorDisplay.displaySensorsOceanSITES(objectRef);                    
-                });*/
+                var sensorDisplay = new SensorDisplay({map: this});
+                sensorDisplay.displaySensorsOceanSITES(objectRef);
             }
             else{
                 Utils.displayAlert("Not available", "Please switch to 3D view to enable this functionality.");
@@ -2328,13 +2320,8 @@ class GISMap {
             if(this.is3D || this.is3DFlat){
                 var objectRef = feature.attributes.PTF_REF;
                 var cycleNb = feature.attributes.CYCLE_NB;
-                // @todo
-                /*require([
-                    "app/modules/dataDisplay"
-                ], function(dataDisplay){
-                    dataDisplay.init(app);
-                    dataDisplay.displayDataArgo(objectRef, "SEA TEMPERATURE", cycleNb);                    
-                });*/
+                var dataDisplay = new DataDisplay({map: this});
+                dataDisplay.displayDataArgo(objectRef, "SEA TEMPERATURE", cycleNb);
             }
             else{
                 Utils.displayAlert("Not available", "Please switch to 3D view to enable this functionality.");
