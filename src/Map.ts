@@ -49,6 +49,7 @@ import VectorTileLayer from "@arcgis/core/layers/VectorTileLayer";
 import EditGraphic from "./widgets/EditGraphic";
 import Identify from "./widgets/Identify";
 import HeightFilter from "./widgets/HeightFilter";
+import QueryElevation from "./widgets/QueryElevation";
 
 class GISMap {
     // ========================================================================
@@ -80,6 +81,9 @@ class GISMap {
     // Screenshot Widget
     private screenshotTool: ScreenshotTool;
     private screenshotToolDisplayed: boolean = false;
+    // Screenshot Widget
+    private queryElevation: QueryElevation;
+    private queryElevationDisplayed: boolean = false;
     // Measurements widget
     private measurementsDisplayed: boolean = false;
     private measurementWidgetDistance2D: DistanceMeasurement2D;
@@ -354,6 +358,7 @@ class GISMap {
             this.screenshotToolDisplayed = false;
         }
     }
+    public isScreenshotToolDisplayed = ():boolean => { return this.screenshotToolDisplayed;};
 
     /**
      * Activates/deactivates the edit graphic widget
@@ -410,6 +415,23 @@ class GISMap {
         }
     }
     public isHeightFilterDisplayed = ():boolean => { return this.heightFilterDisplayed;};
+    
+    /**
+     * Activates/deactivates the QueryElevation widget
+     */
+     public activateQueryElevation = () => {
+        if(!this.queryElevation || (this.queryElevation && this.queryElevation.destroyed)){
+            this.queryElevation = new QueryElevation({view: this.mapView, elevationLayer: this.bathymetryLayer, geometryService: this.geometryService});
+            this.mapView.ui.add(this.queryElevation, {position: "bottom-left"});
+            this.queryElevationDisplayed = true;
+        }
+        else{
+            this.mapView.ui.remove(this.queryElevation);
+            this.queryElevation.destroy();
+            this.queryElevationDisplayed = false;
+        }
+    }
+    public isQueryElevationDisplayed = ():boolean => { return this.queryElevationDisplayed;};
 
     /*
     *   Adds a layer to the work layer list
@@ -662,7 +684,7 @@ class GISMap {
             this.activateMeasurementsWidget(false, "area");
         }
         else if(this.isPrintWidgetActivated()){
-            this.activatePrintWidget(false);
+            this.activatePrintWidget();
         }
         else if(this.isTimeWidgetActivated()){
             this.activateTimeWidget(false);
@@ -689,19 +711,16 @@ class GISMap {
     /*
     *   Activate the print widget
     */
-    public activatePrintWidget = (displayed: boolean): any => {
-        if(displayed){
-            this.deactivateCurrentTool();
-            this.addCloseWidgetButton(null);
+    public activatePrintWidget = (): any => {
+        if(!this.printerDisplayed){
             this.mapView.ui.add(this.printer, {position: "bottom-left"});
+            this.printerDisplayed = true;
         }
         else{
             this.mapView.ui.remove(this.printer);
-            this.removeCloseWidgetButton();
+            this.printerDisplayed = false;
         }
-        this.printerDisplayed = displayed;
     }
-
     /**
      * Tells if the printer widget is activated or not
      * @returns (boolean) true is the widget is activated, false otherwise
@@ -834,14 +853,15 @@ class GISMap {
     /*
     *   Activate the coordinates widget
     */
-    public activateCoordinatesWidget = (displayed: boolean): void =>{
-        if(displayed){
-            this.mapView.ui.add(this.coordinates, {position: "bottom-right"});
+    public activateCoordinatesWidget = (): void =>{
+        if(this.coordinatesDisplayed){
+            this.mapView.ui.remove(this.coordinates);
+            this.coordinatesDisplayed = false;
         }
         else{
-            this.mapView.ui.remove(this.coordinates);
+            this.mapView.ui.add(this.coordinates, {position: "bottom-right"});
+            this.coordinatesDisplayed = true;
         }
-        this.coordinatesDisplayed = displayed;
     }
 
     /**

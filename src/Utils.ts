@@ -155,6 +155,18 @@ class Utils{
             return encodeURIComponent(k) + '=' + encodeURIComponent(array[k])
         }).join('&');
     }
+
+    public static changeCursor = (cursorType?: "crosshair" | "auto" | "wait" | null) => {
+        var mapDiv = document.getElementById("mapViewDiv");
+        if(mapDiv){
+            if(cursorType){
+                mapDiv.style.cursor = cursorType;
+            }
+            else{
+                mapDiv.style.cursor = "auto";
+            }
+        }
+    }
 }
 
 export default Utils;

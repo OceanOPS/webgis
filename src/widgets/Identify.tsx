@@ -50,10 +50,6 @@ class Identify extends Widget{
                         }
                     </select>
                 </form>
-                <br />
-                {
-                    this.loading && <div class="spinner-border text-info" role="status"><span class="visually-hidden">identifying...</span></div>
-                }
             </div>
         );
     }
@@ -70,7 +66,7 @@ class Identify extends Widget{
 
     private executeIdentifyTask = (event:any) => {
         if(this.layer){
-
+            Utils.changeCursor("wait");
             // Set the parameters for the Identify
             var params = new IdentifyParameters();
             params.tolerance = 3;
@@ -117,6 +113,9 @@ class Identify extends Widget{
                         location: event.mapPoint
                     });
                 }
+                Utils.changeCursor("auto");
+            }).catch(() => {
+                Utils.changeCursor("auto");
             });
 
         }

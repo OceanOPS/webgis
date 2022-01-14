@@ -127,16 +127,9 @@ class MapMenu{
         screenshotLink.innerHTML = "<span class=\"esri-icon esri-icon-media\" aria-label=\"identify icon\"></span> screenshot";
         moreToolsHtml.appendChild(screenshotLink);
         screenshotLink.onclick = (evt: any) => {
-            if(evt.target.classList.contains("active")){
-                this.map.activateScreenshotTool();
-                this.setActive(evt.target, false);
-                this.updateExpandLabelTools();
-            }
-            else{
-                this.map.activateScreenshotTool();
-                this.setActive(evt.target, true);
-                this.updateExpandLabelTools();
-            }
+            this.map.activateScreenshotTool();
+            this.setActive(evt.target, this.map.isScreenshotToolDisplayed());
+            this.updateExpandLabelTools();
         };
 
         
@@ -148,16 +141,9 @@ class MapMenu{
         printLink.innerHTML = "<span class=\"esri-icon esri-icon-printer\" aria-label=\"print icon\"></span> print";
         moreToolsHtml.appendChild(printLink);
         printLink.onclick = (evt: any) => {
-            if(evt.target.classList.contains("active")){
-                this.map.activatePrintWidget(false);
-                this.setActive(evt.target, false);
-                this.updateExpandLabelTools();
-            }
-            else{
-                this.map.activatePrintWidget(true);
-                this.setActive(evt.target, true);
-                this.updateExpandLabelTools();
-            }
+            this.map.activatePrintWidget();
+            this.setActive(evt.target, this.map.isPrintWidgetActivated());
+            this.updateExpandLabelTools();
         };
 
         var coordinatesLink = document.createElement("a");
@@ -168,16 +154,9 @@ class MapMenu{
         coordinatesLink.innerHTML = "<span class=\"esri-icon esri-icon-applications\" aria-label=\"coordinates icon\"></span> coordinates";
         moreToolsHtml.appendChild(coordinatesLink);
         coordinatesLink.onclick = (evt: any) => {
-            if(evt.target.classList.contains("active")){
-                this.map.activateCoordinatesWidget(false);
-                this.setActive(evt.target, false);
-                this.updateExpandLabelTools();
-            }
-            else{
-                this.map.activateCoordinatesWidget(true);
-                this.setActive(evt.target, true);
-                this.updateExpandLabelTools();
-            }
+            this.map.activateCoordinatesWidget();
+            this.setActive(evt.target, this.map.isCoordinatesWidgetActivated());
+            this.updateExpandLabelTools();
         };
         
         var queryElevationLink = document.createElement("a");
@@ -188,16 +167,9 @@ class MapMenu{
         queryElevationLink.innerHTML = "<span class=\"esri-icon esri-icon-arrow-up\" aria-label=\"query elevation icon\"></span> query elevation";
         moreToolsHtml.appendChild(queryElevationLink);
         queryElevationLink.onclick = (evt: any) => {
-            if(evt.target.classList.contains("active")){
-                //@todo this.map.activateCustomWidget(false, queryElevationTool);
-                this.setActive(evt.target, false);
-                this.updateExpandLabelTools();
-            }
-            else{
-                //@todo this.map.activateCustomWidget(true, queryElevationTool);
-                this.setActive(evt.target, true);
-                this.updateExpandLabelTools();
-            }
+            this.map.activateQueryElevation();
+            this.setActive(evt.target, this.map.isQueryElevationDisplayed());
+            this.updateExpandLabelTools();
         };
 
         // Selection tools sub container
