@@ -259,7 +259,7 @@ class MapMenu{
             };
 
             moreToolsHtml.appendChild(document.createElement("hr"));
-
+            /*@todo
             var exagerationBathyLink = document.createElement("a");
             exagerationBathyLink.id = "exagerationBathyLink";
             exagerationBathyLink.href = "#";
@@ -267,7 +267,7 @@ class MapMenu{
             exagerationBathyLink.title = "Use this tool to modify how the bathymetry is exagerated";
             exagerationBathyLink.innerHTML = "<span class=\"esri-icon esri-icon-up-down-arrows\" aria-label=\"exaggeration icon\"></span> change bathymetry exaggeration";
             moreToolsHtml.appendChild(exagerationBathyLink);
-            /*@todo
+            
             on(link, "click", function(evt){
                 if(evt.target.classList.contains("active")){
                     app.controllers.map.activateCustomWidget(false, bathyExaggerationTool);
@@ -289,6 +289,11 @@ class MapMenu{
         logoLink.title = "Use this tool to add a logo to the map";
         logoLink.innerHTML = "<span class=\"esri-icon esri-icon-media\" aria-label=\"logo icon\"></span> add logo";
         moreToolsHtml.appendChild(logoLink);
+        logoLink.onclick = (evt: any) => {
+            this.map.activateAddLogo();
+            this.setActive(evt.target, this.map.isAddLogoActivated());
+            this.updateExpandLabelTools();
+        };
         /*@todo
         on(link, "click", function(evt){
             if(evt.target.classList.contains("active")){
