@@ -6,7 +6,7 @@ interface DraftPtf {
     draftId: string, lat: number, lon: number
 };
 
-@subclass("esri.widgets.OpacitySliderViewModel")
+@subclass("esri.widgets.EditGraphicViewModel")
 class EditGraphicViewModel extends Accessor{
     // drafts counter
     @property()

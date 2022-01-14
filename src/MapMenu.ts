@@ -252,19 +252,11 @@ class MapMenu{
             animationWaypointLink.title = "Use this tool to customize and start a waypoint animation";
             animationWaypointLink.innerHTML = "<span class=\"esri-icon esri-icon-play\" aria-label=\"animation waypoint icon\"></span> animate view (waypoints)";
             moreToolsHtml.appendChild(animationWaypointLink);
-            /*@todo
-            on(link, "click", function(evt){
-                if(evt.target.classList.contains("active")){
-                    app.controllers.map.activateCustomWidget(false, animationWaypointTool);
-                    setActive(evt.target, false);
-                    self.updateExpandLabelTools();
-                }
-                else{
-                    app.controllers.map.activateCustomWidget(true, animationWaypointTool);
-                    setActive(evt.target, true);
-                    self.updateExpandLabelTools();
-                }
-            });*/
+            animationWaypointLink.onclick = (evt: any) => {
+                this.map.activateAnimationWaypoint();
+                this.setActive(evt.target, this.map.isAnimationWaypointActivated());
+                this.updateExpandLabelTools();
+            };
 
             moreToolsHtml.appendChild(document.createElement("hr"));
 

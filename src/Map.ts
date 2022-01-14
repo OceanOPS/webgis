@@ -49,6 +49,7 @@ import HeightFilter from "./widgets/HeightFilter";
 import QueryElevation from "./widgets/QueryElevation";
 import SelectionLayer from "./SelectionLayer";
 import AnimationRotate from "./widgets/AnimationRotate";
+import AnimationWaypoint from "./widgets/AnimationWaypoint";
 
 class GISMap {
     // ========================================================================
@@ -107,6 +108,9 @@ class GISMap {
     // AnimationRotate widget
     private animationRotate: AnimationRotate;
     private animationRotateActivated: boolean;
+    // AnimationWaypoint widget
+    private animationWaypoint: AnimationWaypoint;
+    private animationWaypointActivated: boolean;
     // Custom tool
     private customToolDisplayed: boolean = false;
 
@@ -478,6 +482,23 @@ class GISMap {
         this.activateImmersiveView();
     }
     public isAnimationRotateActivated = ():boolean => { return this.animationRotateActivated;};
+
+    /**
+     * Activates/deactivates the AnimationWaypoint widget
+     */
+     public activateAnimationWaypoint = () => {
+        if(!this.animationWaypoint || (this.animationWaypoint && this.animationWaypoint.destroyed)){
+            this.animationWaypoint = new AnimationWaypoint({mapInstance: this});
+            this.mapView.ui.add(this.animationWaypoint, {position: "bottom-left"});
+            this.animationWaypointActivated = true;
+        }
+        else{
+            this.mapView.ui.remove(this.animationWaypoint);
+            this.animationWaypoint.destroy();
+            this.animationWaypointActivated = false;
+        }
+    }
+    public isAnimationWaypointActivated = ():boolean => { return this.animationWaypointActivated;};
 
     /*
     *   Adds a layer to the work layer list
