@@ -19,7 +19,6 @@ import ScreenshotTool from "./widgets/ScreenshotTool";
 import PinLayer from "./widgets/PinLayer";
 import Ground from "@arcgis/core/Ground";
 import SceneView from "@arcgis/core/views/SceneView";
-import View from "@arcgis/core/views/View";
 import SpatialReference from "@arcgis/core/geometry/SpatialReference";
 import MapImageLayer from "@arcgis/core/layers/MapImageLayer";
 import MapView from "@arcgis/core/views/MapView";
@@ -44,12 +43,11 @@ import AppInterface from "./AppInterface";
 import Utils from "./Utils";
 import Settings from "./Settings";
 import MapMenu from "./MapMenu";
-import WebTileLayer from "@arcgis/core/layers/WebTileLayer";
-import VectorTileLayer from "@arcgis/core/layers/VectorTileLayer";
 import EditGraphic from "./widgets/EditGraphic";
 import Identify from "./widgets/Identify";
 import HeightFilter from "./widgets/HeightFilter";
 import QueryElevation from "./widgets/QueryElevation";
+import SelectionLayer from "./SelectionLayer";
 
 class GISMap {
     // ========================================================================
@@ -130,6 +128,8 @@ class GISMap {
     public mapView: MapView | SceneView;
     // Remote geometry service
     public geometryService: GeometryService;
+    // Selection Tool
+    public selectionLayer: SelectionLayer;
     // Bathymetry layer, for elevation
     public bathymetryLayer: ElevationLayer;
     // Exaggerated bathy layer
@@ -144,6 +144,8 @@ class GISMap {
     public sketchLayer: GraphicsLayer;
     // Reference to added layers
     public addedLayerIds: string[] = [];
+    // 3D Playground
+    public isImmersiveViewActivated: boolean;
     // #endregion
 
     constructor(settingsInstance: Settings){
@@ -274,7 +276,9 @@ class GISMap {
             if(this.settings.basemap){
                 this.setBasemapID(this.settings.basemap);
             }
-        }        
+        }
+        
+        this.selectionLayer = new SelectionLayer({view: this.mapView});
 
         if(this.mapView.ready){
             this.setupView();
@@ -432,6 +436,26 @@ class GISMap {
         }
     }
     public isQueryElevationDisplayed = ():boolean => { return this.queryElevationDisplayed;};
+
+    /**
+     * Activates/deactivates the 3D Playground functionnality
+     */
+     public activateImmersiveView = () => {
+        if(!this.isImmersiveViewActivated){
+            // Disable loader
+            Utils.setLoadingEnabled(false);
+            // Activate UI auto hide
+            this.settings.activateAutoHide(true);
+            this.isImmersiveViewActivated = true;
+        }
+        else{
+            // Disable loader
+            Utils.setLoadingEnabled(true);
+            // Activate UI auto hide
+            this.settings.activateAutoHide(false);
+            this.isImmersiveViewActivated = false;
+        }
+    }
 
     /*
     *   Adds a layer to the work layer list

@@ -172,11 +172,14 @@ class MapMenu{
             this.updateExpandLabelTools();
         };
 
+        var menuItem: HTMLElement;
+        /*@todo
         // Selection tools sub container
-        var menuItem = document.createElement("span");
+        menuItem = document.createElement("span");
         menuItem.classList.add("dropdown-item");
         moreToolsHtml.appendChild(menuItem);
-
+        
+        
         var selectionLink = document.createElement("a");
         selectionLink.id = "selectionLink";
         selectionLink.href = "#";
@@ -187,17 +190,17 @@ class MapMenu{
         
         selectionLink.onclick = (evt: any) => {
             if(evt.target.classList.contains("active")){
-                //@todo this.map.activateCustomWidget(false, selectionTool);
+                this.map.activateCustomWidget(false, selectionTool);
                 this.setActive(evt.target, false);
                 this.updateExpandLabelTools();
             }
             else{
-                //@todo this.map.activateCustomWidget(true, selectionTool);
+                this.map.activateCustomWidget(true, selectionTool);
                 this.setActive(evt.target, true);
                 this.updateExpandLabelTools();
             }
         };
-        /*if(!Utils.isWebsiteVersion()){
+        if(!Utils.isWebsiteVersion()){
             var btnGroup = domConstruct.create("div", {
                 id: "selectionLinkOptions",
                 class: "btn-group",
@@ -213,30 +216,21 @@ class MapMenu{
                 selectionTool.showAttributesTable();
             });
         }*/
+        var immersiveView = document.createElement("a");
+        immersiveView.id = "immersiveView";
+        immersiveView.href = "#";
+        immersiveView.classList.add("dropdown-item");
+        immersiveView.title = "Auto hide UI and disable loading marker to create a more immersive experience";
+        immersiveView.innerHTML = "<span class=\"esri-icon esri-icon-navigation\" aria-label=\"Immersive view icon\"></span> Immersive view";
+        moreToolsHtml.appendChild(immersiveView);
+        immersiveView.onclick = (evt: any) => {
+            this.map.activateImmersiveView();
+            this.setActive(evt.target, this.map.isImmersiveViewActivated);
+            this.updateExpandLabelTools();
+        };
 
         if(this.map.getProjection() == "3D"){
-            moreToolsHtml.appendChild(document.createElement("hr"));
-            
-            var playground3DLink = document.createElement("a");
-            playground3DLink.id = "playground3DLink";
-            playground3DLink.href = "#";
-            playground3DLink.classList.add("dropdown-item");
-            playground3DLink.title = "Facilitate the 3D navigation";
-            playground3DLink.innerHTML = "<span class=\"esri-icon esri-icon-navigation\" aria-label=\"3D playground icon\"></span> 3D playground";
-            moreToolsHtml.appendChild(playground3DLink);
-            playground3DLink.onclick = (evt: any) => {
-                // @todo
-                /*if(evt.target.classList.contains("active")){
-                    app.controllers.map.activateCustomWidget(false, playground3D);
-                    setActive(evt.target, false);
-                    self.updateExpandLabelTools();
-                }
-                else{
-                    app.controllers.map.activateCustomWidget(true, playground3D);
-                    setActive(evt.target, true);
-                    self.updateExpandLabelTools();
-                }*/
-            };
+            moreToolsHtml.appendChild(document.createElement("hr"));            
 
             var animationRotateLink = document.createElement("a");
             animationRotateLink.id = "animationRotateLink";

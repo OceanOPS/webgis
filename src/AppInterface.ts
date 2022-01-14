@@ -13,13 +13,8 @@ class AppInterface{
         if(!featureType){
             featureType = "platform";
         }
-        // @todo
-        /*require([
-            "app/modules/selectionTool"
-        ], function(selectionTool){
-            selectionTool.init(app, true);
-            selectionTool.applySelectionLayers(selectedObjectsRef, featureType);
-        });*/
+
+        App.controllers.map.selectionLayer.applySelectionLayers(selectedObjectsRef, featureType);
     }
 
     public static sendSelectionToDashboard = (selectedObjectsRef: string[], featureType: string): void => {
