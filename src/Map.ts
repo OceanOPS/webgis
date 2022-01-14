@@ -50,6 +50,7 @@ import QueryElevation from "./widgets/QueryElevation";
 import SelectionLayer from "./SelectionLayer";
 import AnimationRotate from "./widgets/AnimationRotate";
 import AnimationWaypoint from "./widgets/AnimationWaypoint";
+import AddLogo from "./widgets/AddLogo";
 
 class GISMap {
     // ========================================================================
@@ -111,6 +112,9 @@ class GISMap {
     // AnimationWaypoint widget
     private animationWaypoint: AnimationWaypoint;
     private animationWaypointActivated: boolean;
+    // AddLogo widget
+    private addLogo: AddLogo;
+    private addLogoActivated: boolean;
     // Custom tool
     private customToolDisplayed: boolean = false;
 
@@ -499,6 +503,23 @@ class GISMap {
         }
     }
     public isAnimationWaypointActivated = ():boolean => { return this.animationWaypointActivated;};
+    
+    /**
+     * Activates/deactivates the AddLogo widget
+     */
+     public activateAddLogo = () => {
+        if(!this.addLogo || (this.addLogo && this.addLogo.destroyed)){
+            this.addLogo = new AddLogo({mapInstance: this});
+            this.mapView.ui.add(this.addLogo, {position: "bottom-left"});
+            this.addLogoActivated = true;
+        }
+        else{
+            this.mapView.ui.remove(this.addLogo);
+            this.addLogo.destroy();
+            this.addLogoActivated = false;
+        }
+    }
+    public isAddLogoActivated = ():boolean => { return this.addLogoActivated;};
 
     /*
     *   Adds a layer to the work layer list
@@ -704,15 +725,16 @@ class GISMap {
     /**
      * Add a logo to the UI
      */
-    public addLogo = (url: string): void =>{
+    public addLogoToUI = (url: string): void =>{
         //this.mapView.ui.empty("top-right");
         this.mapView.ui.empty("bottom-right");
         var img = document.createElement("img");
-        img.src = "//www.ocean-ops.org/static/images/oceanops/logos/oceanops-earth-ico-192.png";
-        img.style.width = "50px";
-        var img = document.createElement("img");
         img.src = url;
         img.style.maxWidth = "150px";
+        this.mapView.ui.add(img, "bottom-right");
+        var img = document.createElement("img");
+        img.src = "//www.ocean-ops.org/static/images/oceanops/logos/oceanops-earth-ico-192.png";
+        img.style.width = "50px";
         this.mapView.ui.add(img, "bottom-right");
     }
 
