@@ -25,15 +25,37 @@ class HeightFilter extends Widget{
     @property()
     heightKeepNull = false;
     @property()
-    coeffDepth = 1;    
+    coeffDepth = 1;
+    // Reference to the slider
+    private slider: Slider;
     // Reference to the View
     private view: MapView | SceneView;
 
     constructor(props?: any){
         super(props);
         this.view = props.view;
+    }
 
-        const slider = new Slider({
+    render(){
+        return (
+            <div class={this.classes([CSS.base, CSS.customDefault])}>
+                <div afterCreate={this.renderSlider} id='heightSlider'></div>
+                <br/>
+                <input type='checkbox' id='heightKeepNull' name='heightKeepNull' checked={this.heightKeepNull} onchange={this.changeFilter}/><label for='heightKeepNull'>Keep unspecified heights</label>
+            </div>
+        );
+    }
+
+    destroy(){
+        this.resetFilter();
+        super.destroy();
+    }
+
+    /**
+     * Renders the slider after creation of the DOM node
+     */
+    private renderSlider = () => {
+        this.slider = new Slider({
             min: -7000,
             max: 100,
             values: [-6000, 50],
@@ -46,27 +68,16 @@ class HeightFilter extends Widget{
             layout: "vertical",
             precision: 1
         });
-
-        slider.on("thumb-change", this.changeFilter);
-        slider.on("thumb-drag", this.changeFilter);
-        
+        this.slider.when(() => {
+            this.slider.on("thumb-change", this.changeFilter);
+            this.slider.on("thumb-drag", this.changeFilter);
+        });
     }
 
-    render(){
-        return (
-            <div class={this.classes([CSS.base, CSS.customDefault])}>
-                <div id='heightSlider'></div>
-                <br/>
-                <input type='checkbox' id='heightKeepNull' name='heightKeepNull'/><label for='heightKeepNull'>Keep unspecified heights</label>
-            </div>
-        );
-    }
-
-    destroy(){
-        this.resetFilter();
-        super.destroy();
-    }
-
+    /**
+     * Event listener on the slider and checkbox
+     * @param event 
+     */
     private changeFilter = (event: any) => {
         if(event.value){            
             if(event.index == 0){
@@ -168,6 +179,9 @@ class HeightFilter extends Widget{
         });
     }
 
+    /**
+     * Resets the filter. Typically called when destroying this widget's instance.
+     */
     private resetFilter = () => {
         this.view.map.allLayers.forEach((layer) => {
             if(layer instanceof FeatureLayer){
