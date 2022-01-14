@@ -33,6 +33,10 @@ class AnimationRotate extends Widget{
     *   Reference to the view
     */
     private view: SceneView;
+    /**
+     * Keyboard listener
+     */
+    private keyboardListener: any;
 
     constructor(props?: any){
         super();
@@ -66,7 +70,13 @@ class AnimationRotate extends Widget{
 
     postInitialize(){
         this.startAnimationRotate(this.animationSpeed);
-        document.addEventListener('keypress', this.pauseAnimationKeyboard);
+        this.keyboardListener = document.addEventListener('keypress', this.pauseAnimationKeyboard);
+    }
+
+    destroy(){
+        this.stopAnimation();        
+        document.removeEventListener('keypress', this.keyboardListener);
+        super.destroy();
     }
 
     

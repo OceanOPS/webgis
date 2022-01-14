@@ -48,6 +48,10 @@ class AnimationWaypoint extends Widget{
     *   Time Interval used for the animation
     */
     private animationTimeInterval = 8000;
+    /**
+     * Keyboard listener
+     */
+    private keyboardListener: any;
 
     constructor(props?: any){
         super();
@@ -65,9 +69,14 @@ class AnimationWaypoint extends Widget{
     }
 
     postInitialize(){
-        document.addEventListener('keypress', this.pauseAnimationKeyboard);
-
+        this.keyboardListener = document.addEventListener('keypress', this.pauseAnimationKeyboard);
         this.startAnimationWaypoint(this.animationWaypoints, this.animationTimeInterval);
+    }
+
+    destroy(){
+        this.stopAnimation();
+        document.removeEventListener('keypress', this.keyboardListener);
+        super.destroy();
     }
 
     /**
