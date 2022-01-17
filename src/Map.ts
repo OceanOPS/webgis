@@ -53,6 +53,7 @@ import AnimationWaypoint from "./widgets/AnimationWaypoint";
 import AddLogo from "./widgets/AddLogo";
 import DataDisplay from "./DataDisplay";
 import SensorDisplay from "./SensorDisplay";
+import Symbology from "./widgets/Symbology";
 
 class GISMap {
     // ========================================================================
@@ -81,6 +82,9 @@ class GISMap {
     // Opacity slider Widget
     private opacitySlider: OpacitySlider;
     private opacitySliderDisplayed: boolean = false;
+    // Symbology Widget
+    private symbologyWidget: Symbology;
+    private symbologyWidgetDisplayed: boolean = false;
     // Screenshot Widget
     private screenshotTool: ScreenshotTool;
     private screenshotToolDisplayed: boolean = false;
@@ -876,6 +880,30 @@ class GISMap {
     public isOpacityWidgetActivated = (): boolean => {
         return this.opacitySliderDisplayed;
     }
+
+    
+    /*
+    *   Activate the symbology widget
+    */
+    public activateSymbologyWidget = (layer: FeatureLayer, uiEnabled: boolean = true) => {        
+        if(!this.symbologyWidget || (this.symbologyWidget && this.symbologyWidget.destroyed)){
+            this.symbologyWidget = new Symbology({map: this, layer: layer, uiEnabled: uiEnabled});
+            if(uiEnabled){
+                this.mapView.ui.add(this.symbologyWidget, {position: "top-right"});
+                this.symbologyWidgetDisplayed = true;
+            }
+        }
+        else{
+            var changeLayer = layer.id != this.symbologyWidget.layer.id;
+            this.mapView.ui.remove(this.symbologyWidget);
+            this.symbologyWidget.destroy();
+            this.symbologyWidgetDisplayed = false;
+            if(changeLayer){
+                this.activateSymbologyWidget(layer);
+            }
+        }
+    }
+
 
     /*
     *   Activate the measurement widget
@@ -2187,10 +2215,7 @@ class GISMap {
         var id = event.action.id;
         var layer = event.item.layer;
         if(id === "change-symbology"){
-            // @todo
-            /*require(["app/modules/symbologyTool"], function(symbologyTool){
-                symbologyTool.init(app, layer);
-            });*/
+            this.activateSymbologyWidget(layer, true);
         }
         else if(id === "pin-layer"){
             var pinLayerTool = new PinLayer({layer: layer, userGivenLayer: false});

@@ -3,6 +3,7 @@ import Field from "@arcgis/core/layers/support/Field";
 import SceneView from "@arcgis/core/views/SceneView";
 import Config from "./Config";
 import GISMap from "./Map";
+import Symbology from "./widgets/Symbology";
 
 class SensorDisplay{    
     private map: GISMap;
@@ -56,7 +57,8 @@ class SensorDisplay{
 
                     if(layerInfo.symbologyFields && layerInfo.symbologyFields.length > 0){
                         var filename = layerInfo.theme + "-" + layerInfo.id + "-" + layerInfo.symbologyFields[0] + ".json";
-                        //@todo symbologyTool.loadJsonSymbology(filename, layer, app);
+                        var symbologyWidget = new Symbology({layer: layer, map: this.map, uiEnabled: false});
+                        symbologyWidget.loadJsonSymbology(filename);
                     }
                     this.map.addLayerWithElevationInfoID(layer.id, layerInfo.id);
                     this.map.addToWorkLayerList(layer);                
