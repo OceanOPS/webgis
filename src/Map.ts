@@ -54,6 +54,7 @@ import AddLogo from "./widgets/AddLogo";
 import DataDisplay from "./DataDisplay";
 import SensorDisplay from "./SensorDisplay";
 import Symbology from "./widgets/Symbology";
+import QueryLayer from "./widgets/QueryLayer";
 
 class GISMap {
     // ========================================================================
@@ -85,6 +86,9 @@ class GISMap {
     // Symbology Widget
     private symbologyWidget: Symbology;
     private symbologyWidgetDisplayed: boolean = false;
+    // Query Widget
+    private queryWidget: QueryLayer;
+    private queryWidgetDisplayed: boolean = false;
     // Screenshot Widget
     private screenshotTool: ScreenshotTool;
     private screenshotToolDisplayed: boolean = false;
@@ -904,6 +908,23 @@ class GISMap {
         }
     }
 
+    /** */
+    public activateQueryWidget = (layer: Layer) => {              
+        if(!this.queryWidget || (this.queryWidget && this.queryWidget.destroyed)){
+            this.queryWidget = new QueryLayer({map: this, layer: layer});
+            this.mapView.ui.add(this.queryWidget, {position: "top-right"});
+            this.queryWidgetDisplayed = true;
+        }
+        else{
+            var changeLayer = layer.id != this.queryWidget.layer.id;
+            this.mapView.ui.remove(this.queryWidget);
+            this.queryWidget.destroy();
+            this.queryWidgetDisplayed = false;
+            if(changeLayer){
+                this.activateQueryWidget(layer);
+            }
+        }
+    }
 
     /*
     *   Activate the measurement widget
@@ -1120,12 +1141,12 @@ class GISMap {
     /**
     *   Updates a layer's definition expression
     */
-    public updateLayerDefinitionExpression = (layer: FeatureLayer | MapImageLayer, definitionExpression: string, sublayerId: number): void =>{
-        if(layer instanceof MapImageLayer){
+    public updateLayerDefinitionExpression = (layer: FeatureLayer | MapImageLayer, definitionExpression: string, sublayerId?: number): void =>{
+        if(layer instanceof MapImageLayer && sublayerId){
             var sublayer = layer.findSublayerById(sublayerId);
             sublayer.definitionExpression = definitionExpression;
         }
-        else{
+        else if(layer instanceof FeatureLayer){
             layer.definitionExpression = definitionExpression;
             if(this.groupLayerWork.findLayerById(layer.id)){
                 this.settings.updateWorkLayerToLocalStorage(layer.id, layer.title, layer.renderer.toJSON(), layer.definitionExpression);
@@ -2239,10 +2260,7 @@ class GISMap {
             this.activateOpacityWidget(layer);
         }
         else if(id === "change-query"){
-            // @todo
-            /*require(["app/modules/queryTool"], function(queryTool){
-                queryTool.init(app, layer);
-            });*/
+            this.activateQueryWidget(layer);
         }
         else if(id === "change-elevation-expr"){
             // @todo
