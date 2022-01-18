@@ -55,7 +55,8 @@ import DataDisplay from "./DataDisplay";
 import SensorDisplay from "./SensorDisplay";
 import Symbology from "./widgets/Symbology";
 import QueryLayer from "./widgets/QueryLayer";
-import BaseElevationLayer from "@arcgis/core/layers/BaseElevationLayer";
+import ElevationExaggerationViewModel from "./widgets/ElevationExaggerationViewModel";
+import ElevationExaggeration from "./widgets/ElevationExaggeration";
 
 class GISMap {
     // ========================================================================
@@ -126,6 +127,9 @@ class GISMap {
     // AddLogo widget
     private addLogo: AddLogo;
     private addLogoActivated: boolean;
+    // Exaggeration widget and view model
+    private exaggerationWidget: ElevationExaggeration;
+    private exaggerationWidgetActivated: boolean = false;
     // Custom tool
     private customToolDisplayed: boolean = false;
 
@@ -135,8 +139,6 @@ class GISMap {
     private groupLayerOthers: GroupLayer;
     private operationalSubGroupLayerList: {} = {};
     private otherSubGroupLayerList: {} = {};
-
-    private withElevationInfoLayerIDs: any[] = [];
 
     private fullTimeExtent: any = null;
 
@@ -156,8 +158,6 @@ class GISMap {
     public selectionLayer: SelectionLayer;
     // Bathymetry layer, for elevation
     public bathymetryLayer: ElevationLayer;
-    // Exaggerated bathy layer
-    public exaggeratedBathyLayer: ExaggeratedElevationLayer;
     // Indicates if the current projection is 3D
     public is3D: boolean = false;
     // Indicates if the current projection is 3D-flat
@@ -185,7 +185,8 @@ class GISMap {
 
         // Setting bathymetry layer
         this.bathymetryLayer = new ElevationLayer({url: "//elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/TopoBathy3D/ImageServer"});
-        this.exaggeratedBathyLayer = new ExaggeratedElevationLayer({exaggeration: this.exaggerationCoef});
+        
+        var exaggeratedBathyLayer = ElevationExaggerationViewModel.getExaggeratedElevationLayer();
 
         var highlightOptions = null;
         if(this.settings.highlight){
@@ -203,9 +204,8 @@ class GISMap {
             if(this.settings.basemap){
                 var basemap = this.settings.getBasemapFromID(this.settings.basemap);
                 mapParams["basemap"] = basemap;
-                //@todo exaggerated layer not working
                 mapParams["ground"] = new Ground({
-                    layers: [this.exaggeratedBathyLayer]
+                    layers: [exaggeratedBathyLayer]
                 });
             }
             var map = new Map(mapParams);
@@ -230,6 +230,8 @@ class GISMap {
             }
             this.mapView = new SceneView(mapViewParams);
 
+            this.exaggerationWidget = new ElevationExaggeration({view: this.mapView});
+
             this.is3D = true;
         } else if (this.settings.projection && this.settings.projection == "3D-flat") {
             // 3D-flat view
@@ -238,7 +240,7 @@ class GISMap {
                 var basemap = this.settings.getBasemapFromID(this.settings.basemap);
                 mapParams["basemap"] = basemap;
                 mapParams["ground"] = new Ground({
-                    layers: [this.exaggeratedBathyLayer]
+                    layers: [exaggeratedBathyLayer]
                 });
             }
             var map = new Map(mapParams);  
@@ -260,6 +262,7 @@ class GISMap {
                 mapViewParams["highlightOptions"] = highlightOptions;
             }
             this.mapView = new SceneView(mapViewParams);
+            this.exaggerationWidget = new ElevationExaggeration({view: this.mapView});
 
             this.is3DFlat = true;
         } else {
@@ -339,24 +342,6 @@ class GISMap {
     public getTheme = (): string => {
         return this.settings.theme;
     }
-
-
-    /**
-     * Changes exaggeration coefficient and regenerates the elevation layer
-     * @param coef (number) Exaggeration coefficient
-     */
-    public changeBathyExaggerationCoef = (coef: number): void =>{
-        // Updating coeff
-        this.exaggerationCoef = coef;
-        // Regenerating elevation layer
-        this.exaggeratedBathyLayer = new ExaggeratedElevationLayer({exaggeration: this.exaggerationCoef});
-
-        this.mapView.map.ground = new Ground({
-        layers: [this.exaggeratedBathyLayer]
-        });
-        // Updating elevation-based layers exageration
-        this.updateElevationLayerInfo(coef);
-    };
 
     /**
      * Switch the layer list visibility
@@ -532,6 +517,28 @@ class GISMap {
         }
     }
     public isAddLogoActivated = ():boolean => { return this.addLogoActivated;};
+
+    /**
+     * Activates/deactivates the ElevationExaggeration widget
+     */
+     public activateElevationExaggeration = () => {
+        if(this.mapView instanceof SceneView){
+            if(!this.exaggerationWidget || (this.exaggerationWidget && this.exaggerationWidget.destroyed)){
+                this.exaggerationWidget = new ElevationExaggeration({view: this.mapView});
+            }
+
+            if(!this.exaggerationWidgetActivated){
+                this.mapView.ui.add(this.exaggerationWidget, {position: "bottom-left"});
+                this.exaggerationWidgetActivated = true;
+            }
+            else{
+                this.mapView.ui.remove(this.exaggerationWidget);
+                this.exaggerationWidgetActivated = false;
+            }
+        }
+    }
+    public isElevationExaggerationActivated = ():boolean => { return this.exaggerationWidgetActivated;};
+    
 
     /*
     *   Adds a layer to the work layer list
@@ -1669,28 +1676,7 @@ class GISMap {
      * @param {integer} baseID  If the layer is derived from a generic layer (i.e. an observation layer, for a specific platform), specify the bade-layer ID here. If null, it will take the layer ID as a value.
      */
     public addLayerWithElevationInfoID = (layerID: string, baseID: string): void => {
-        this.withElevationInfoLayerIDs.push({layerID: layerID, baseID: (baseID ? baseID : layerID)});
-    }
-
-    /**
-     * Updates all the elevation-based layer coefficient when the bathymetry's exageration is updated.
-     * @param  {decimal} newCoeff The new coefficient applied to the bathymetry exageration.
-     */
-    public updateElevationLayerInfo = (newCoeff: number): void =>{
-        for(var i = 0; i < this.withElevationInfoLayerIDs.length; i++){
-            var layerInfo: any = Config.operationalLayers.find(x => x.id === this.withElevationInfoLayerIDs[i].baseID);
-            var layer = this.mapView.map.findLayerById(this.withElevationInfoLayerIDs[i].layerID);
-            if(layer instanceof FeatureLayer){
-                var elevationInfo = layerInfo.elevationInfo;
-                if(layerInfo.elevationField == "z"){
-                    elevationInfo.featureExpressionInfo.expression = "Geometry($feature)." + layerInfo.elevationField + " * " + newCoeff;
-                }
-                else{
-                    elevationInfo.featureExpressionInfo.expression = "$feature." + layerInfo.elevationField + " * -" + newCoeff;
-                }
-                layer.elevationInfo = elevationInfo;
-            }
-        }
+        this.exaggerationWidget.withElevationInfoLayerIDs.push({layerID: layerID, baseID: (baseID ? baseID : layerID)});
     }
 
     /**
@@ -1698,9 +1684,9 @@ class GISMap {
      * @param  {integer} layerID The layer's ID to remove.
      */
     public removeFromElevationLayerIDs = (layerID: string): void => {
-        for(var i = 0; i < this.withElevationInfoLayerIDs.length; i++){
-            if(this.withElevationInfoLayerIDs[i].layerID == layerID){
-                this.withElevationInfoLayerIDs.splice(i, 1);
+        for(var i = 0; i < this.exaggerationWidget.withElevationInfoLayerIDs.length; i++){
+            if(this.exaggerationWidget.withElevationInfoLayerIDs[i].layerID == layerID){
+                this.exaggerationWidget.withElevationInfoLayerIDs.splice(i, 1);
             }
         }
     }
