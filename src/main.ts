@@ -15,8 +15,7 @@ class App {
     //@todo auto debug based on vite dev/build
     private static readonly debug: boolean = true;
     public static settings: Settings;
-    public static controllers: any = {};
-    public static models: any = {};
+    public static map: GISMap;
 
     private static _initialize = ((): void => {
         window["$"] = $; 
@@ -33,8 +32,8 @@ class App {
         // Maybe find a better way to load those modules...
         // Settings instance needed by the GISMap constructor... but Map needed by some Settings methods
         App.settings = new Settings();
-        App.controllers["map"] = new GISMap(App.settings);
-        App.settings.setMap(App.controllers.map);
+        App.map = new GISMap(App.settings);
+        App.settings.setMap(App.map);
         
         // If debug, exposing the whole app
         if(this.debug){

@@ -85,7 +85,7 @@ class Settings {
             if(params.theme){
                 this.theme = params.theme.toLowerCase();
                 if(this.theme === "jcommops" || this.theme === "all"){
-                    this.theme = Config.THEME_ALL;
+                    this.theme = Config.THEME_INTEGRATED;
                 }
                 else if(this.theme === "oceangliders"){
                     this.theme = "gliders";
@@ -95,14 +95,14 @@ class Settings {
                 if(params.t){
                     this.theme = params.t.toLowerCase();
                     if(this.theme === "jcommops" || this.theme === "all"){
-                        this.theme = Config.THEME_ALL;
+                        this.theme = Config.THEME_INTEGRATED;
                     }
                     else if(this.theme === "oceangliders"){
                         this.theme = "gliders";
                     }
                 }
                 else{
-                    this.theme = Config.THEME_ALL;
+                    this.theme = Config.THEME_INTEGRATED;
                 }
             }
 
@@ -167,7 +167,7 @@ class Settings {
             // Default settings
             this.projection = "102100";
             this.basemap = "basemapOceansNoLabel";
-            this.theme = Config.THEME_ALL;
+            this.theme = Config.THEME_INTEGRATED;
         }
     };
 

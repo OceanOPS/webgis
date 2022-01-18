@@ -241,7 +241,8 @@ class Config{
     public static readonly URL_INSPECT_CRUISE = Config.URL_DASHBOARD + "/wa/InspectCruise?ref={REF}";
     public static readonly INTERVAL_REFRESH_MAP = 1800000;
     public static readonly JSON_DIRECTORY = "app/json/";
-    public static readonly THEME_ALL = "oceanops";
+    public static readonly THEME_ALL = "all";
+    public static readonly THEME_INTEGRATED = "oceanops";
     public static readonly PARAMETER_NAME_SYSTEM = "system";
     public static readonly PARAMETER_NAME_THEME = "theme";
     public static readonly PARAMETER_NAME_PTF_REFS = "ptfRefs";
@@ -335,7 +336,7 @@ class Config{
         {
             "id" : "PTF_LOC_0",
             "index": 80,
-            "theme": "oceanops",
+            "theme": Config.THEME_INTEGRATED,
             "group": "integrated",
             "name" : "All deployment locations",
             "defaultWhereClause": "PTF_STATUS = 6",
@@ -352,7 +353,7 @@ class Config{
         }, {
             "id" : "PTF_LOC_N",
             "index": 80,
-            "theme": "oceanops",
+            "theme": Config.THEME_INTEGRATED,
             "group": "integrated",
             "name" : "All latest locations",
             "defaultWhereClause": "PTF_STATUS = 6",
@@ -404,7 +405,7 @@ class Config{
         {
             "id" : "DESIGN_LINE",
             "index": 70,
-            "theme": "oceanops",
+            "theme": Config.THEME_ALL,
             "group": "referenceLines",
             "name" : "Reference lines",
             "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/DesignLines/MapServer/0",
@@ -420,7 +421,7 @@ class Config{
         {
             "id" : "SITES",
             "index": 60,
-            "theme": "oceanops",
+            "theme": Config.THEME_ALL,
             "group": "referenceLines",
             "name" : "Reference sites",
             "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanOPS/Sites/MapServer/0",

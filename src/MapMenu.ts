@@ -7,13 +7,31 @@ import {Modal} from 'bootstrap';
 
 class MapMenu{
     private expandToolsWidget: Expand;
-    private nbActiveTools: number = 0;
+    public nbActiveTools: number = 0;
+    public timeToolLink: HTMLDivElement;
     private map: GISMap;
 
     constructor(mapInstance: GISMap){
         this.map = mapInstance;
         new AddLayer(this.map);
 
+        this.timeToolLink = document.createElement("div");
+        this.timeToolLink.id = "timeToolToggle";
+        this.timeToolLink.title = "Time slider";
+        this.timeToolLink.setAttribute("role","button");
+        this.timeToolLink.className = "esri-widget--button esri-widget esri-interactive";
+        this.timeToolLink.innerHTML = "<span class=\"esri-icon esri-icon-time-clock\" aria-label=\"time icon\"></span>";
+        this.timeToolLink.onclick = (evt: any) => {            
+            if(this.map.isTimeWidgetActivated()){
+                this.map.activateTimeWidget(false);
+                this.setActive(evt.target, false);
+            }
+            else{
+                this.map.activateTimeWidget(true);
+                this.setActive(evt.target, true);
+            }
+        };
+        
         var projectionHtml = document.createElement("div");
         projectionHtml.classList.add("card");
 

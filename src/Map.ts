@@ -141,6 +141,7 @@ class GISMap {
 
     private widgetIteration: number = 0;
     private settings: Settings;
+    private mapMenu: MapMenu;
     // #endregion
     
     // ========================================================================
@@ -804,7 +805,7 @@ class GISMap {
             });
         }
 
-        //@todo App.controllers.mapMenu.updateExpandLabelTools();
+        this.mapMenu.updateExpandLabelTools();
     }
 
     /*
@@ -1715,18 +1716,10 @@ class GISMap {
     }
 
     /**
-     * @todo
+     * Activates the edit tool and synchronises the given array of objects
      * @param arrayOfObjects 
      */
     public processDraftPtfs = (arrayOfObjects: any[]): void => {
-        //@todo App.models.draftPtfs = arrayOfObjects;
-        
-        /*require([
-            "app/modules/editTool"
-        ], function(editTool){
-            editTool.init(app);
-            editTool.syncDraftPtfs();
-        });*/
         if(arrayOfObjects){
             this.activateEditGraphic();
             this.editGraphic.syncDraftPtfs(arrayOfObjects, "all");
@@ -1734,7 +1727,7 @@ class GISMap {
     }
 
     /**
-     * @todo
+     * Activates the edit tool and deletes the given array of objects
      * @param arrayOfObjects 
      */
     public deleteDraftPtfs = (arrayOfObjects: any[]): void => {
@@ -1742,14 +1735,6 @@ class GISMap {
             this.activateEditGraphic();
             this.editGraphic.syncDraftPtfs(arrayOfObjects, "delete");
         }
-        //@todo App.models.draftPtfs = App.models.draftPtfs.filter((item: any) => !arrayOfObjects.find(ditem => ditem.draftId === item.draftId));
-        
-        /*require([
-            "app/modules/editTool"
-        ], function(editTool){
-            editTool.init(app);
-            editTool.syncDraftPtfs();
-        });*/
     }
 
     /**
@@ -1865,7 +1850,7 @@ class GISMap {
                                 layer.useViewTime = true;
                                 if(layer.timeInfo){
                                     if(!this.settings.platformTrack){
-                                        //@todo this.mapView.ui.add(App.controllers.mapMenu.timeToolLink, {position: "top-left"});
+                                        this.mapView.ui.add(this.mapMenu.timeToolLink, {position: "top-left"});
                                     }
                                     this.updateFullTimeExtent();
                                 }
@@ -1877,7 +1862,7 @@ class GISMap {
                                     layer.useViewTime = true;
                                     if(layer.timeInfo){
                                         if(!this.settings.platformTrack){
-                                            //@todo this.mapView.ui.add(App.controllers.mapMenu.timeToolLink, {position: "top-left"});
+                                            this.mapView.ui.add(this.mapMenu.timeToolLink, {position: "top-left"});
                                         }
                                         this.updateFullTimeExtent();
                                     }
@@ -1897,7 +1882,7 @@ class GISMap {
                 });
                 if(!timeEnabled){
                     this.activateTimeWidget(false);                           
-                    //@todo this.mapView.ui.remove(App.controllers.mapMenu.timeToolLink);
+                    this.mapView.ui.remove(this.mapMenu.timeToolLink);
                 }
                 // Updating AddLayer modal
                 event.removed.forEach((layer:Layer) =>{
@@ -2066,7 +2051,7 @@ class GISMap {
         });
 
         if(!this.settings.platformTrack){
-            new MapMenu(this);
+            this.mapMenu = new MapMenu(this);
         }
         else{
             this.setExtent("data-extent");
@@ -2547,7 +2532,6 @@ class GISMap {
             visible: true,
             visibilityMode: "independent"
         });
-
         // Ordering default layers
         var operationalLayers = Config.operationalLayers.sort((la, lb) => la.index - lb.index);
 
@@ -2555,8 +2539,7 @@ class GISMap {
             var layer = operationalLayers[i];
 
             var visible = layer.visible;
-            
-            if(visible && (this.settings.theme == layer.theme || layer.theme == "all") && layer.type !== Config.TYPE_OBS_PTF) {
+            if(visible && (this.settings.theme == layer.theme || layer.theme == Config.THEME_ALL) && layer.type !== Config.TYPE_OBS_PTF) {
                 this.addOperationalLayer(layer.id);
             }
         }
