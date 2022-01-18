@@ -37,7 +37,7 @@ class QueryLayer extends Widget{
     selectedSublayer: Sublayer;
     // query
     @property()
-    query: string;
+    query: string = "";
     // Current value list
     @property()
     private currentValueList: string[] = [];
@@ -49,23 +49,23 @@ class QueryLayer extends Widget{
         this.map = props.map;
         this.view = this.map.mapView;
         this.layer = props.layer;
-        if(this.layer instanceof FeatureLayer){
+        if(this.layer instanceof FeatureLayer && this.layer.definitionExpression){
             this.query = this.layer.definitionExpression;
         }
     }
 
     render(){
         // Sublayer selection for map image layers
-        if(this.layer instanceof MapImageLayer && this.layer.allSublayers.length > 0){
+        if(this.layer instanceof MapImageLayer && this.layer.allSublayers.length > 0 && !this.selectedSublayer){
             return (
                 <div class={this.classes([CSS.base, CSS.customDefault])}>
-                    <form>
-                        <select onchange={this.sublayerSelection}>
-                            <option disabled selected value> -- choose a sub layer -- </option>
+                    <form key="queryform-sublayerselection">
+                        <select class='form-control' onchange={this.sublayerSelection}>
+                            <option disabled selected='selected'> -- choose a sub layer -- </option>
                             {
                                 this.layer.allSublayers.map((object, i) => {
                                     return <option key={"symbology-" + object.id} value={object.id}>{object.title}</option>;
-                                })
+                                }).toArray()
                             }  
                         </select>
                     </form>
@@ -83,10 +83,14 @@ class QueryLayer extends Widget{
         }
     }
 
+    /**
+     * Builds the query form when a FeatureLayer is selected or a sublayer of a MapLayer
+     * @returns 
+     */
     private getQueryForm = () => {
         var givenLayer = this.selectedSublayer ? this.selectedSublayer: this.layer as FeatureLayer;
         return (
-            <form>
+            <form key="queryform-querybuilder">
                     <select multiple class="form-control" name="queryToolAttrFieldSelect" style="resize: both;" onchange={this.fieldChanged} ondblclick={this.addToTextAreaSelect}>
                     {
                         givenLayer.fields.map((object: any, i: number) => {
@@ -113,20 +117,58 @@ class QueryLayer extends Widget{
                     }
                     </div>
                     <br/>
-                    <textarea name="queryToolAttrQuery" class="form-control" style="resize: both;">{this.query}</textarea>
+                    <textarea afterCreate={this.initQuery} id="queryToolAttrQuery" name="queryToolAttrQuery" class="form-control" style="resize: both;" onchange={this.updateQueryFromText}></textarea>
                     <br/>
                     <input type="button" class="btn btn-primary" value="Perform query" onclick={this.performQuery}/>
             </form>
         );
     }
 
+    /**
+     * Initializes the query field with the definition expression, if any. This has to be done manually to avoid conflict with update events.
+     * @param evt 
+     */
+    private initQuery = (evt: any) => {
+        if(typeof(this.query) != 'undefined'){
+            var htmlElt = document.getElementById("queryToolAttrQuery") as HTMLTextAreaElement;
+            if(htmlElt){
+                htmlElt.value = this.query;
+            }
+        }
+    }
+    /**
+     * When the query field is manually updated, updating the query
+     * @param evt 
+     */
+    private updateQueryFromText = (evt: any) => {
+        this.query = evt.target.value;
+    }
+    /**
+     * Updating the query and query field on double click on the select inputs
+     * @param evt 
+     */
     private addToTextAreaSelect = (evt: any) => {
         this.query += " " + evt.target.value;
+        var htmlElt = document.getElementById("queryToolAttrQuery") as HTMLTextAreaElement;
+        if(htmlElt){
+            htmlElt.value = this.query;
+        }
     }
+    /**
+     * Updating the query and query field when clicking an operation button
+     * @param evt 
+     */
     private addToTextAreaButton = (evt: any) => {
         this.query += " " + evt.target.value;
+        var htmlElt = document.getElementById("queryToolAttrQuery") as HTMLTextAreaElement;
+        if(htmlElt){
+            htmlElt.value = this.query;
+        }
     }
-
+    /**
+     * When selecting a field from the layer in the select input, fetching all its distinct values
+     * @param evt 
+     */
     private fieldChanged = (evt: any) => {
         this.currentValueList = [];
         var field = evt.target.selectedOptions[0].value;
@@ -159,23 +201,30 @@ class QueryLayer extends Widget{
             }
         });
     }
-
+    /**
+     * Submitting the query when building is done
+     */
     private performQuery = () => {
-        if(this.selectedSublayer){
-            this.map.updateLayerDefinitionExpression(this.layer, this.query, this.selectedSublayer.id);
+        if(typeof(this.selectedSublayer) != 'undefined'){
+            this.map.updateLayerDefinitionExpression(this.layer as MapImageLayer, this.query, this.selectedSublayer.id);
         }
         else{
-            this.map.updateLayerDefinitionExpression(this.layer, this.query);
+            this.map.updateLayerDefinitionExpression(this.layer as FeatureLayer, this.query);
         }
     }
-
+    /**
+     * Setting the sublayer when selected
+     * @param event 
+     */
     private sublayerSelection = (event: any) => {
-        var selectedSublayerID = parseInt(event.target.form.children.sublayerQueryToolSelect.value,10);
+        var selectedSublayerID = parseInt(event.target.value);
         if(this.layer instanceof MapImageLayer){
             var sublayer = this.layer.findSublayerById(selectedSublayerID);
             sublayer.load().then(() => {
+                if(sublayer.definitionExpression){
+                    this.query = sublayer.definitionExpression;
+                }
                 this.selectedSublayer = sublayer;
-                this.query = this.selectedSublayer.definitionExpression;
             });
         }
     }

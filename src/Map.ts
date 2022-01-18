@@ -1142,7 +1142,7 @@ class GISMap {
     *   Updates a layer's definition expression
     */
     public updateLayerDefinitionExpression = (layer: FeatureLayer | MapImageLayer, definitionExpression: string, sublayerId?: number): void =>{
-        if(layer instanceof MapImageLayer && sublayerId){
+        if(layer instanceof MapImageLayer && typeof(sublayerId) != 'undefined'){
             var sublayer = layer.findSublayerById(sublayerId);
             sublayer.definitionExpression = definitionExpression;
         }
