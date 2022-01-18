@@ -8,6 +8,8 @@ class Config{
     public static readonly DENSIFY_SEGMENT_LENGTH = 500000;
     public static readonly DENSIFY_UNIT = "meters";
 
+    public static readonly DEFAULT_ELEVATION_EXAGGERATION = 10;
+
     public static readonly POPUP_OPERATIONAL_PTF_TITLE = "{PTF_REF} ({PTF_MODEL} - {PTF_TYPE})";
     public static readonly POPUP_OPERATIONAL_PTF_CONTENT =  "Operated by {PROGRAM} ({COUNTRY})" + "<hr>{LOC_DATE} (latest info)";
 

@@ -55,6 +55,7 @@ import DataDisplay from "./DataDisplay";
 import SensorDisplay from "./SensorDisplay";
 import Symbology from "./widgets/Symbology";
 import QueryLayer from "./widgets/QueryLayer";
+import BaseElevationLayer from "@arcgis/core/layers/BaseElevationLayer";
 
 class GISMap {
     // ========================================================================
@@ -162,7 +163,7 @@ class GISMap {
     // Indicates if the current projection is 3D-flat
     public is3DFlat: boolean = false;
     // Exaggeration coeficient
-    public exaggerationCoef: number = 10;
+    public exaggerationCoef: number = Config.DEFAULT_ELEVATION_EXAGGERATION;
     // Sketch layer
     public sketchLayer: GraphicsLayer;
     // Reference to added layers
@@ -184,7 +185,7 @@ class GISMap {
 
         // Setting bathymetry layer
         this.bathymetryLayer = new ElevationLayer({url: "//elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/TopoBathy3D/ImageServer"});
-        this.exaggeratedBathyLayer = new ExaggeratedElevationLayer(this.exaggerationCoef);
+        this.exaggeratedBathyLayer = new ExaggeratedElevationLayer({exaggeration: this.exaggerationCoef});
 
         var highlightOptions = null;
         if(this.settings.highlight){
@@ -204,7 +205,7 @@ class GISMap {
                 mapParams["basemap"] = basemap;
                 //@todo exaggerated layer not working
                 mapParams["ground"] = new Ground({
-                    layers: [this.bathymetryLayer]
+                    layers: [this.exaggeratedBathyLayer]
                 });
             }
             var map = new Map(mapParams);
@@ -348,7 +349,7 @@ class GISMap {
         // Updating coeff
         this.exaggerationCoef = coef;
         // Regenerating elevation layer
-        this.exaggeratedBathyLayer = new ExaggeratedElevationLayer(this.exaggerationCoef);
+        this.exaggeratedBathyLayer = new ExaggeratedElevationLayer({exaggeration: this.exaggerationCoef});
 
         this.mapView.map.ground = new Ground({
         layers: [this.exaggeratedBathyLayer]

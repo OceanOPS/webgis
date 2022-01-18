@@ -1,16 +1,17 @@
+import { property, subclass } from "@arcgis/core/core/accessorSupport/decorators";
 import BaseElevationLayer from "@arcgis/core/layers/BaseElevationLayer";
 import ElevationLayer from "@arcgis/core/layers/ElevationLayer";
+import Config from "./Config";
 
+@subclass("esri.layers.ExaggeratedElevationLayer")
 class ExaggeratedElevationLayer extends BaseElevationLayer {
-    private exaggeration: number;
+    private _exaggeration: number;
     private _elevation: ElevationLayer;
 
-    constructor(exaggeration: number){
+    constructor(props: {exaggeration: number} = {exaggeration: Config.DEFAULT_ELEVATION_EXAGGERATION}){
         super();
-        this.exaggeration = exaggeration;
-    }
-
-    public load = (): any => {
+        this._exaggeration = props.exaggeration;
+        this.title = "Custom elevation layer";
         this._elevation = new ElevationLayer({
             url: "//elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/TopoBathy3D/ImageServer"
         });
@@ -24,13 +25,12 @@ class ExaggeratedElevationLayer extends BaseElevationLayer {
               this.spatialReference = this._elevation.spatialReference;
               this.fullExtent = this._elevation.fullExtent;
             })
-          );
-          return this;
+        );
     }
 
     public fetchTile = (level: number, row: number, col: number, options: any): any => {
         return this._elevation.fetchTile(level, row, col, options).then((data: any) : any => {
-                const exaggeration = this.exaggeration;
+                const exaggeration = this._exaggeration;
                 for (let i = 0; i < data.values.length; i++) {
                     data.values[i] = data.values[i] * exaggeration;
                 }
