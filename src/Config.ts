@@ -405,7 +405,7 @@ class Config{
         {
             "id" : "DESIGN_LINE",
             "index": 70,
-            "theme": Config.THEME_ALL,
+            "theme": Config.THEME_INTEGRATED,
             "group": "referenceLines",
             "name" : "Reference lines",
             "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/DesignLines/MapServer/0",
@@ -421,7 +421,7 @@ class Config{
         {
             "id" : "SITES",
             "index": 60,
-            "theme": Config.THEME_ALL,
+            "theme": Config.THEME_INTEGRATED,
             "group": "referenceLines",
             "name" : "Reference sites",
             "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanOPS/Sites/MapServer/0",
