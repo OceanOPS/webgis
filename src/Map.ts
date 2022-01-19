@@ -57,6 +57,7 @@ import Symbology from "./widgets/Symbology";
 import QueryLayer from "./widgets/QueryLayer";
 import ElevationExaggerationViewModel from "./widgets/ElevationExaggerationViewModel";
 import ElevationExaggeration from "./widgets/ElevationExaggeration";
+import LayerElevationExpr from "./widgets/LayerElevationExpr";
 
 class GISMap {
     // ========================================================================
@@ -91,6 +92,9 @@ class GISMap {
     // Query Widget
     private queryWidget: QueryLayer;
     private queryWidgetDisplayed: boolean = false;
+    // LayerElevationExpr Widget
+    private layerElevationExpr: LayerElevationExpr;
+    private layerElevationExprDisplayed: boolean = false;
     // Screenshot Widget
     private screenshotTool: ScreenshotTool;
     private screenshotToolDisplayed: boolean = false;
@@ -917,7 +921,9 @@ class GISMap {
         }
     }
 
-    /** */
+    /** 
+     * Activates the query widget
+    */
     public activateQueryWidget = (layer: Layer) => {              
         if(!this.queryWidget || (this.queryWidget && this.queryWidget.destroyed)){
             this.queryWidget = new QueryLayer({map: this, layer: layer});
@@ -931,6 +937,28 @@ class GISMap {
             this.queryWidgetDisplayed = false;
             if(changeLayer){
                 this.activateQueryWidget(layer);
+            }
+        }
+    }
+
+    /** 
+     * Activates the LayerElevationExpr widget
+    */
+    public activateLayerElevationExpr = (layer: Layer) => {    
+        if(this.mapView instanceof SceneView && layer instanceof FeatureLayer){          
+            if(!this.layerElevationExpr || (this.layerElevationExpr && this.layerElevationExpr.destroyed)){
+                this.layerElevationExpr = new LayerElevationExpr({layer: layer});
+                this.mapView.ui.add(this.layerElevationExpr, {position: "top-right"});
+                this.layerElevationExprDisplayed = true;
+            }
+            else{
+                var changeLayer = layer.id != this.layerElevationExpr.layer.id;
+                this.mapView.ui.remove(this.layerElevationExpr);
+                this.layerElevationExpr.destroy();
+                this.layerElevationExprDisplayed = false;
+                if(changeLayer){
+                    this.activateLayerElevationExpr(layer);
+                }
             }
         }
     }
@@ -2235,10 +2263,7 @@ class GISMap {
             this.activateQueryWidget(layer);
         }
         else if(id === "change-elevation-expr"){
-            // @todo
-            /*require(["app/modules/layerElevationExprTool"], function(layerElevationExprTool){
-                layerElevationExprTool.init(app, layer);
-            });*/
+            this.activateLayerElevationExpr(layer);
         }
     }
 
