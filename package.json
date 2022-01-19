@@ -5,8 +5,8 @@
   "scripts": {
     "clean": "tsc --build --clean",
     "dev": "vite",
-    "build": "tsc && vite build",
-    "serve": "vite preview"
+    "build": "vite build --base=./",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@arcgis/core": "^4.22.2",
