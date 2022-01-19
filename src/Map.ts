@@ -2216,6 +2216,13 @@ class GISMap {
                 className: "esri-icon-edit",
                 id: "change-symbology"
             });
+            if((this.is3D || this.is3DFlat) && layer.type == "feature"){
+                actions[1].push({
+                    title: "Change elevation expression",
+                    className: "esri-icon-polygon",
+                    id: "change-elevation-expr"
+                });
+            }
         }
         
         item.actionsSections = actions;
