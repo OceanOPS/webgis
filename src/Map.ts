@@ -660,6 +660,10 @@ class GISMap {
     public setBasemapID = (basemapID: string | null): void => {
         var basemap: Basemap | null = this.settings.getBasemapFromID(basemapID);
         this.setBasemap(basemap);
+        // In both case, saving basemap ID
+        this.basemapID = basemapID;
+        // Updating settings and URL
+        this.settings.setBasemap(basemapID);
     }
     /*
     *   Set the basemap of the map. Do not use this at initialization since it can causes spatial reference misbehavior.
@@ -745,10 +749,6 @@ class GISMap {
                 }
                 
             }
-            // In both case, saving basemap ID
-            this.basemapID = basemap.id;
-            // Updating settings and URL
-            this.settings.setBasemap(basemap.id);
         }        
     };
 

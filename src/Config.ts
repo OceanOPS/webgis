@@ -1411,7 +1411,7 @@ class Config{
     // Initializes the basemaps automatically when this file is loaded
     private static _initialize = (():void => {
         var listEsriBasemaps = [];
-        if(document.location.host == 'localhost' || document.location.host == 'www.ocean-ops.org' || document.location.host == 'ocean-ops.org'){
+        if(document.location.host == 'localhost' || document.location.host == 'localhost:3000' || document.location.host == 'www.ocean-ops.org' || document.location.host == 'ocean-ops.org'){
             listEsriBasemaps.push(
                 {"wkid": "arcgis-imagery", "thumbnailUrl": "https://www.arcgis.com/sharing/rest/content/items/ea3befe305494bb5b2acd77e1b3135dc/info/thumbnail/thumbnail1607389425104.jpeg"},
                 {"wkid": "arcgis-imagery-standard", "thumbnailUrl": "https://www.arcgis.com/sharing/rest/content/items/c7d2b5c334364e8fb5b73b0f4d6a779b/info/thumbnail/thumbnail1607389529861.jpeg"},
