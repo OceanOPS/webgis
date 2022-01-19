@@ -733,8 +733,6 @@ class GISMap {
                         this.basemapMapImageLayer = newBasemap;
                         // Adding the basemape layer to the map
                         this.mapView.map.layers.add(this.basemapMapImageLayer,0);
-                        // Updating settings and URL
-                        this.settings.setBasemap(basemap.id);
                     }
                 };
                 if(basemap.loaded){
@@ -749,6 +747,8 @@ class GISMap {
             }
             // In both case, saving basemap ID
             this.basemapID = basemap.id;
+            // Updating settings and URL
+            this.settings.setBasemap(basemap.id);
         }        
     };
 
