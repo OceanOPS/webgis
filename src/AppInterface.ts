@@ -5,7 +5,7 @@ import Utils from "./Utils";
 class AppInterface{
     public static objectsChanged = (objectRefs: string[], objectType: string): void => {
         if(!AppInterface.getEmptyGisSample()){
-            App.controllers.map.applyFilterLayers(objectRefs, objectType);
+            App.map.applyFilterLayers(objectRefs, objectType);
         }
     }
 
@@ -14,7 +14,7 @@ class AppInterface{
             featureType = "platform";
         }
 
-        App.controllers.map.selectionLayer.applySelectionLayers(selectedObjectsRef, featureType);
+        App.map.selectionLayer.applySelectionLayers(selectedObjectsRef, featureType);
     }
 
     public static sendSelectionToDashboard = (selectedObjectsRef: string[], featureType: string): void => {
@@ -88,7 +88,7 @@ class AppInterface{
 
 
     public static processDraftPtfsFromDashboard = (arrayOfObjects: any[]): void =>{
-        App.controllers.map.processDraftPtfs(arrayOfObjects);
+        App.map.processDraftPtfs(arrayOfObjects);
     }
 
 
@@ -122,15 +122,15 @@ class AppInterface{
 
     // Calls from dashboard to GIS
     public static displayDrafts = (draftsArray: any): void => {
-        App.controllers.map.processDraftPtfs(draftsArray);
+        App.map.processDraftPtfs(draftsArray);
     }
 
     public static deleteDrafts = (draftsArray: any): void => {
-        App.controllers.map.deleteDraftPtfs(draftsArray);
+        App.map.deleteDraftPtfs(draftsArray);
     }
 
     public static selectDrafts = (draftsArray: any): void => {
-        App.controllers.map.selectDraftPtfs(draftsArray);
+        App.map.selectDraftPtfs(draftsArray);
     }
 
 }
