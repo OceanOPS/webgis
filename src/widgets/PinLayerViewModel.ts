@@ -6,10 +6,13 @@ import SimpleLineSymbol from "@arcgis/core/symbols/SimpleLineSymbol";
 import SimpleMarkerSymbol from "@arcgis/core/symbols/SimpleMarkerSymbol";
 import SimpleFillSymbol from "@arcgis/core/symbols/SimpleFillSymbol";
 import SimpleRenderer from "@arcgis/core/renderers/SimpleRenderer";
-import App from "../main";
+import GISMap from "../Map";
 
 @subclass("esri.widgets.PinLayerViewModel")
 class PinLayerViewModel extends Accessor {
+    // Reference to the view
+    @property()
+    private map: GISMap;
     // Boolean indicating if given layer should be used directly instead of creating a new one
     @property()
     private useGivenLayer: boolean = false;
@@ -80,15 +83,11 @@ class PinLayerViewModel extends Accessor {
             if(this.useGivenLayer){
                 this.layer.title = newName;
                 this.layer.renderer = renderer;
-                App.controllers.map.addToWorkLayerList(this.layer);
+                this.map.addToWorkLayerList(this.layer);
             }
             else{
                 // Adding layer to work layer list and map
-                App.controllers.map.addWorkLayer(newId, this.layer.id, newName, renderer, this.layer.definitionExpression, true);
-                // Adding new entry to local storage
-                App.settings.saveWorkLayerToLocalStorage(newId, this.layer.id, newName, renderer.toJSON(), this.layer.definitionExpression);
-                // Save layer visibility
-                App.settings.updateLayerVisibilityToSessionStorage(this.layer.id, true);
+                this.map.addWorkLayer(newId, this.layer.id, newName, renderer, this.layer.definitionExpression, true);
             }
     }
 }
