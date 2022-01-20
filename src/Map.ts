@@ -645,10 +645,6 @@ class GISMap {
         });
 
         this.addToWorkLayerList(featureLayer);
-        // Adding new entry to local storage
-        this.settings.saveWorkLayerToLocalStorage(id, sourceLayerId, name, renderer.toJSON(), definitionExpression);
-        // Save layer visibility
-        this.settings.updateLayerVisibilityToSessionStorage(id, visible);
 
         featureLayer.watch("visible", (newValue, oldValue, property, object): void => {
             if(object instanceof FeatureLayer){
@@ -657,6 +653,22 @@ class GISMap {
         });
         return featureLayer;
     };
+    
+    /**
+     * Saves work layer info to local storage and visibilty to session storage
+     * @param id layer ID
+     * @param sourceLayerId source layer ID
+     * @param name name of this layer
+     * @param renderer JSON renderer of this layer
+     * @param definitionExpression definition expression of this layer
+     * @param visible boolean true if visible, false if not
+     */
+    public saveWorkLayerToBrowserStorage = (id: string, sourceLayerId: string, name: string, renderer: any, definitionExpression: string, visible: boolean) => {
+        // Adding new entry to local storage
+        this.settings.saveWorkLayerToLocalStorage(id, sourceLayerId, name, renderer.toJSON(), definitionExpression);
+        // Save layer visibility
+        this.settings.updateLayerVisibilityToSessionStorage(id, visible);
+    }
 
 
     /**

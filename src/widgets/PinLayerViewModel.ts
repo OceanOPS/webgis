@@ -88,6 +88,7 @@ class PinLayerViewModel extends Accessor {
             else{
                 // Adding layer to work layer list and map
                 this.map.addWorkLayer(newId, this.layer.id, newName, renderer, this.layer.definitionExpression, true);
+                this.map.saveWorkLayerToBrowserStorage(newId, this.layer.id, newName, renderer, this.layer.definitionExpression, true);
             }
     }
 }
