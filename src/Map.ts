@@ -146,6 +146,7 @@ class GISMap {
     private groupLayerOthers: GroupLayer;
     private operationalSubGroupLayerList: {} = {};
     private otherSubGroupLayerList: {} = {};
+    private withElevationInfoLayerIDs: {layerID: string, baseID: string}[] = [];
 
     private fullTimeExtent: any = null;
 
@@ -237,7 +238,10 @@ class GISMap {
             }
             this.mapView = new SceneView(mapViewParams);
 
-            this.exaggerationWidget = new ElevationExaggeration({view: this.mapView});
+            this.exaggerationWidget = new ElevationExaggeration({view: this.mapView, withElevationInfoLayerIDs: this.withElevationInfoLayerIDs});
+            this.exaggerationWidget.watch("exaggeration", (newValue,oldValue, propertyName, target) => {
+                this.exaggerationCoef = newValue;
+            });
 
             this.is3D = true;
         } else if (this.settings.projection && this.settings.projection == "3D-flat") {
@@ -1734,7 +1738,10 @@ class GISMap {
      * @param {integer} baseID  If the layer is derived from a generic layer (i.e. an observation layer, for a specific platform), specify the bade-layer ID here. If null, it will take the layer ID as a value.
      */
     public addLayerWithElevationInfoID = (layerID: string, baseID: string): void => {
-        this.exaggerationWidget.withElevationInfoLayerIDs.push({layerID: layerID, baseID: (baseID ? baseID : layerID)});
+        this.withElevationInfoLayerIDs.push({layerID: layerID, baseID: (baseID ? baseID : layerID)});
+        if(typeof(this.exaggerationWidget) != 'undefined'){
+            this.exaggerationWidget.withElevationInfoLayerIDs.push({layerID: layerID, baseID: (baseID ? baseID : layerID)});
+        }
     }
 
     /**
@@ -1742,9 +1749,16 @@ class GISMap {
      * @param  {integer} layerID The layer's ID to remove.
      */
     public removeFromElevationLayerIDs = (layerID: string): void => {
-        for(var i = 0; i < this.exaggerationWidget.withElevationInfoLayerIDs.length; i++){
-            if(this.exaggerationWidget.withElevationInfoLayerIDs[i].layerID == layerID){
-                this.exaggerationWidget.withElevationInfoLayerIDs.splice(i, 1);
+        for(var i = 0; i < this.withElevationInfoLayerIDs.length; i++){
+            if(this.withElevationInfoLayerIDs[i].layerID == layerID){
+                this.withElevationInfoLayerIDs.splice(i, 1);
+            }
+        }
+        if(typeof(this.exaggerationWidget) != 'undefined'){
+            for(var i = 0; i < this.exaggerationWidget.withElevationInfoLayerIDs.length; i++){
+                if(this.exaggerationWidget.withElevationInfoLayerIDs[i].layerID == layerID){
+                    this.exaggerationWidget.withElevationInfoLayerIDs.splice(i, 1);
+                }
             }
         }
     }

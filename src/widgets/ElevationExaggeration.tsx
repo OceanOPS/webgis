@@ -25,7 +25,7 @@ class ElevationExaggeration extends Widget{
     @aliasOf("viewModel.withElevationInfoLayerIDs")
     withElevationInfoLayerIDs: ElevationExaggerationViewModel["withElevationInfoLayerIDs"];
 
-    constructor(props: {view: SceneView, exaggeration?: number}){
+    constructor(props: {view: SceneView, exaggeration?: number, withElevationInfoLayerIDs?: {layerID: string, baseID: string}[]}){
         super();
         this.view = props.view;
         if(typeof(props.exaggeration) != 'undefined'){
@@ -33,6 +33,9 @@ class ElevationExaggeration extends Widget{
         }
         else{
             this.exaggeration = Config.DEFAULT_ELEVATION_EXAGGERATION;
+        }
+        if(typeof(props.withElevationInfoLayerIDs) != 'undefined'){
+            this.withElevationInfoLayerIDs = props.withElevationInfoLayerIDs;
         }
     }
         
