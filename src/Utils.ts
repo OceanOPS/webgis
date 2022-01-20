@@ -143,7 +143,7 @@ class Utils{
     }
     public static isWebsiteVersion = (): boolean => {
         try{
-            return this.isEmbedded() && window.parent.document.domain == document.domain && typeof(window.parent["App"]) == 'undefined';
+            return this.isEmbedded() && window.parent.document.domain == document.domain && typeof(window.parent["App"]) != 'undefined';
         }
         catch(error){
             return false;
