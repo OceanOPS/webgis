@@ -2412,9 +2412,11 @@ class GISMap {
             if(!(this.is3D || this.is3DFlat)){
                 Utils.displayAlert("Limited display functionalities", "You can switch to a 3D projection to benefit from the 'in-depth' experience.");
             }
-            var objectRef = feature.attributes.PTF_REF;
-            var dataDisplay = new DataDisplay({map: this});
-            dataDisplay.displayDataArgo(objectRef, "SEA TEMPERATURE");
+            else{
+                var objectRef = feature.attributes.PTF_REF;
+                var dataDisplay = new DataDisplay({map: this});
+                dataDisplay.displayDataArgo(objectRef, "SEA TEMPERATURE");
+            }
         }
         else if(id === "ptf-oceansites-sensors"){
             // Show OceanSITES sensors
@@ -2424,7 +2426,7 @@ class GISMap {
                 sensorDisplay.displaySensorsOceanSITES(objectRef);
             }
             else{
-                Utils.displayAlert("Not available", "Please switch to 3D view to enable this functionality.");
+                Utils.displayAlert("Limited display functionalities", "You can switch to a 3D projection to benefit from the 'in-depth' experience.");
             }
         }
         else if(id === "ptf-argo-data-cycle"){
@@ -2436,7 +2438,7 @@ class GISMap {
                 dataDisplay.displayDataArgo(objectRef, "SEA TEMPERATURE", cycleNb);
             }
             else{
-                Utils.displayAlert("Not available", "Please switch to 3D view to enable this functionality.");
+                Utils.displayAlert("Limited display functionalities", "You can switch to a 3D projection to benefit from the 'in-depth' experience.");
             }
         }
         else if(id === "ptf-dbcp-observations"){
