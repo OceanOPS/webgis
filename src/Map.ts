@@ -550,7 +550,7 @@ class GISMap {
     /*
     *   Adds a layer to the work layer list
     */
-    public addWorkLayer = (id: string, sourceLayerId: string, name: string, renderer: any, definitionExpression: string, visible: boolean): void => {
+    public addWorkLayer = (id: string, sourceLayerId: string, name: string, renderer: any, definitionExpression: string, visible: boolean): FeatureLayer => {
         var existingLayer: Layer = this.mapView.map.allLayers.find(l => l.id === sourceLayerId);
         var url: string, minScale: number = 0, maxScale: number = 0, labelingInfo: any, popupTemplate: PopupTemplate | null;
         if(existingLayer && existingLayer instanceof FeatureLayer){
@@ -651,6 +651,7 @@ class GISMap {
                 this.settings.updateLayerVisibilityToSessionStorage(object.id, newValue);
             }
         });
+        return featureLayer;
     };
 
 
@@ -1793,34 +1794,37 @@ class GISMap {
      * Displays the observations for a given reference
      * @param srcLayerInfo (any) the configuration informatino of the layer
      * @param objectRef (string) the reference to use
-     * @returns the ID of the added layer
+     * @returns the added FeatureLayer
      */
-    public showObservations = (srcLayerInfo: any, objectRef: string): string => {
+    public showObservations = (srcLayerInfo: any, objectRef: string): FeatureLayer => {
         var layerId = srcLayerInfo.id + "_" + objectRef;
         var layerName = objectRef + " observations";
-        var existingLayer = this.mapView.map.findLayerById(layerId);
+        var existingLayer = this.mapView.map.findLayerById(layerId) as FeatureLayer;
+        var resultLayer: FeatureLayer;
 
         if(!existingLayer){
             var whereClause = srcLayerInfo.idField + "='" + objectRef + "'";                
             var renderer = new SimpleRenderer({symbol: Config.OBSERVATIONS_SYMBOL, label: "Observation"});
-            this.addWorkLayer(layerId, srcLayerInfo.id, layerName, renderer, whereClause, true);
+            resultLayer = this.addWorkLayer(layerId, srcLayerInfo.id, layerName, renderer, whereClause, true);
         }
         else{
             existingLayer.visible = true;
+            resultLayer = existingLayer;
         }
-        return layerId;
+        return resultLayer;
     }
 
     /**
      * Displays the trackline for a given reference
      * @param srcLayerInfo (any) the configuration informatino of the layer
      * @param objectRef (string) the reference to use
-     * @returns the ID of the added layer
+     * @returns the added FeatureLayer
      */
-    public showTrackline = (srcLayerInfo: any, objectRef: string): string => {
+    public showTrackline = (srcLayerInfo: any, objectRef: string): FeatureLayer => {
         var layerId = srcLayerInfo.id + "_" + objectRef;
         var layerName = objectRef + " trackline";
-        var existingLayer = this.mapView.map.findLayerById(layerId);
+        var existingLayer = this.mapView.map.findLayerById(layerId) as FeatureLayer;
+        var resultLayer: FeatureLayer;
 
         if(!existingLayer){
             var whereClause = srcLayerInfo.idField + "='" + objectRef + "'";
@@ -1858,11 +1862,13 @@ class GISMap {
             });
 
             this.groupLayerWork.add(tracklineLayer);
+            resultLayer = tracklineLayer;
         }
         else{
             existingLayer.visible = true;
+            resultLayer = existingLayer;
         }
-        return layerId;
+        return resultLayer;
     }
 
     public removeWorkLayer = (layerId: string): void => {
@@ -2097,9 +2103,6 @@ class GISMap {
         if(!this.settings.platformTrack){
             this.mapMenu = new MapMenu(this);
         }
-        else{
-            this.setExtent("data-extent");
-        }
 
         Utils.mapLoaded();
     }
@@ -2127,12 +2130,12 @@ class GISMap {
     /*
     * Set the extent of map
     */
-    private setExtent = (extentType: string): void => {
+    private setExtent = (extentType: "data-extent" | "layer-extent", inputLayer ?: FeatureLayer): void => {
         if(extentType === "data-extent"){
             // Set the extent to the data extent, based on all feature layers
-            var extents: Extent[] = [];
-            var layers: Collection = this.mapView.map.allLayers.filter(x => x.type === "feature" && x.visible);
-            var cnt = 0;
+            let extents: Extent[] = [];
+            let layers: Collection = this.mapView.map.allLayers.filter(x => x.type === "feature" && x.visible);
+            let cnt = 0;
             for(var i = 0; i < layers.length; i++){
                 var layer = layers.getItemAt(i);
                 layer.queryExtent({outSpatialReference: this.mapView.spatialReference, where: layer.definitionExpression}).then((result: any) => {
@@ -2141,14 +2144,21 @@ class GISMap {
                         extents.push(result.extent);
                     }
                     if(cnt == layers.length){
-                        var newExtent = extents[0];
-                        for(var j = 1; j < extents.length; j++){
+                        let newExtent = extents[0];
+                        for(let j = 1; j < extents.length; j++){
                             newExtent = newExtent.union(extents[j]);
                         }
                         this.mapView.goTo(newExtent);
                     }
                 });
             }
+        }
+        else if(extentType == "layer-extent" && typeof(inputLayer) != 'undefined' && inputLayer instanceof FeatureLayer){
+            inputLayer.queryExtent({outSpatialReference: this.mapView.spatialReference, where: inputLayer.definitionExpression}).then((result: any) => {
+                if(result.count > 0){
+                    this.mapView.goTo(result.extent);
+                }
+            });
         }
     };
 
@@ -2620,7 +2630,17 @@ class GISMap {
 
             var fLayerTrackline = Config.operationalLayers.find(x => x.theme === this.settings.theme && x.type === Config.TYPE_TRACKLINE);
             if(fLayerTrackline){
-                this.showTrackline(fLayerTrackline, objectRef);
+                var tracklineLayer = this.showTrackline(fLayerTrackline, objectRef);
+                if(tracklineLayer){
+                    if(tracklineLayer.loaded){
+                        this.setExtent("layer-extent", tracklineLayer);
+                    }
+                    else{
+                        tracklineLayer.when(() => {
+                            this.setExtent("layer-extent", tracklineLayer);
+                        })
+                    }
+                }
             }
         }
 
