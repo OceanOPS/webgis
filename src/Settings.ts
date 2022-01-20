@@ -159,7 +159,9 @@ class Settings {
                     if(sqlClause == "1=1"){
                         sqlClause = null;
                     }
-                    this.filter = {"platform": sqlClause};
+                    if(sqlClause){
+                        this.filter = {"platform": sqlClause};
+                    }
                 }
             }
 
@@ -230,8 +232,20 @@ class Settings {
         var stateObj = {
             theme: this.theme,
             projection: this.projection,
-            basemap: this.basemap,
-            layers: JSON.stringify(this.activeLayers)
+            basemap: this.basemap
+        }
+
+        if(this.activeLayers.length > 0){
+            stateObj["layers"] = JSON.stringify(this.activeLayers);
+        }
+        if(typeof(this.highlight) != 'undefined'){
+            stateObj["highlight"] = JSON.stringify(this.highlight);
+        }
+        if(typeof(this.platformTrack) != 'undefined'){
+            stateObj["platformTrack"] = this.platformTrack;
+        }
+        else if(typeof(this.filter) != 'undefined'){
+            stateObj["filter"] = JSON.stringify(this.filter);
         }
 
         history.pushState(stateObj, "", "?" + Utils.htmlSerialize(stateObj));
