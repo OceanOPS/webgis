@@ -26,13 +26,21 @@ class EditGraphic extends Widget{
     private onCreateCompleteHandler: IHandle;
     private onUpdateCompleteHandler: IHandle;
     private onDeleteCompleteHandler: IHandle;
-    private map: GISMap;
+    
+    @aliasOf("viewModel.map")
+    map: EditGraphicViewModel["map"];
 
     @aliasOf("viewModel.idsSelected")
     idsSelected: EditGraphicViewModel["idsSelected"];
 
     @aliasOf("viewModel.cruiseIdSelected")
     cruiseIdSelected: EditGraphicViewModel["cruiseIdSelected"];
+
+    @aliasOf("viewModel.currentCruiseLength")
+    currentCruiseLength: EditGraphicViewModel["currentCruiseLength"];
+
+    @aliasOf("viewModel.drawOrthodromy")
+    drawOrthodromy: EditGraphicViewModel["drawOrthodromy"];
 
     @aliasOf("viewModel.draftPtfs")
     draftPtfs: EditGraphicViewModel["draftPtfs"];
@@ -178,13 +186,21 @@ class EditGraphic extends Widget{
         };
         return (
         <div class={this.classes([CSS.base, CSS.customDefault])}>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" defaultChecked={this.drawOrthodromy} onchange={this.switchDrawOrthodromy}/>
+                <label class="form-check-label" for="flexSwitchCheckChecked">Draw orthodromy</label>
+            </div>
             {
                 this.idsSelected.length == 0 && (this.countPoints > 0 || this.countPolyline > 0) &&
-                <p id='selectionIDs'>No draft selected</p>
+                <p key='selectionIDsNoDraft'>No draft selected</p>
             }
             {
                 this.idsSelected.length > 0 &&
-                <p id='selectionIDs'>Selected draft: {(getIdsList())}</p>
+                <p key='selectionIDs'>Selected draft: {(getIdsList())}</p>
+            }            
+            {
+                this.currentCruiseLength && this.currentCruiseLength > 0 &&
+                <p key='currentCruiseLength'>Current cruise length: {this.currentCruiseLength} nm</p>
             }
             {
                 this.countPoints > 0 &&
@@ -202,10 +218,7 @@ class EditGraphic extends Widget{
                     <hr/>
                     <p>Actions for 
                         {
-                        ((this.countPolyline > 1 && this.cruiseIdSelected) && " selected cruise (#" + this.cruiseIdSelected + "):"
-                        ||
-                        (this.countPolyline == 1 && " drawn cruise:")
-                        )
+                        ((this.cruiseIdSelected) && " selected cruise (#" + this.cruiseIdSelected + "):" || (this.countPolyline == 1 && " drawn cruise:"))
                         }
                     </p>
                     <p>
@@ -233,6 +246,10 @@ class EditGraphic extends Widget{
         </div>
         );
    };
+
+    private switchDrawOrthodromy = (evt: any) =>{
+        this.drawOrthodromy = evt.target.checked;    
+    }
 
     /**
      * Helper function opening the cruise form and passing through it the WKT of the polyline drawn
@@ -281,10 +298,10 @@ class EditGraphic extends Widget{
      * @param {*} event 
      */
      private createGraphicEvent = (event: any) => {
-        var graphic = event.graphic;
+        var graphic = event.graphic as Graphic;
 
         if (event.state === "complete") {
-            if(graphic.geometry.type == "point"){
+            if(graphic.geometry instanceof Point){
                 this.countPoints++;
                 var draftId = AppInterface.addDraftFromGIS(graphic.geometry.latitude, graphic.geometry.longitude);
                 if(!draftId){
@@ -293,9 +310,17 @@ class EditGraphic extends Widget{
                 this.draftPtfs.push({"draftId": draftId, "lat": graphic.geometry.latitude, "lon": graphic.geometry.longitude});
                 graphic.attributes = {"draftId": draftId};
             }
-            else if(graphic.geometry.type == "polyline"){
+            else if(graphic.geometry instanceof Polyline){
                 this.countPolyline++;
                 graphic.attributes = {"draftId": "cruise" + this.countPolyline};
+            }
+        }
+        if(event.state !== "cancel"){
+            if(graphic.geometry instanceof Polyline){
+                this.currentCruiseLength = this.viewModel.getPolylineLength(graphic.geometry as Polyline);
+                if(this.drawOrthodromy){
+                    graphic.geometry = geometryEngine.geodesicDensify(graphic.geometry as Polyline, 10000);
+                }
             }
         }
     };
@@ -309,6 +334,7 @@ class EditGraphic extends Widget{
         var draftsToUpdate = [];
         this.idsSelected = [];
         this.cruiseIdSelected = null;
+        this.currentCruiseLength = null;
         let cruiseNb = graphics.filter((g: Graphic) => { return g.geometry.type == "polyline"}).length;
         for(var i = 0; i < graphics.length; i++){
             var graphic = graphics[i];
@@ -316,6 +342,7 @@ class EditGraphic extends Widget{
             if(graphic.geometry.type == "polyline"){ 
                 if(cruiseNb == 1){
                     this.cruiseIdSelected = graphic.attributes.draftId;
+                    this.currentCruiseLength = this.viewModel.getPolylineLength(graphic.geometry as Polyline);
                 }
             }
             if (event.state === "complete") {
@@ -336,6 +363,7 @@ class EditGraphic extends Widget{
         if (event.state === "complete") {
             this.idsSelected = [];
             this.cruiseIdSelected = null;
+            this.currentCruiseLength = null;
         }
         AppInterface.updateDraftsFromGIS(draftsToUpdate);        
     };
