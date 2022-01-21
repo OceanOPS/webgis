@@ -1792,7 +1792,9 @@ class GISMap {
      */
     public processDraftPtfs = (arrayOfObjects: any[]): void => {
         if(arrayOfObjects){
-            this.activateEditGraphic();
+            if(!this.isEditGraphicDisplayed){
+                this.activateEditGraphic();
+            }
             this.editGraphic.syncDraftPtfs(arrayOfObjects, "all");
         }
     }
@@ -1803,7 +1805,9 @@ class GISMap {
      */
     public deleteDraftPtfs = (arrayOfObjects: any[]): void => {
         if(arrayOfObjects){
-            this.activateEditGraphic();
+            if(!this.isEditGraphicDisplayed){
+                this.activateEditGraphic();
+            }
             this.editGraphic.syncDraftPtfs(arrayOfObjects, "delete");
         }
     }
