@@ -31,6 +31,9 @@ class EditGraphic extends Widget{
     @aliasOf("viewModel.idsSelected")
     idsSelected: EditGraphicViewModel["idsSelected"];
 
+    @aliasOf("viewModel.cruiseIdSelected")
+    cruiseIdSelected: EditGraphicViewModel["cruiseIdSelected"];
+
     @aliasOf("viewModel.draftPtfs")
     draftPtfs: EditGraphicViewModel["draftPtfs"];
 
@@ -69,7 +72,7 @@ class EditGraphic extends Widget{
     }
 
     render(){
-        return this.getDraftHtml(this.countPoints,this.countPolyline);
+        return this.getDraftHtml();
     }
 
     destroy() {
@@ -157,10 +160,8 @@ class EditGraphic extends Widget{
 
     /**
     * Computes the HTML required for the tool panel
-    * @param {integer} countPoints initial count of draft points
-    * @param {integer} countPolyline initial count of draft polylines
     */
-    private getDraftHtml = (countPoints: number, countPolyline: number) => {
+    private getDraftHtml = () => {
         var separator = ",";
         var getIdsList = () => {
             var list: string= "";
@@ -195,9 +196,18 @@ class EditGraphic extends Widget{
                 </div>
             }
             {
-                this.countPolyline > 0 &&
+                ((this.countPolyline > 1 && this.cruiseIdSelected) || (this.countPolyline == 1)) && 
+                (
                 <div id='polylineDrafts' key='polylineDrafts'>     
                     <hr/>
+                    <p>Actions for 
+                        {
+                        ((this.countPolyline > 1 && this.cruiseIdSelected) && " selected cruise (#" + this.cruiseIdSelected + "):"
+                        ||
+                        (this.countPolyline == 1 && " drawn cruise:")
+                        )
+                        }
+                    </p>
                     <p>
                         <button id='cruiseFormLink' key='cruiseFormLink' class='btn btn-sm btn-primary' onclick={this.openCruiseForm}><span class='esri-icon-upload'></span>&nbsp;save draft cruise plan</button>
                     </p>
@@ -207,6 +217,14 @@ class EditGraphic extends Widget{
                         <button id='cruiseDensify' class='btn btn-sm btn-secondary' onclick={this.cruiseDensify}><span class='esri-icon-globe'></span> densify</button>
                     </p>
                 </div>
+                )
+            }
+            {                
+                (this.countPolyline > 1 && !this.cruiseIdSelected) &&
+                <div id='polylineDraftsNoAction' key='polylineDraftsNoAction'>     
+                    <hr/>
+                    <p>Select a single drawn cruise to enable actions.</p>
+                </div>                
             }
             {
                 this.countPoints == 0 && this.countPolyline == 0 &&
@@ -220,12 +238,13 @@ class EditGraphic extends Widget{
      * Helper function opening the cruise form and passing through it the WKT of the polyline drawn
      */
     private openCruiseForm = () => {
-        for(var i = 0; i < this.sketchWidget.layer.graphics.length; i++){
-            if(this.sketchWidget.layer.graphics.getItemAt(i).geometry.type == "polyline"){
-                var geom = webMercatorUtils.webMercatorToGeographic(this.sketchWidget.layer.graphics.getItemAt(i).geometry);
-                var wkt = Utils.polylineJsonToWKT(geom);
-                AppInterface.openCruiseForm(wkt);
-            }
+        var graphic = this.sketchWidget.layer.graphics.find((g: Graphic) => {
+            return g.geometry.type == "polyline" && (!this.cruiseIdSelected || g.attributes.draftId == this.cruiseIdSelected)
+        });  
+        if(graphic){
+            var geom = webMercatorUtils.webMercatorToGeographic(graphic.geometry);
+            var wkt = Utils.polylineJsonToWKT(geom);
+            AppInterface.openCruiseForm(wkt);
         }
     }
 
@@ -233,12 +252,13 @@ class EditGraphic extends Widget{
     *   Computes the geodesic route for a given polyline and updates the feature's geometry
     */
     private cruiseGeodesicDensify = () => {
-        for(var i = 0; i < this.sketchWidget.layer.graphics.length; i++){
-            if(this.sketchWidget.layer.graphics.getItemAt(i).geometry.type == "polyline"){
-                var geom: Polyline = this.sketchWidget.layer.graphics.getItemAt(i).geometry as Polyline;
-                var densifiedGeom = geometryEngine.geodesicDensify(geom, 10000);
-                this.sketchWidget.layer.graphics.getItemAt(i).geometry = densifiedGeom;
-            }
+        var graphic = this.sketchWidget.layer.graphics.find((g: Graphic) => {
+            return g.geometry.type == "polyline" && (!this.cruiseIdSelected || g.attributes.draftId == this.cruiseIdSelected)
+        });  
+        if(graphic){
+            var geom: Polyline = graphic.geometry as Polyline;
+            var densifiedGeom = geometryEngine.geodesicDensify(geom, 10000);
+            graphic.geometry = densifiedGeom;
         }
     }
 
@@ -246,12 +266,13 @@ class EditGraphic extends Widget{
     *   Computes a densified route for a given polyline and updates the feature's geometry
     */
     private cruiseDensify = () => {
-        for(var i = 0; i < this.sketchWidget.layer.graphics.length; i++){
-            if(this.sketchWidget.layer.graphics.getItemAt(i).geometry.type == "polyline"){
-                var geom: Polyline = this.sketchWidget.layer.graphics.getItemAt(i).geometry as Polyline;
-                var densifiedGeom = geometryEngine.densify(geom, 10000);
-                this.sketchWidget.layer.graphics.getItemAt(i).geometry = densifiedGeom;
-            }
+        var graphic = this.sketchWidget.layer.graphics.find((g: Graphic) => {
+            return g.geometry.type == "polyline" && (!this.cruiseIdSelected || g.attributes.draftId == this.cruiseIdSelected)
+        });    
+        if(graphic){
+            var geom: Polyline = graphic.geometry as Polyline;
+            var densifiedGeom = geometryEngine.densify(geom, 10000);
+            graphic.geometry = densifiedGeom;
         }
     }
 
@@ -274,10 +295,6 @@ class EditGraphic extends Widget{
             }
             else if(graphic.geometry.type == "polyline"){
                 this.countPolyline++;
-                if(this.countPolyline == 1){
-                    this.sketchWidget.availableCreateTools = ["point"];
-                    this.sketchWidget.cancel();
-                }
                 graphic.attributes = {"draftId": "cruise" + this.countPolyline};
             }
         }
@@ -291,9 +308,16 @@ class EditGraphic extends Widget{
         var graphics = event.graphics;
         var draftsToUpdate = [];
         this.idsSelected = [];
+        this.cruiseIdSelected = null;
+        let cruiseNb = graphics.filter((g: Graphic) => { return g.geometry.type == "polyline"}).length;
         for(var i = 0; i < graphics.length; i++){
             var graphic = graphics[i];
             this.idsSelected.push(graphic.attributes.draftId);
+            if(graphic.geometry.type == "polyline"){ 
+                if(cruiseNb == 1){
+                    this.cruiseIdSelected = graphic.attributes.draftId;
+                }
+            }
             if (event.state === "complete") {
                 if(graphic.geometry.type == "point"){
                     for(var j=0; j<this.draftPtfs.length;j++) {
@@ -311,6 +335,7 @@ class EditGraphic extends Widget{
         }
         if (event.state === "complete") {
             this.idsSelected = [];
+            this.cruiseIdSelected = null;
         }
         AppInterface.updateDraftsFromGIS(draftsToUpdate);        
     };
@@ -331,9 +356,6 @@ class EditGraphic extends Widget{
             }
             else if(graphics[i].geometry.type == "polyline"){
                 this.countPolyline--;
-                if(this.countPolyline == 0){
-                    this.sketchWidget.availableCreateTools = ["point", "polyline"];
-                }
             }
         }
         AppInterface.deleteDraftsFromGIS(draftsToDelete);

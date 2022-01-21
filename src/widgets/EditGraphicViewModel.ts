@@ -12,6 +12,8 @@ class EditGraphicViewModel extends Accessor{
     @property()
     idsSelected: string[] = [];
     @property()
+    cruiseIdSelected: string | null = null;
+    @property()
     countPoints = 0;
     @property()
     countPolyline = 0;
