@@ -2047,7 +2047,7 @@ class GISMap {
             view: this.mapView,
             layer: this.sketchLayer,
             availableCreateTools: ["point", "polyline"],
-            creationMode: "single"
+            creationMode: "continuous"
         });
         
         if(Utils.isWebsiteVersion()){
