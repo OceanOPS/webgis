@@ -252,8 +252,8 @@ class Config{
     public static readonly PARAMETER_NAME_PTF_PROGRAMS = "ptfPrograms";
     public static readonly PARAMETER_NAME_PTF_COUNTRIES = "ptfCountries";
     public static readonly PARAMETER_NAME_PTF_NETWORKS = "ptfNetworks";
-    public static readonly GEOMETRY_SERVICE = Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Utilities/Geometry/GeometryServer";
-    public static readonly PRINT_SERVICE = Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/ExportWebMap/GPServer/Export%20Web%20Map";
+    public static readonly GEOMETRY_SERVICE = Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Utilities/Geometry/GeometryServer";
+    public static readonly PRINT_SERVICE = Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/ExportWebMap/GPServer/Export%20Web%20Map";
     public static readonly PORTAL_URL = Config.PROTOCOL + "//www.ocean-ops.org/arcgisportal/";
     public static readonly DEFAULT_NETWORKS_FIELD = "NETWORK";
     public static readonly TYPE_PTF = "platform";
@@ -342,8 +342,8 @@ class Config{
             "group": "integrated",
             "name" : "All deployment locations",
             "defaultWhereClause": "PTF_STATUS = 6",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanOPS/PtfLocations/MapServer/0",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanOPS/PtfLocations/MapServer/export?bbox=130%2C30%2C150%2C40&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanOPS/PtfLocations/MapServer/0",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanOPS/PtfLocations/MapServer/export?bbox=130%2C30%2C150%2C40&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "symbologyFields" : ["DEFAULT", "MASTER PROGRAM", "PLATFORM FAMILY", "SHIP"],
             "idField" : "PTF_REF",
             "type" : Config.TYPE_PTF,
@@ -359,8 +359,8 @@ class Config{
             "group": "integrated",
             "name" : "All latest locations",
             "defaultWhereClause": "PTF_STATUS = 6",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanOPS/PtfLocations/MapServer/1",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanOPS/PtfLocations/MapServer/export?bbox=130%2C30%2C150%2C40&bboxSR=&layers=show%3A1&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanOPS/PtfLocations/MapServer/1",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanOPS/PtfLocations/MapServer/export?bbox=130%2C30%2C150%2C40&bboxSR=&layers=show%3A1&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "symbologyFields" : ["DEFAULT", "MASTER PROGRAM", "PLATFORM FAMILY", "SHIP", "WIGOS_SYNCRHONISED"],
             "idField" : "PTF_REF",
             "type" : Config.TYPE_PTF,
@@ -410,8 +410,8 @@ class Config{
             "theme": Config.THEME_INTEGRATED,
             "group": "referenceLines",
             "name" : "Reference lines",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/DesignLines/MapServer/0",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/DesignLines/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanOPS/DesignLines/MapServer/0",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanOPS/DesignLines/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "symbologyFields" : ["DEFAULT", "LINE FAMILY"],
             "idField" : "ID",
             "type" : Config.TYPE_LINE,
@@ -426,7 +426,7 @@ class Config{
             "theme": Config.THEME_INTEGRATED,
             "group": "referenceLines",
             "name" : "Reference sites",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanOPS/Sites/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanOPS/Sites/MapServer/0",
             "symbologyFields" : ["DEFAULT"],
             "idField" : "SITE_ID",
             "type" : Config.TYPE_SITE,
@@ -435,7 +435,7 @@ class Config{
             "elevationInfo": {
                 "mode": "on-the-ground",
             },
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanOPS/Sites/MapServer/export?bbox=-43%2C59%2C-35.5%2C63.8&bboxSR=&layers=&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanOPS/Sites/MapServer/export?bbox=-43%2C59%2C-35.5%2C63.8&bboxSR=&layers=&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "visible" : true
         },
         {
@@ -445,11 +445,11 @@ class Config{
             "group": "gliders",
             "name" : "OceanGliders deployments",
             "defaultWhereClause": "",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanGliders/OceanGlidersLocation/MapServer/1",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanGliders/OceanGlidersLocation/MapServer/1",
             "symbologyFields" : ["COUNTRY", "STATUS", "GLIDER TYPE", "GLIDER MODEL"],
             "idField" : "PTF_REF",
             "type" : Config.TYPE_PTF,
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanGliders/OceanGlidersLocation/MapServer/export?bbox=-1%2C34%2C19%2C44&bboxSR=&layers=show%3A1&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanGliders/OceanGlidersLocation/MapServer/export?bbox=-1%2C34%2C19%2C44&bboxSR=&layers=show%3A1&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "popupTitle": Config.POPUP_OPERATIONAL_PTF_TITLE_ARGO,
             "popupContent": Config.POPUP_OPERATIONAL_PTF_CONTENT_ARGO,
             "popupFieldInfos": Config.POPUP_OPERATIONAL_PTF_FIELDINFOS_ARGO,
@@ -470,11 +470,11 @@ class Config{
             "group": "gliders",
             "name" : "OceanGliders latest locations",
             "defaultWhereClause": "",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanGliders/OceanGlidersLocation/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanGliders/OceanGlidersLocation/MapServer/0",
             "symbologyFields" : ["COUNTRY", "STATUS", "GLIDER TYPE", "GLIDER MODEL"],
             "idField" : "PTF_REF",
             "type" : Config.TYPE_PTF,
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanGliders/OceanGlidersLocation/MapServer/export?bbox=-1%2C34%2C19%2C44&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanGliders/OceanGlidersLocation/MapServer/export?bbox=-1%2C34%2C19%2C44&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "popupTitle": Config.POPUP_OPERATIONAL_PTF_TITLE_ARGO,
             "popupContent": Config.POPUP_OPERATIONAL_PTF_CONTENT_ARGO,
             "popupFieldInfos": Config.POPUP_OPERATIONAL_PTF_FIELDINFOS_ARGO,
@@ -499,10 +499,10 @@ class Config{
             "name" : "OceanGliders observations",
             "theme": "gliders",
             "group": "gliders",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanGliders/OceanGlidersLocation/MapServer/2",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanGliders/OceanGlidersLocation/MapServer/2",
             "symbologyFields" : ["DEFAULT"],
             "idField" : "PTF_REF",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanGliders/OceanGlidersLocation/MapServer/export?bbox=-130%2C20%2C-70%2C50&bboxSR=&layers=show%3A2&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanGliders/OceanGlidersLocation/MapServer/export?bbox=-130%2C20%2C-70%2C50&bboxSR=&layers=show%3A2&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "type" : Config.TYPE_OBS_PTF,
             "visible" : false,
             "selectionSymbol" : { "type": "esriSMS",    "style": "esriSMSCircle",   "color": [0,255,255,255],   "size": 8,  "angle": 0, "xoffset": 0,   "yoffset": 0,   "outline":  {       "color": [0,0,0,255],       "width": 1  } }
@@ -513,10 +513,10 @@ class Config{
             "name" : "OceanGliders observations",
             "theme": "gliders",
             "group": "gliders",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanGliders/OceanGlidersObservation/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanGliders/OceanGlidersObservation/MapServer/0",
             "symbologyFields" : ["DEFAULT"],
             "idField" : "OBS_ID",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanGliders/OceanGlidersLocation/MapServer/export?bbox=-130%2C20%2C-70%2C50&bboxSR=&layers=show%3A2&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanGliders/OceanGlidersLocation/MapServer/export?bbox=-130%2C20%2C-70%2C50&bboxSR=&layers=show%3A2&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "type" : Config.TYPE_OBS,
             "visible" : false,
             "selectionSymbol" : { "type": "esriSMS",    "style": "esriSMSCircle",   "color": [0,255,255,255],   "size": 8,  "angle": 0, "xoffset": 0,   "yoffset": 0,   "outline":  {       "color": [0,0,0,255],       "width": 1  } }
@@ -528,11 +528,11 @@ class Config{
             "group": "argo",
             "name" : "Argo deployments",
             "defaultWhereClause": "PTF_STATUS = 6",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Argo/ARGOLocations/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Argo/ARGOLocations/MapServer/0",
             "symbologyFields" : ["STATUS", "COUNTRY", "PROGRAM", "FLOAT MODEL", "FLOAT TYPE", "TELECOM TYPE", "SHIP", "DRIFT DEPTH", "PROFILE DEPTH", "CYCLE TIME"],
             "idField" : "PTF_REF",
             "type" : Config.TYPE_PTF,
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Argo/ARGOLocations/MapServer/export?bbox=130%2C30%2C150%2C40&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Argo/ARGOLocations/MapServer/export?bbox=130%2C30%2C150%2C40&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "popupTitle": Config.POPUP_OPERATIONAL_PTF_TITLE_ARGO,
             "popupContent": Config.POPUP_OPERATIONAL_PTF_CONTENT_ARGO,
             "popupFieldInfos": Config.POPUP_OPERATIONAL_PTF_FIELDINFOS_ARGO,
@@ -558,11 +558,11 @@ class Config{
             "theme": "argo",
             "group": "argo",
             "defaultWhereClause": "PTF_STATUS = 6",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Argo/ARGOLocations/MapServer/1",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Argo/ARGOLocations/MapServer/1",
             "symbologyFields" : ["STATUS", "COUNTRY", "PROGRAM", "AGE", "FLOAT MODEL", "FLOAT TYPE", "TELECOM TYPE", "SHIP", "DRIFT DEPTH", "PROFILE DEPTH", "CYCLE TIME", "AGE_HOTSPOT", "RETRIEVAL STATUS", "3D"],
             "idField" : "PTF_REF",
             "type" : Config.TYPE_PTF,
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Argo/ARGOLocations/MapServer/export?bbox=130%2C30%2C150%2C40&bboxSR=&layers=show%3A1&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Argo/ARGOLocations/MapServer/export?bbox=130%2C30%2C150%2C40&bboxSR=&layers=show%3A1&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "popupTitle": Config.POPUP_OPERATIONAL_PTF_TITLE_ARGO,
             "popupContent": Config.POPUP_OPERATIONAL_PTF_CONTENT_ARGO,
             "popupFieldInfos": Config.POPUP_OPERATIONAL_PTF_FIELDINFOS_ARGO,
@@ -592,10 +592,10 @@ class Config{
             "name" : "Argo observations",
             "theme": "argo",
             "group": "argo",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Argo/ARGOObservations/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Argo/ARGOObservations/MapServer/0",
             "symbologyFields" : ["DEFAULT"],
             "idField" : "PTF_REF",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Argo/ARGOObservations/MapServer/export?bbox=130%2C30%2C135%2C32&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Argo/ARGOObservations/MapServer/export?bbox=130%2C30%2C135%2C32&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "type" : Config.TYPE_OBS_PTF,
             "popupTitle" : Config.POPUP_ARGO_OBS_TITLE,
             "popupContent": Config.POPUP_ARGO_OBS_CONTENT,
@@ -642,10 +642,10 @@ class Config{
             "name" : "Argo observations",
             "theme": "argo",
             "group": "argo",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Argo/ARGOObservations/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Argo/ARGOObservations/MapServer/0",
             "symbologyFields" : ["DEFAULT", "DATA STATUS"],
             "idField" : "OBS_ID",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Argo/ARGOObservations/MapServer/export?bbox=130%2C30%2C135%2C32&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Argo/ARGOObservations/MapServer/export?bbox=130%2C30%2C135%2C32&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "type" : Config.TYPE_OBS,
             "popupTitle" : Config.POPUP_ARGO_OBS_TITLE,
             "popupContent": Config.POPUP_ARGO_OBS_CONTENT, 
@@ -674,10 +674,10 @@ class Config{
             "theme": "argo",
             "group": "argo",
             "name" : "Argo tracklines",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Argo/ARGOTrajectory/MapServer/1",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Argo/ARGOTrajectory/MapServer/1",
             "symbologyFields" : ["DEFAULT"],
             "idField" : "PTF_REF",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Argo/ARGOTrajectory/MapServer/export?bbox=130%2C30%2C135%2C32&bboxSR=&layers=show%3A1&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Argo/ARGOTrajectory/MapServer/export?bbox=130%2C30%2C135%2C32&bboxSR=&layers=show%3A1&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "type" : Config.TYPE_TRACKLINE,
             "visible" : false,
             "selectionSymbol" : { "type": "esriSLS",    "style": "esriSLSSolid",    "color": [0,255,255,255],   "size": 2,  "angle": 0, "xoffset": 0,   "yoffset": 0,   "outline":  {       "color": [0,0,0,255],       "width": 1  } }
@@ -689,7 +689,7 @@ class Config{
             "group": "sot",
             "name" : "SOT Latest Locations",
             "defaultWhereClause": "PTF_STATUS = 6",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/SOT/SOTLocations/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/SOT/SOTLocations/MapServer/0",
             "symbologyFields" : ["STATUS", "COUNTRY", "VOS CLASS", "TYPE", "MASK"],
             "idField" : "PTF_REF",
             "type" : Config.TYPE_PTF,
@@ -717,7 +717,7 @@ class Config{
             "theme": "sot",
             "group": "sot",
             "name" : "SOOP XBT design lines",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/SOT/SOOP_XBT_DESIGN/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/SOT/SOOP_XBT_DESIGN/MapServer/0",
             "symbologyFields" : [],
             "idField" : "LINE_ID",
             "type" : Config.TYPE_LINE,
@@ -739,7 +739,7 @@ class Config{
             "theme": "sot",
             "group": "sot",
             "name" : "SOT Observations",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/SOT/SOTObservations/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/SOT/SOTObservations/MapServer/0",
             "symbologyFields" : ["DEFAULT"],
             "idField" : "PTF_REF",
             "type" : Config.TYPE_OBS_PTF,
@@ -755,7 +755,7 @@ class Config{
             "theme": "sot",
             "group": "sot",
             "name" : "SOT Observations",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/SOT/SOTObservations/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/SOT/SOTObservations/MapServer/0",
             "symbologyFields" : ["DEFAULT"],
             "idField" : "OBS_ID",
             "type" : Config.TYPE_OBS,
@@ -772,7 +772,7 @@ class Config{
             "group": "dbcp",
             "name" : "DBCP deployments",
             "defaultWhereClause": "PTF_STATUS = 6",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/DBCP/DBCPLocations/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/DBCP/DBCPLocations/MapServer/0",
             "symbologyFields" : ["STATUS", "COUNTRY"],
             "idField" : "PTF_REF",
             "type" : Config.TYPE_PTF,
@@ -800,7 +800,7 @@ class Config{
             "group": "dbcp",
             "name" : "DBCP latest locations",
             "defaultWhereClause": "PTF_STATUS = 6",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/DBCP/DBCPLocations/MapServer/1",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/DBCP/DBCPLocations/MapServer/1",
             "symbologyFields" : ["STATUS", "COUNTRY", "3D"],
             "idField" : "PTF_REF",
             "type" : Config.TYPE_PTF,
@@ -827,7 +827,7 @@ class Config{
             "theme": "dbcp",
             "group": "dbcp",
             "name" : "DBCP Observations",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/DBCP/DBCPObservations/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/DBCP/DBCPObservations/MapServer/0",
             "symbologyFields" : ["DEFAULT"],
             "idField" : "PTF_REF",            
             "type" : Config.TYPE_OBS_PTF,
@@ -842,7 +842,7 @@ class Config{
             "theme": "dbcp",
             "group": "dbcp",
             "name" : "DBCP tracklines",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/DBCP/DBCPObservations/MapServer/1",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/DBCP/DBCPObservations/MapServer/1",
             "symbologyFields" : ["DEFAULT"],
             "idField" : "PTF_REF",
             "type" : Config.TYPE_TRACKLINE,
@@ -855,7 +855,7 @@ class Config{
             "theme": "oceansites",
             "group": "oceansites",
             "name" : "OceanSITES deployments",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanSITES/OceanSITESLocations/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanSITES/OceanSITESLocations/MapServer/0",
             "symbologyFields" : ["STATUS", "COUNTRY","3D"],
             "idField" : "PTF_REF",
             "type" : Config.TYPE_PTF,
@@ -885,7 +885,7 @@ class Config{
             "group": "oceansites",
             "idField" : "PTF_REF",
             "hideFromCollection": true,
-            "url": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanSITES/OceanSITES_Sensors/MapServer/0",
+            "url": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanSITES/OceanSITES_Sensors/MapServer/0",
             "symbologyFields" : ["DEFAULT"],
             "type": "oceansitesSensors",
             "popupTitle" : function(event: any){ 
@@ -922,7 +922,7 @@ class Config{
             "group": "gloss",
             "name" : "GLOSS platforms",
             "defaultWhereClause": "PTF_STATUS = 6",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/GLOSS/GLOSSLocations/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/GLOSS/GLOSSLocations/MapServer/0",
             "symbologyFields" : ["STATUS"],
             "idField" : "PTF_REF",
             "type" : Config.TYPE_PTF,
@@ -937,7 +937,7 @@ class Config{
             "theme": "goship",
             "group": "goship",
             "name" : "Cruises",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/GO-SHIP/GOSHIP_CRUISE/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/GO-SHIP/GOSHIP_CRUISE/MapServer/0",
             "symbologyFields" : ["TYPE","STATUS","GO-SHIP CLASS","DATES PENDING","ROUTE PENDING"],
             "idField" : "ID",
             "type" : Config.TYPE_CRUISE,
@@ -960,7 +960,7 @@ class Config{
             "theme": "goship",
             "group": "goship",
             "name" : "Design lines",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/GO-SHIP/GOSHIP_DESIGN/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/GO-SHIP/GOSHIP_DESIGN/MapServer/0",
             "symbologyFields" : [],
             "idField" : "LINE_ID",
             "type" : Config.TYPE_LINE,
@@ -982,9 +982,9 @@ class Config{
             "theme": Config.THEME_ALL,
             "group": "cruises",
             "name" : "Cruises",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/CRUISE_LINE/MapServer/0",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/Cruises/MapServer/0",
             "symbologyFields" : ["TYPE","STATUS","GO-SHIP CLASS","DATES PENDING","ROUTE PENDING"],
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/CRUISE_LINE/MapServer/export?bbox=-80%2C10%2C-20%2C30&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/Cruises/MapServer/export?bbox=-80%2C10%2C-20%2C30&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "idField" : "ID",
             "type" : Config.TYPE_CRUISE,
             "popupTitle" : Config.POPUP_OPERATIONAL_CRUISE_TITLE,
@@ -1008,8 +1008,8 @@ class Config{
             "theme" : "argo",
             "name" : "Argo design",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Argo/ARGODesign/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Argo/ARGODesign/MapServer/export?bbox=130%2C30%2C150%2C40&bboxSR=&layers=show%3A5&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Argo/ARGODesign/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Argo/ARGODesign/MapServer/export?bbox=130%2C30%2C150%2C40&bboxSR=&layers=show%3A5&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "index": 61
         },{
             "id" : "argoDensity",
@@ -1017,8 +1017,8 @@ class Config{
             "theme" : "argo",
             "name" : "Argo density",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Argo/ARGODensity/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Argo/ARGODensity/MapServer/export?bbox=130%2C30%2C150%2C40&bboxSR=&layers=show%3A5&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Argo/ARGODensity/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Argo/ARGODensity/MapServer/export?bbox=130%2C30%2C150%2C40&bboxSR=&layers=show%3A5&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "index": 62
         },{
             "id" : "dbcpDensity",
@@ -1026,8 +1026,8 @@ class Config{
             "theme" : "dbcp",
             "name" : "DBCP density",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/DBCP/DBCPDensity/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/DBCP/DBCPDensity/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/DBCP/DBCPDensity/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/DBCP/DBCPDensity/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "index": 64
         },{
             "id" : "dbcpCoverage",
@@ -1035,8 +1035,8 @@ class Config{
             "theme" : "dbcp",
             "name" : "DBCP coverage",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/DBCP/DBCPCoverage/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/DBCP/DBCPCoverage/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/DBCP/DBCPCoverage/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/DBCP/DBCPCoverage/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "index": 64
         },{
             "id" : "glidersDesign",
@@ -1044,8 +1044,8 @@ class Config{
             "theme" : "gliders",
             "name" : "OceanGliders design",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanGliders/OceanGlidersDesign/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/OceanGliders/OceanGlidersDesign/MapServer/export?bbox=130%2C30%2C150%2C40&bboxSR=&layers=show%3A5&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanGliders/OceanGlidersDesign/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/OceanGliders/OceanGlidersDesign/MapServer/export?bbox=130%2C30%2C150%2C40&bboxSR=&layers=show%3A5&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "index": 63
         },{
             "id" : "argoCoverage",
@@ -1053,8 +1053,8 @@ class Config{
             "theme" : "argo",
             "name" : "Argo coverage",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Argo/ARGOCoverage/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Argo/ARGOCoverage/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Argo/ARGOCoverage/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Argo/ARGOCoverage/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "index": 65
         }, 
         {
@@ -1063,7 +1063,7 @@ class Config{
             "theme" : Config.THEME_ALL,
             "name" : "Blue Observer",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/BlueObserver/MapServer",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/BlueObserver/MapServer",
             "index": 61
         },
         {
@@ -1072,8 +1072,8 @@ class Config{
             "theme" : "goship",
             "name" : "GO-SHIP design",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/GO-SHIP/GOSHIP_DESIGN/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/GO-SHIP/GOSHIP_DESIGN/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/GO-SHIP/GOSHIP_DESIGN/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/GO-SHIP/GOSHIP_DESIGN/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "index": 82
         }, {
             "id" : "goshipStatus20122023",
@@ -1081,8 +1081,8 @@ class Config{
             "theme" : "goship",
             "name" : "GO-SHIP status 2012-2023",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/GO-SHIP/GOSHIP_STATUS_2012_2023/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/GO-SHIP/GOSHIP_STATUS_2012_2023/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/GO-SHIP/GOSHIP_STATUS_2012_2023/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/GO-SHIP/GOSHIP_STATUS_2012_2023/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "index": 83
         },{
             "id" : "sotCoverage",
@@ -1090,8 +1090,8 @@ class Config{
             "theme" : "sot",
             "name" : "SOT coverage",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/SOT/SOTCoverage/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/SOT/SOTCoverage/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/SOT/SOTCoverage/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/SOT/SOTCoverage/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "index": 83
         }, {
             "id" : "soopXbtDesign",
@@ -1099,8 +1099,8 @@ class Config{
             "theme" : "sot",
             "name" : "SOOP-XBT design",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/SOT/SOOP_XBT_DESIGN/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/SOT/SOOP_XBT_DESIGN/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/SOT/SOOP_XBT_DESIGN/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/SOT/SOOP_XBT_DESIGN/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "sublayers": [
                 {
                     "id": 0,
@@ -1138,7 +1138,7 @@ class Config{
             "theme" : "dbcp",
             "name" : "DBCP action groups",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/DBCP/DBCPActionGroups/MapServer",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/DBCP/DBCPActionGroups/MapServer",
             "index": 85
         },
         {
@@ -1147,8 +1147,8 @@ class Config{
             "theme" : Config.THEME_ALL,
             "name" : "Sea ice extent",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/SeaIceExtent/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/SeaIceExtent/MapServer/export?bbox=-85%2C-80%2C-45%2C-60&bboxSR=&layers=show%3A0%2C1&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/SeaIceExtent/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/SeaIceExtent/MapServer/export?bbox=-85%2C-80%2C-45%2C-60&bboxSR=&layers=show%3A0%2C1&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "index" : 41
         },
         {
@@ -1157,8 +1157,8 @@ class Config{
             "theme" : Config.THEME_ALL,
             "name" : "Ocean areas",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/OceanAreas/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/OceanAreas/MapServer/export?bbox=-180%2C-90%2C180%2C90&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/OceanAreas/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/OceanAreas/MapServer/export?bbox=-180%2C-90%2C180%2C90&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "index" : 21
         },
         {
@@ -1167,8 +1167,8 @@ class Config{
             "theme" : Config.THEME_ALL,
             "name" : "Points of interest",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/PointsOfInterest/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/PointsOfInterest/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/PointsOfInterest/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/PointsOfInterest/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "sublayers": [
                 {
                     "id": 0,
@@ -1199,23 +1199,13 @@ class Config{
             "index" : 43
         },
         {
-            "id" : "grids",
-            "group": "commons",
-            "theme" : Config.THEME_ALL,
-            "name" : "Grids",
-            "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/Grids/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/Grids/MapServer/export?bbox=-180%2C-90%2C180%2C90&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
-            "index" : 79
-        },
-        {
             "id" : "bathymetry2000",
             "group": "commons",
             "theme" : Config.THEME_ALL,
             "name" : "Bathymetry (2000m)",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/Bathymetry2000/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Commons/Bathymetry2000/MapServer/export?bbox=-90%2C-65%2C-40%2C-40&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/Bathymetry2000/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/Bathymetry2000/MapServer/export?bbox=-90%2C-65%2C-40%2C-40&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "index" : 6
         },
         {
@@ -1224,8 +1214,8 @@ class Config{
             "theme" : Config.THEME_ALL,
             "name" : "Land (as a layer)",
             "visible" : false,
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Basemaps/Land/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Basemaps/LandTiled/MapServer/tile/1/0/1",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Basemaps/Land/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Basemaps/LandTiled/MapServer/tile/1/0/1",
             "index": 90
         }
     ];
@@ -1250,13 +1240,13 @@ class Config{
             "basemap": new Basemap({
                 baseLayers: [
                     new WebTileLayer({
-                        urlTemplate: Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Basemaps/LandTiled/MapServer/tile/{level}/{row}/{col}",
+                        urlTemplate: Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Basemaps/LandTiled/MapServer/tile/{level}/{row}/{col}",
                         copyright: "Map tiles by <a href=\"https://www.ocean-ops.org/\">OceanOPS</a>"
                     })
                 ],
                 title: "OceanOPS basemap",
                 id: "basemapLands",
-                thumbnailUrl: Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Basemaps/LandTiled/MapServer/tile/1/0/1"
+                thumbnailUrl: Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Basemaps/LandTiled/MapServer/tile/1/0/1"
             }),
             "thumbnailUrl": null
         },{
@@ -1264,13 +1254,13 @@ class Config{
             "basemap": new Basemap({
                 baseLayers: [
                     new WebTileLayer({
-                        urlTemplate: Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Basemaps/LandSeaTiled/MapServer/tile/{level}/{row}/{col}",
+                        urlTemplate: Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Basemaps/LandSeaTiled/MapServer/tile/{level}/{row}/{col}",
                         copyright: "Map tiles by <a href=\"https://www.ocean-ops.org/\">OceanOPS</a>"
                     })
                 ],
                 title: "OceanOPS basemap (with coloured ocean)",
                 id: "basemapLandsSeas",
-                thumbnailUrl: Config.PROTOCOL + "//www.ocean-ops.org/arcgisserver/rest/services/Basemaps/LandSeaTiled/MapServer/tile/1/0/1"
+                thumbnailUrl: Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Basemaps/LandSeaTiled/MapServer/tile/1/0/1"
             }),
             "thumbnailUrl": null
         }
