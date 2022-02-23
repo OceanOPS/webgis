@@ -3,7 +3,7 @@
         "title": "Ocean Observing Systems"
     },
     "type": "unique-value",
-    "valueExpression": "When($feature.PTF_TYPE == 'FLOAT_DEEP', 'ARGO_DEEP', Find('Argo BioGeoChemical', $feature.NETWORK) > -1, 'ARGO_BGC', Find('Argo', $feature.NETWORK) > -1 && Find('Argo Deep', $feature.NETWORK) == -1 && Find('Argo BioGeoChemical', $feature.NETWORK) == -1, 'ARGO_CORE', $feature.PTF_FAMILY == 'DB', 'DBCP_DB', $feature.PTF_FAMILY == 'ICE_BUOYS', 'DBCP_ICEB', $feature.PTF_FAMILY == 'FIXED' && $feature.PTF_TYPE != 'HF_RADAR' && Find('GLOSS', $feature.NETWORK) == -1, 'DBCP_FIXED', $feature.PTF_FAMILY == 'MB' && $feature.PTF_TYPE != 'TSUNAMETER' && Find('OceanSITES', $feature.NETWORK) == -1, 'DBCP_MB', $feature.PTF_TYPE == 'TSUNAMETER', 'DBCP_TSUNA', $feature.PTF_TYPE == 'SAILING_DRONE', 'DBCP_SAILDRONE', Find('OceanSITES', $feature.NETWORK) > -1, 'OCEANSITES', Find('GLOSS', $feature.NETWORK) > -1, 'GLOSS', Find('VOS', $feature.NETWORK) > -1 && $feature.PTF_TYPE == 'VOS_MWS', 'SOT_MWS', Find('VOS', $feature.NETWORK) > -1 && $feature.PTF_TYPE == 'VOS_AWS', 'SOT_AWS', Find('ASAP', $feature.NETWORK) > -1, 'SOT_ASAP', Find('SOOP XBT', $feature.NETWORK) > -1, 'SOT_SOOP_XBT', $feature.PTF_FAMILY == 'ANIMAL', 'ANIMAL', $feature.PTF_TYPE == 'HF_RADAR', 'HF_RADAR', 'others')",
+    "valueExpression": "When($feature.PTF_TYPE == 'FLOAT_DEEP', 'ARGO_DEEP', Find('Argo BioGeoChemical', $feature.NETWORK) > -1, 'ARGO_BGC', Find('Argo', $feature.NETWORK) > -1 && Find('Argo Deep', $feature.NETWORK) == -1 && Find('Argo BioGeoChemical', $feature.NETWORK) == -1, 'ARGO_CORE', $feature.MASTER_PROGRAM == 'OceanGliders', 'OG_GLIDERS', $feature.PTF_FAMILY == 'DB', 'DBCP_DB', $feature.PTF_FAMILY == 'ICE_BUOYS', 'DBCP_ICEB', $feature.PTF_FAMILY == 'FIXED' && $feature.PTF_TYPE != 'HF_RADAR' && Find('GLOSS', $feature.NETWORK) == -1, 'DBCP_FIXED', $feature.PTF_FAMILY == 'MB' && $feature.PTF_TYPE != 'TSUNAMETER' && Find('OceanSITES', $feature.NETWORK) == -1, 'DBCP_MB', $feature.PTF_TYPE == 'TSUNAMETER', 'DBCP_TSUNA', $feature.PTF_TYPE == 'SAILING_DRONE', 'DBCP_SAILDRONE', Find('OceanSITES', $feature.NETWORK) > -1, 'OCEANSITES', Find('GLOSS', $feature.NETWORK) > -1, 'GLOSS', Find('VOS', $feature.NETWORK) > -1 && $feature.PTF_TYPE == 'VOS_MWS', 'SOT_MWS', Find('VOS', $feature.NETWORK) > -1 && $feature.PTF_TYPE == 'VOS_AWS', 'SOT_AWS', Find('ASAP', $feature.NETWORK) > -1, 'SOT_ASAP', Find('SOOP XBT', $feature.NETWORK) > -1, 'SOT_SOOP_XBT', $feature.PTF_FAMILY == 'FISHING', 'SOT_SOOP_FISHING', $feature.PTF_FAMILY == 'ANIMAL', 'ANIMAL', $feature.PTF_TYPE == 'HF_RADAR', 'HF_RADAR', 'others')",
     "uniqueValueInfos": [
         {
             "value": "TITLE_ARGO",
@@ -83,6 +83,29 @@
                     "color": [
                         0,
                         100,
+                        0,
+                        255
+                    ],
+                    "width": 1
+                }
+            }
+        },
+        {
+            "value": "OG_GLIDERS",
+            "label": "Underwater gliders - OceanGliders",
+            "symbol": {
+                "type": "simple-marker",
+                "size": 6,
+                "color": [
+                    232,
+                    65,
+                    24,
+                    255
+                ],
+                "outline": {
+                    "color": [
+                        123,
+                        0,
                         0,
                         255
                     ],
