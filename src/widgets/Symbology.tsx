@@ -43,6 +43,8 @@ class Symbology extends Widget{
     histogramBins: SymbologyViewModel["histogramBins"];
     @property()
     colorSlider: ColorSlider;
+    @property()
+    toClose: boolean = false;
 
     constructor(props?: any){
         super();
@@ -77,8 +79,8 @@ class Symbology extends Widget{
             if(symbologyFields && symbologyFields.length >0){
                 return (
                     <div id="symbologyWidget" afterCreate={this.renderSlider} class={this.classes([CSS.base, CSS.customDefault])}>
-                        <p>Select a symbology - {this.layer.title}</p>
                         <form class='form-group'>
+                            <label class="form-label" for="symbologySelect">Select a symbology - {this.layer.title}</label>
                             <select class='form-control' id='symbologySelect' onchange={this.changerColourListener}>
                                 <option value='' disabled selected>--</option>
                                 {
@@ -333,6 +335,7 @@ class Symbology extends Widget{
                         this.removeColorSlider();           
                     }
                 }
+                this.toClose = true;
             });            
         }, 
         function(err){

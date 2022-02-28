@@ -936,6 +936,11 @@ class GISMap {
             if(uiEnabled){
                 this.mapView.ui.add(this.symbologyWidget, {position: "top-right"});
                 this.symbologyWidgetDisplayed = true;
+                this.symbologyWidget.watch("toClose", (newValue: boolean) => {
+                    if(newValue){
+                        this.activateSymbologyWidget(layer);
+                    }
+                });
             }
         }
         else{
