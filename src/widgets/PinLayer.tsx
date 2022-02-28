@@ -153,41 +153,119 @@ class PinLayer extends Widget {
         }
         else if(geometryType === "polyline"){
             return (
-            <form class='form-horizontal'>
-                <div class='form-group row'><label for='layerNameToSave' class='col-sm-4 control-label'>New Name</label><div class='col-sm-8'><input class='form-control' type='text' id='layerNameToSave' name='layerNameToSave' maxlength='40' /></div></div>
-                <div class='form-group row'><label for='layerStyleToSave' class='col-sm-4 control-label'>Style & Size</label><div class='col-sm-4'>{this._getSymbolList(geometryType)}</div>
-                <div class='col-sm-4'><input class='form-control' type='number' name='layerSizeToSave' id='layerSizeToSave' min='1' value='6'/></div></div>
-                <div class='form-group row'><label for='layerColorToSave' class='col-sm-4 control-label'>Color</label><div class='col-sm-4'><input type='color' class='form-control' id='layerColorToSave' name='layerColorToSave'/></div>
-                <div class='col-sm-4'><label class='checkbox-inline'><input type='checkbox' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>No color</label></div></div>
-                <div class='form-group row'><div class='col-sm-offset-4 col-sm-8'><label class='checkbox-inline'><input type='checkbox' name='layerKeepOriginalRendererToSave' id='layerKeepOriginalRendererToSave'/>Keep Original Symbology</label></div></div>
-                <div class='form-group row'><div class='col-sm-offset-4 col-sm-4'><input class='btn btn-default' type='button' value='Pin it!' id='pinLayerSubmit' onclick={this._pinLayer}/></div></div>
+            <form class="px-1 py-1">
+                <input class='form-control' type='text' placeholder='New name' id='layerNameToSave' name='layerNameToSave' maxlength='40'/>
+                <hr/>
+                <div class='row mb-3'>                    
+                    <div class='col'>
+                        <label for='layerStyleToSave' class='form-label'>Style</label>{this._getSymbolList(geometryType)}
+                    </div>
+                    <div class='col'>
+                        <label for='layerSizeToSave' class='form-label'>Size</label>
+                        <input class='form-control' type='number' name='layerSizeToSave' id='layerSizeToSave' min='1' value='6'/>
+                    </div>
+                </div>
+                <div class='row mb-3'>
+                    <div class="col">
+                        <label for='layerColorToSave' class='form-label'>Color</label>
+                        <input type='color' class='form-control' id='layerColorToSave' name='layerColorToSave'/>
+                    </div>
+                    <div class='col form-check'>
+                        <input type='checkbox' class='form-check-input' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>
+                        <label class='form-check-label'>No color</label>
+                    </div>
+                </div>
+                <hr/>
+                <div class='form-check'>
+                    <input type='checkbox' class='form-check-input' name='layerKeepOriginalRendererToSave' id='layerKeepOriginalRendererToSave'/>
+                    <label for='layerKeepOriginalRendererToSave' class='form-check-label'>Keep Original Symbology</label>
+                </div>
+                <div class='form-text'>Checking this option will ignore all the styling fields above to take the original layer style.</div>
+                <input class='btn btn-primary mt-3' type='button' value='Pin it!' id='pinLayerSubmit' onclick={this._pinLayer}/>
             </form>);
         }
         else if(geometryType === "polygon"){
             return (
-            <form class='form-horizontal'>
-                <div class='form-group row'><label for='layerNameToSave' class='col-sm-4 control-label'>New Name</label><div class='col-sm-8'><input class='form-control' type='text' id='layerNameToSave' name='layerNameToSave' maxlength='40'/></div></div>
-                <div class='form-group row'><label for='layerStyleToSave' class='col-sm-4 control-label'>Style</label><div class='col-sm-8'>{this._getSymbolList(geometryType)}</div></div>
-                <div class='form-group row'><label for='layerColorToSave' class='col-sm-4 control-label'>Color</label><div class='col-sm-4'><input type='color' class='form-control' id='layerColorToSave' name='layerColorToSave'/></div>
-                <div class='col-sm-4'><label class='checkbox-inline'><input type='checkbox' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>No color</label></div></div>
-                <div class='form-group row'><label for='layerOutlineToSave' class='col-sm-4 control-label'>Outline & Width</label><div class='col-sm-4'><input type='color' class='form-control' id='layerOutlineToSave' name='layerOutlineToSave'/></div>
-                <div class='col-sm-4'><input class='form-control' type='number' min='0' value='0' id='layerOutlineSizeToSave' name='layerOutlineSizeToSave'/></div></div>
-                <div class='form-group row'><div class='col-sm-offset-4 col-sm-8'><label class='checkbox-inline'><input type='checkbox' name='layerKeepOriginalRendererToSave' id='layerKeepOriginalRendererToSave'/>Keep Original Symbology</label></div></div>
-                <div class='form-group row'><div class='col-sm-offset-4 col-sm-4'><input class='btn btn-default' type='button' value='Pin it!' id='pinLayerSubmit' onclick={this._pinLayer}/></div></div>
+            <form class="px-1 py-1">
+                
+                <input class='form-control' type='text' placeholder='New name' id='layerNameToSave' name='layerNameToSave' maxlength='40'/>
+                <hr/>
+                <div class='row mb-3'>   
+                    <div class="col">
+                        <label for='layerStyleToSave' class='form-label'>Style</label>{this._getSymbolList(geometryType)}
+                    </div>
+                </div>
+                <div class='row mb-3'>
+                    <div class="col">
+                        <label for='layerColorToSave' class='form-label'>Color</label>
+                        <input type='color' class='form-control' id='layerColorToSave' name='layerColorToSave'/>
+                    </div>
+                    <div class='col form-check'>
+                        <input type='checkbox' class='form-check-input' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>
+                        <label class='form-check-label'>No color</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+                        <label for='layerOutlineToSave' class='form-label'>Outline</label>
+                        <input type='color' class='form-control' id='layerOutlineToSave' name='layerOutlineToSave'/>
+                    </div>
+                    <div class='col'>
+                        <label for='layerOutlineSizeToSave' class='form-label'>Width</label>
+                        <input class='form-control' type='number' min='0' value='0' id='layerOutlineSizeToSave' name='layerOutlineSizeToSave'/>
+                    </div>
+                </div>
+                <hr/>
+                <div class='form-check'>
+                    <input type='checkbox' class='form-check-input' name='layerKeepOriginalRendererToSave' id='layerKeepOriginalRendererToSave'/>
+                    <label for='layerKeepOriginalRendererToSave' class='form-check-label'>Keep Original Symbology</label>
+                </div>
+                <div class='form-text'>Checking this option will ignore all the styling fields above to take the original layer style.</div>
+                <input class='btn btn-primary mt-3' type='button' value='Pin it!' id='pinLayerSubmit' onclick={this._pinLayer}/>
             </form>);
         }
         else if(!geometryType){
             return (
-            <form class='form-horizontal'>
-                <div class='form-group row'><label for='layerNameToSave' class='col-sm-4 control-label'>New Name</label><div class='col-sm-8'><input class='form-control' type='text' id='layerNameToSave' name='layerNameToSave' maxlength='40' /></div></div>
-                <div class='form-group row'><label for='layerStyleToSave' class='col-sm-4 control-label'>Style & Size</label><div class='col-sm-4'>{this._getSymbolList(geometryType)}</div>
-                <div class='col-sm-4'><input class='form-control' type='number' name='layerSizeToSave' id='layerSizeToSave' min='1' value='6'/></div></div>
-                <div class='form-group row'><label for='layerColorToSave' class='col-sm-4 control-label'>Color</label><div class='col-sm-4'><input type='color' class='form-control' id='layerColorToSave' name='layerColorToSave'/></div>
-                <div class='col-sm-4'><label class='checkbox-inline'><input type='checkbox' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>No color</label></div></div>
-                <div class='form-group row'><label for='layerOutlineToSave' class='col-sm-4 control-label'>Outline & Width</label><div class='col-sm-4'><input type='color' class='form-control' id='layerOutlineToSave' name='layerOutlineToSave'/></div>
-                <div class='col-sm-4'><input class='form-control' type='number' min='0' value='0' id='layerOutlineSizeToSave' name='layerOutlineSizeToSave'/></div></div>
-                <div class='form-group row'><div class='col-sm-offset-4 col-sm-8'><label class='checkbox-inline'><input type='checkbox' name='layerKeepOriginalRendererToSave' id='layerKeepOriginalRendererToSave'/>Keep Original Symbology</label></div></div>
-                <div class='form-group row'><div class='col-sm-offset-4 col-sm-4'><input class='btn btn-default' type='button' value='Pin it!' id='pinLayerSubmit' onclick={this._pinLayer}/></div></div>
+                <form class="px-1 py-1">
+                
+                <input class='form-control' type='text' placeholder='New name' id='layerNameToSave' name='layerNameToSave' maxlength='40'/>
+                <hr/>
+                <div class='row mb-3'>                    
+                    <div class='col'>
+                        <label for='layerStyleToSave' class='form-label'>Style</label>{this._getSymbolList(geometryType)}
+                    </div>
+                    <div class='col'>
+                        <label for='layerSizeToSave' class='form-label'>Size</label>
+                        <input class='form-control' type='number' name='layerSizeToSave' id='layerSizeToSave' min='1' value='6'/>
+                    </div>
+                </div>
+                <div class='row mb-3'>
+                    <div class="col">
+                        <label for='layerColorToSave' class='form-label'>Color</label>
+                        <input type='color' class='form-control' id='layerColorToSave' name='layerColorToSave'/>
+                    </div>
+                    <div class='col form-check'>
+                        <input type='checkbox' class='form-check-input' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>
+                        <label class='form-check-label'>No color</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col'>
+                        <label for='layerOutlineToSave' class='form-label'>Outline</label>
+                        <input type='color' class='form-control' id='layerOutlineToSave' name='layerOutlineToSave'/>
+                    </div>
+                    <div class='col'>
+                        <label for='layerOutlineSizeToSave' class='form-label'>Width</label>
+                        <input class='form-control' type='number' min='0' value='0' id='layerOutlineSizeToSave' name='layerOutlineSizeToSave'/>
+                    </div>
+                </div>
+                <hr/>
+                <div class='form-check'>
+                    <input type='checkbox' class='form-check-input' name='layerKeepOriginalRendererToSave' id='layerKeepOriginalRendererToSave'/>
+                    <label for='layerKeepOriginalRendererToSave' class='form-check-label'>Keep Original Symbology</label>
+                </div>
+                <div class='form-text'>Checking this option will ignore all the styling fields above to take the original layer style.</div>
+                <input class='btn btn-primary mt-3' type='button' value='Pin it!' id='pinLayerSubmit' onclick={this._pinLayer}/>
             </form>);
         }
     }
