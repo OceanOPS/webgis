@@ -22,17 +22,29 @@ class OpacitySlider extends Widget {
   @property()
   viewModel: OpacitySliderViewModel = new OpacitySliderViewModel();
 
+  @property()
+  toClose: boolean = false;
+
   render(){
       var layerName = this._getLayerName();
       return (
         <div class={this.classes([CSS.base, CSS.customDefault])}>
-            <span>Change opacity - {layerName}</span><br/>
-            <form class='form-horizontal'>
-                <input type='range' min='0' max='1' step='0.01'
-                value={this.layer.opacity}
-                onchange={this._handleOpacityChange}
-                oninput={this._handleOpacityChange}
-                />
+            <form class="px-1 py-1">                
+              <div class='row mb-3'>
+                <div class='col'>
+                  <label for='opacitySliderInput' class='form-label'>Change opacity - {layerName}</label>
+                  <input class="form-range" type='range' min='0' max='1' step='0.01' id="opacitySliderInput" name="opacitySliderInput"
+                    value={this.layer.opacity}
+                    onchange={this._handleOpacityChange}
+                    oninput={this._handleOpacityChange}
+                  />
+                </div>
+              </div>        
+              <div class='row mb-3'>
+                <div class='col'>
+                  <input class='btn btn-primary mt-3' type='button' value='Close' id='closeWidget' onclick={() => {this.toClose = true}}/>
+                </div>
+              </div>
             </form>
         </div>
       );

@@ -898,10 +898,14 @@ class GISMap {
     */
     public activateOpacityWidget = (layer: Layer): void => {
         if(!this.opacitySlider || (this.opacitySlider && this.opacitySlider.destroyed)){
-            this.deactivateCurrentTool();  
             this.opacitySlider = new OpacitySlider({layer: layer});
             this.mapView.ui.add(this.opacitySlider, {position: "top-right"});
             this.opacitySliderDisplayed = true;
+            this.opacitySlider.watch("toClose", (newValue: boolean, oldValue: boolean, propertyName: string, target: any) => {
+                if(newValue){
+                    this.activateOpacityWidget(layer);
+                }
+            });
         }
         else{
             var changeLayer = layer.id != this.opacitySlider.layer.id;
