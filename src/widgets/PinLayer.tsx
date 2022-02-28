@@ -27,12 +27,15 @@ class PinLayer extends Widget {
 
     @property()
     viewModel: PinLayerViewModel = new PinLayerViewModel();
+
+    @property()
+    toClose: boolean = false;
     
     constructor(params: {map: GISMap, layer: FeatureLayer, useGivenLayer: boolean}) {
         super();
         this.map = params.map;
         this.layer = params.layer;
-        this.useGivenLayer = params.useGivenLayer;        
+        this.useGivenLayer = params.useGivenLayer;
     }
 
     private _pinLayer = (event: Event): void => {
@@ -40,6 +43,7 @@ class PinLayer extends Widget {
         if(input){
             var formFields = input.form.elements;
             this.viewModel.pinLayer(formFields);
+            this.toClose = true;
         }
         else{
             console.error(event);

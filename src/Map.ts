@@ -996,6 +996,11 @@ class GISMap {
                 this.pinLayer = new PinLayer({layer: layer, map: this, useGivenLayer: userGivenLayer});
                 this.mapView.ui.add(this.pinLayer, {position: "top-right"});
                 this.pinLayerDisplayed = true;
+                this.pinLayer.watch("toClose", (newValue: boolean, oldValue: boolean, propertyName: string, target: any) => {
+                    if(newValue){
+                        this.activatePinLayer(layer, userGivenLayer);
+                    }
+                });
             }
             else{
                 var changeLayer = layer.id != this.pinLayer.layer.id;
