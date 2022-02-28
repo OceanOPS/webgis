@@ -18,7 +18,12 @@ class Utils{
                 if(j > 0){
                     whereClause += ",";
                 }
-                whereClause += "'" + arrays[i][j] + "'";
+                if(filterField == "ID" || filterField.endsWith("_ID")){
+                    whereClause += arrays[i][j];
+                }
+                else{
+                    whereClause += "'" + arrays[i][j] + "'";
+                }
             }
             whereClause += ")"
         }
