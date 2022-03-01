@@ -962,6 +962,11 @@ class GISMap {
             this.queryWidget = new QueryLayer({map: this, layer: layer});
             this.mapView.ui.add(this.queryWidget, {position: "top-right"});
             this.queryWidgetDisplayed = true;
+            this.queryWidget.watch("toClose", (newValue: boolean) => {
+                if(newValue){
+                    this.activateQueryWidget(layer);
+                }
+            })
         }
         else{
             var changeLayer = layer.id != this.queryWidget.layer.id;

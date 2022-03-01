@@ -41,6 +41,9 @@ class QueryLayer extends Widget{
     // Current value list
     @property()
     private currentValueList: string[] = [];
+    // Watchable property to auto close the widget when done
+    @property()
+    toClose: boolean = false;
     // Query operations
     private operations = ["=", "<>", ">", ">=", "<", "<=", "_", "%", "()", "like", "and", "or", "not", "is"];
 
@@ -211,6 +214,7 @@ class QueryLayer extends Widget{
         else{
             this.map.updateLayerDefinitionExpression(this.layer as FeatureLayer, this.query);
         }
+        this.toClose = true;
     }
     /**
      * Setting the sublayer when selected
