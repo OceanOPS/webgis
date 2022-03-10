@@ -460,7 +460,7 @@ class Settings {
             if(layer instanceof MapImageLayer && layer.allSublayers && layer.allSublayers.length > 0){
                 var subvisibility = {};
                 for(var i = 0 ; i<layer.allSublayers.length ; i++){
-                    subvisibility[layer.allSublayers[i].id] = layer.allSublayers[i].visible;
+                    subvisibility[layer.allSublayers.getItemAt(i).id] = layer.allSublayers.getItemAt(i).visible;
                 }
                 visibility[id] = {
                     root: visible,
