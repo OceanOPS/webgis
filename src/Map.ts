@@ -670,6 +670,18 @@ class GISMap {
         this.settings.updateLayerVisibilityToSessionStorage(id, visible);
     }
 
+    /**
+     * Updates work layer info to local storage
+     * @param id layer ID
+     * @param name name of this layer
+     * @param renderer JSON renderer of this layer
+     * @param definitionExpression definition expression of this layer
+     * @param visible boolean true if visible, false if not
+     */
+    public updateWorkLayerToBrowserStorage = (id: string, name: string, renderer: any, definitionExpression: string, visible: boolean) => {
+        // Adding new entry to local storage
+        this.settings.updateWorkLayerToLocalStorage(id, name, renderer.toJSON(), definitionExpression);
+    }
 
     /**
      *   Set the basemap of the map by its ID.
@@ -1004,15 +1016,15 @@ class GISMap {
     /** 
      * Activates the PinLayer widget
     */
-    public activatePinLayer = (layer: Layer, userGivenLayer: boolean) => {   
+    public activatePinLayer = (layer: Layer, useGivenLayer: boolean, editPinnedLayer: boolean) => {   
         if(layer instanceof FeatureLayer){
             if(!this.pinLayer || (this.pinLayer && this.pinLayer.destroyed)){
-                this.pinLayer = new PinLayer({layer: layer, map: this, useGivenLayer: userGivenLayer});
+                this.pinLayer = new PinLayer({layer: layer, map: this, useGivenLayer: useGivenLayer, editPinnedLayer: editPinnedLayer});
                 this.mapView.ui.add(this.pinLayer, {position: "top-right"});
                 this.pinLayerDisplayed = true;
                 this.pinLayer.watch("toClose", (newValue: boolean, oldValue: boolean, propertyName: string, target: any) => {
                     if(newValue){
-                        this.activatePinLayer(layer, userGivenLayer);
+                        this.activatePinLayer(layer, useGivenLayer, editPinnedLayer);
                     }
                 });
             }
@@ -1022,7 +1034,7 @@ class GISMap {
                 this.pinLayer.destroy();
                 this.pinLayerDisplayed = false;
                 if(changeLayer){
-                    this.activatePinLayer(layer, userGivenLayer);
+                    this.activatePinLayer(layer, useGivenLayer, editPinnedLayer);
                 }
             }
         }
@@ -1760,7 +1772,7 @@ class GISMap {
         });
 
         // Opening pin layer tool, to edit symbology
-        this.activatePinLayer(layer, true);
+        this.activatePinLayer(layer, true, false);
     }
 
     /**
@@ -2304,6 +2316,11 @@ class GISMap {
                 className: "esri-icon-edit",
                 id: "change-symbology"
             });
+            actions[1].push({
+                title: "Edit name & symbology",
+                className: "esri-icon-settings",
+                id: "customize-symbology"
+            });            
             if((this.is3D || this.is3DFlat) && layer.type == "feature"){
                 actions[1].push({
                     title: "Change elevation expression",
@@ -2333,8 +2350,11 @@ class GISMap {
         if(id === "change-symbology"){
             this.activateSymbologyWidget(layer, true);
         }
+        else if(id === "customize-symbology"){
+            this.activatePinLayer(layer, true, true);
+        }
         else if(id === "pin-layer"){
-            this.activatePinLayer(layer, false);
+            this.activatePinLayer(layer, false, false);
         }
         else if(id === "remove-operational-layer"){
             this.groupLayerOperational.remove(layer);

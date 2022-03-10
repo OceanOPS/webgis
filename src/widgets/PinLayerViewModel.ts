@@ -16,6 +16,9 @@ class PinLayerViewModel extends Accessor {
     // Boolean indicating if given layer should be used directly instead of creating a new one
     @property()
     private useGivenLayer: boolean = false;
+    // Boolean indicating if given layer should be updated (already pinned)
+    @property()
+    private editPinnedLayer: boolean = false;
     // Current layer being processed
     @property()
     private layer: FeatureLayer;
@@ -30,13 +33,19 @@ class PinLayerViewModel extends Accessor {
             var newName = this.layer.title + " - " + now.toISOString().split('T')[1].split('Z')[0].split('.')[0],
                 newId = this.layer.id + "_" + now.toISOString().split('T')[1].split('Z')[0].replace(/:/g,'').replace(/\./g,''),
                 legendLabel = this.layer.title;
-
+            if(this.useGivenLayer){
+                newId = this.layer.id;
+            }
             if(formFields.layerNameToSave.value.length > 0){
                 newName = formFields.layerNameToSave.value;
                 legendLabel = formFields.layerNameToSave.value;
             }
+            else if(this.editPinnedLayer){
+                // If edit and no new name provided
+                newName = this.layer.title;
+            }
 
-             var renderer = null;
+            var renderer = null;
 
             if(formFields.layerKeepOriginalRendererToSave.checked){
                 renderer = this.layer.renderer;
@@ -83,7 +92,12 @@ class PinLayerViewModel extends Accessor {
             if(this.useGivenLayer){
                 this.layer.title = newName;
                 this.layer.renderer = renderer;
-                this.map.addToWorkLayerList(this.layer);
+                if(this.editPinnedLayer){
+                   this.map.updateWorkLayerToBrowserStorage(this.layer.id, this.layer.title, this.layer.renderer, this.layer.definitionExpression, this.layer.visible); 
+                }
+                else{
+                    this.map.addToWorkLayerList(this.layer);
+                }
             }
             else{
                 // Adding layer to work layer list and map

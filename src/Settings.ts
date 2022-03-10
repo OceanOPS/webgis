@@ -276,8 +276,10 @@ class Settings {
             var workLayers: any = localStorage.getItem("workLayers");
             if(workLayers){
                 workLayers = JSON.parse(workLayers);
-                workLayers[id] = {sourceLayerId: workLayers[id].sourceLayerId, name: layerName, renderer: renderer, definitionExpression: definitionExpression};
-                localStorage.setItem("workLayers", JSON.stringify(workLayers));
+                if(typeof(workLayers[id]) != "undefined"){
+                    workLayers[id] = {sourceLayerId: workLayers[id].sourceLayerId, name: layerName, renderer: renderer, definitionExpression: definitionExpression};
+                    localStorage.setItem("workLayers", JSON.stringify(workLayers));
+                }
             }
         }
     };
