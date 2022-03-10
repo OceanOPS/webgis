@@ -123,12 +123,13 @@ class PinLayer extends Widget {
     private _getHtmlForm(geometryType: string){
         if(geometryType === "point" || geometryType === "multipoint"){    
             var symbolPoint = (this.layer.renderer as SimpleRenderer).symbol as SimpleMarkerSymbol;
-            var layerSizeToSave: any = 6, layerColorToSave, layerOutlineToSave, layerOutlineSizeToSave: any = 0;
+            var layerSizeToSave: any = 6, layerColorToSave, layerOutlineToSave, layerOutlineSizeToSave: any = 0, layerTransparancy: any = 1;
             if(this.editPinnedLayer){
                 layerSizeToSave = symbolPoint.size;
                 layerColorToSave = symbolPoint.color.toHex();
                 layerOutlineToSave = symbolPoint.outline.color.toHex();
                 layerOutlineSizeToSave = symbolPoint.outline.width;
+                layerTransparancy = symbolPoint.color.a;
             }    
             return (
             <form class="px-1 py-1">
@@ -150,10 +151,10 @@ class PinLayer extends Widget {
                     </div>
                     <div class='col form-check'>
                         {
-                            symbolPoint.color.a > 0 && <input type='checkbox' class='form-check-input' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>
+                            layerTransparancy > 0 && <input type='checkbox' class='form-check-input' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>
                         }
                         {
-                            symbolPoint.color.a == 0 && <input type='checkbox' checked class='form-check-input' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>
+                            layerTransparancy == 0 && <input type='checkbox' checked class='form-check-input' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>
                         }
                         <label class='form-check-label'>No color</label>
                     </div>
@@ -180,10 +181,11 @@ class PinLayer extends Widget {
         }
         else if(geometryType === "polyline"){            
             var symbolLine = (this.layer.renderer as SimpleRenderer).symbol as SimpleLineSymbol;
-            var layerSizeToSave: any = 6, layerColorToSave;
+            var layerSizeToSave: any = 6, layerColorToSave, layerTransparancy: any = 1;
             if(this.editPinnedLayer){
                 layerSizeToSave = symbolLine.width;
                 layerColorToSave = symbolLine.color.toHex();
+                layerTransparancy = symbolLine.color.a;
             }    
             return (
             <form class="px-1 py-1">
@@ -205,10 +207,10 @@ class PinLayer extends Widget {
                     </div>
                     <div class='col form-check'>                     
                         {
-                            symbolLine.color.a > 0 && <input type='checkbox' class='form-check-input' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>
+                            layerTransparancy > 0 && <input type='checkbox' class='form-check-input' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>
                         }
                         {
-                            symbolLine.color.a == 0 && <input type='checkbox' checked class='form-check-input' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>
+                            layerTransparancy == 0 && <input type='checkbox' checked class='form-check-input' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>
                         }
                         <label class='form-check-label'>No color</label>
                     </div>
@@ -224,11 +226,12 @@ class PinLayer extends Widget {
         }
         else if(geometryType === "polygon"){
             var symbolPolygon = (this.layer.renderer as SimpleRenderer).symbol as SimpleFillSymbol;
-            var layerColorToSave, layerOutlineToSave, layerOutlineSizeToSave: any = 0;
+            var layerColorToSave, layerOutlineToSave, layerOutlineSizeToSave: any = 0, layerTransparancy: any = 1;
             if(this.editPinnedLayer){
                 layerColorToSave = symbolPolygon.color.toHex();
                 layerOutlineToSave = symbolPolygon.outline.color.toHex();
                 layerOutlineSizeToSave = symbolPolygon.outline.width;
+                layerTransparancy = symbolPolygon.color.a;
             }    
             return (
             <form class="px-1 py-1">
@@ -247,10 +250,10 @@ class PinLayer extends Widget {
                     </div>
                     <div class='col form-check'>                     
                         {
-                            symbolPolygon.color.a > 0 && <input type='checkbox' class='form-check-input' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>
+                            layerTransparancy > 0 && <input type='checkbox' class='form-check-input' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>
                         }
                         {
-                            symbolPolygon.color.a == 0 && <input type='checkbox' checked class='form-check-input' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>
+                            layerTransparancy == 0 && <input type='checkbox' checked class='form-check-input' name='layerColorTransparencyToSave' id='layerColorTransparencyToSave'/>
                         }
                         <label class='form-check-label'>No color</label>
                     </div>
