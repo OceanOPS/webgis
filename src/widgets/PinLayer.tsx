@@ -124,7 +124,7 @@ class PinLayer extends Widget {
         if(geometryType === "point" || geometryType === "multipoint"){    
             var symbolPoint = (this.layer.renderer as SimpleRenderer).symbol as SimpleMarkerSymbol;
             var layerSizeToSave: any = 6, layerColorToSave, layerOutlineToSave, layerOutlineSizeToSave: any = 0, layerTransparancy: any = 1;
-            if(this.editPinnedLayer){
+            if(this.editPinnedLayer && typeof(symbolPoint) != 'undefined'){
                 layerSizeToSave = symbolPoint.size;
                 layerColorToSave = symbolPoint.color.toHex();
                 layerOutlineToSave = symbolPoint.outline.color.toHex();
@@ -182,7 +182,7 @@ class PinLayer extends Widget {
         else if(geometryType === "polyline"){            
             var symbolLine = (this.layer.renderer as SimpleRenderer).symbol as SimpleLineSymbol;
             var layerSizeToSave: any = 6, layerColorToSave, layerTransparancy: any = 1;
-            if(this.editPinnedLayer){
+            if(this.editPinnedLayer && typeof(symbolLine) != 'undefined'){
                 layerSizeToSave = symbolLine.width;
                 layerColorToSave = symbolLine.color.toHex();
                 layerTransparancy = symbolLine.color.a;
@@ -227,7 +227,7 @@ class PinLayer extends Widget {
         else if(geometryType === "polygon"){
             var symbolPolygon = (this.layer.renderer as SimpleRenderer).symbol as SimpleFillSymbol;
             var layerColorToSave, layerOutlineToSave, layerOutlineSizeToSave: any = 0, layerTransparancy: any = 1;
-            if(this.editPinnedLayer){
+            if(this.editPinnedLayer && typeof(symbolPolygon) != 'undefined'){
                 layerColorToSave = symbolPolygon.color.toHex();
                 layerOutlineToSave = symbolPolygon.outline.color.toHex();
                 layerOutlineSizeToSave = symbolPolygon.outline.width;
