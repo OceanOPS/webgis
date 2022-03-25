@@ -1216,34 +1216,7 @@ class Config{
             "name" : "Points of interest",
             "visible" : false,
             "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/PointsOfInterest/MapServer",
-            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/PointsOfInterest/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
-            "sublayers": [
-                {
-                    "id": 0,
-                    "title": "Ports",
-                    "labelingInfo": [{
-                        "labelExpression": "[PORTNAME]",
-                        "labelPlacement": "always-horizontal",
-                        "useCodedValues": true,
-                        "symbol": new TextSymbol({
-                            "color": [255, 255, 255, 1],
-                            "backgroundColor": [0, 0, 0, 0.5],
-                            "font": {
-                                "size": 7
-                            }
-                        }),
-                        "minScale": 18489200
-                    }],
-                    "labelsVisible": true,
-                    "popupTemplate": {
-                        "title": "{PORTNAME}", 
-                        "content": "Country: {COUNTRY}" + "<br>Index: {INDEXNUM}"
-                    },
-                    "source": {
-                      "mapLayerId": 0
-                    }
-                }
-            ],
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/PointsOfInterest/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A1&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "index" : 43
         },
         {
