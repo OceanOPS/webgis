@@ -327,6 +327,8 @@ class Config{
         {"id": "GOSHIP_DESIGN", "filterField": "LINE_ID", "type": Config.TYPE_LINE},
         {"id": "CRUISE_POLYGON", "filterField": "ID", "type": Config.TYPE_CRUISE},
         {"id": "CRUISE_LINE", "filterField": "ID", "type": Config.TYPE_CRUISE},
+        {"id": "CRUISE_POINT", "filterField": "ID", "type": Config.TYPE_CRUISE},
+        {"id": "CRUISE_POLYGON", "filterField": "ID", "type": Config.TYPE_CRUISE},
         {"id": "ARGO_TRACKLINE", "filterField": "PTF_REF", "type": Config.TYPE_TRACKLINE},
         {"id": "DBCP_TRACKLINE", "filterField": "PTF_REF", "type": Config.TYPE_TRACKLINE},
         {"id": "ARGO_OBS", "filterField": "OBS_ID", "type": Config.TYPE_OBS},
@@ -981,10 +983,56 @@ class Config{
             "index": 88,
             "theme": Config.THEME_ALL,
             "group": "cruises",
-            "name" : "Cruises",
+            "name" : "Cruises (line)",
             "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/Cruises/MapServer/0",
             "symbologyFields" : ["TYPE","STATUS","GO-SHIP CLASS","DATES PENDING","ROUTE PENDING"],
             "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/Cruises/MapServer/export?bbox=-80%2C10%2C-20%2C30&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "idField" : "ID",
+            "type" : Config.TYPE_CRUISE,
+            "popupTitle" : Config.POPUP_OPERATIONAL_CRUISE_TITLE,
+            "popupContent": Config.POPUP_OPERATIONAL_CRUISE_CONTENT,
+            "popupActions": [
+                {
+                  "title": "Details Page",
+                  "id": "cruise-inspect",
+                  "className": "esri-icon-review"
+                }
+            ],
+            "visible" : false,
+            "selectionSymbol" : { "type": "esriSLS",    "style": "esriSLSSolid",    "color": [0,255,255,255],   "width": 2, "angle": 0, "xoffset": 0,   "yoffset": 0}
+        },
+        {
+            "id" : "CRUISE_POINT",
+            "index": 88,
+            "theme": Config.THEME_ALL,
+            "group": "cruises",
+            "name" : "Cruises (point)",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/Cruises/MapServer/1",
+            "symbologyFields" : [],
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/Cruises/MapServer/export?bbox=-80%2C10%2C-20%2C30&bboxSR=&layers=show%3A1&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "idField" : "ID",
+            "type" : Config.TYPE_CRUISE,
+            "popupTitle" : Config.POPUP_OPERATIONAL_CRUISE_TITLE,
+            "popupContent": Config.POPUP_OPERATIONAL_CRUISE_CONTENT,
+            "popupActions": [
+                {
+                  "title": "Details Page",
+                  "id": "cruise-inspect",
+                  "className": "esri-icon-review"
+                }
+            ],
+            "visible" : false,
+            "selectionSymbol" : { "type": "esriSLS",    "style": "esriSLSSolid",    "color": [0,255,255,255],   "width": 2, "angle": 0, "xoffset": 0,   "yoffset": 0}
+        },
+        {
+            "id" : "CRUISE_POLYGON",
+            "index": 88,
+            "theme": Config.THEME_ALL,
+            "group": "cruises",
+            "name" : "Cruises (polygon)",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/Cruises/MapServer/2",
+            "symbologyFields" : [],
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/Cruises/MapServer/export?bbox=-80%2C10%2C-20%2C30&bboxSR=&layers=show%3A2&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "idField" : "ID",
             "type" : Config.TYPE_CRUISE,
             "popupTitle" : Config.POPUP_OPERATIONAL_CRUISE_TITLE,
