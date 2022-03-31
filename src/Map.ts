@@ -776,7 +776,10 @@ class GISMap {
                 }
                 
             }
-        }        
+        }
+        else{
+            this.mapView.map.basemap = new Basemap();
+        }
     };
 
     /**
