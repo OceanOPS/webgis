@@ -227,9 +227,7 @@ class GISMap {
                         starsEnabled: true
                     },
                     lighting: {
-                        directShadowsEnabled: false,
-                        ambientOcclusionEnabled: false,
-                        cameraTrackingEnabled: true
+                        type: 'virtual'
                     }
                 }
             };
