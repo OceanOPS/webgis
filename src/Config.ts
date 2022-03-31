@@ -1230,6 +1230,16 @@ class Config{
             "index" : 6
         },
         {
+            "id" : "bathymetryETOPO2",
+            "group": "commons",
+            "theme" : Config.THEME_ALL,
+            "name" : "Bathymetry (ETOPO2)",
+            "visible" : false,
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/ETOPO2/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/ETOPO2/MapServer/export?bbox=-90%2C-65%2C-40%2C-40&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "index" : 6
+        },
+        {
             "id" : "landBasemapTop",
             "group": "commons",
             "theme" : Config.THEME_ALL,
