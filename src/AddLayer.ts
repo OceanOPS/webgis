@@ -245,9 +245,12 @@ class AddLayer{
         var badgeAdd = document.createElement("button");;
         badgeAdd.id = "badge-add-" + layer.id;
         badgeContainer.appendChild(badgeAdd);
-        if(this.map.mapView.map.findLayerById(layer.id)){
+        if(typeof(this.map.mapView.map.findLayerById(layer.id)) != 'undefined' ||
+            (layer.id.includes("_GROUP_") && this.map.mapView.map.allLayers.find((elt) => elt.id.startsWith(layer.id)))    
+            ){
             badgeAdd.className = "badge bg-success";
             badgeAdd.innerHTML = "Added";
+            badgeAdd.disabled = true;
         }
         else{
             badgeAdd.className = "badge bg-light text-dark";

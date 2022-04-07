@@ -2026,10 +2026,15 @@ class GISMap {
                 }
                 // Updating AddLayer modal
                 event.removed.forEach((layer:Layer) =>{
-                    var badgeAdd = document.getElementById("badge-add-" + layer.id);
+                    var layerID = layer.id;
+                    if(layer.id.includes("_GROUP_")){
+                        layerID = layer.id.substring(0,layer.id.indexOf("_GROUP_")+6);
+                    }
+                    var badgeAdd = document.getElementById("badge-add-" + layerID) as HTMLButtonElement;
                     if(badgeAdd){
                         badgeAdd.className = "badge bg-light text-dark";
                         badgeAdd.innerHTML = "Add";
+                        badgeAdd.disabled = false;
                     }
                 });
             }
