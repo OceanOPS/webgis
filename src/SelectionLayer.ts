@@ -25,8 +25,13 @@ class SelectionLayer{
         this.view.popup.close();
         this.view.map.allLayers.forEach((layer) => {
             if(layer instanceof FeatureLayer){
+                var layerID = layer.id;
+                if(layer.id.includes("_GROUP_")){
+                    layerID = layer.id.substring(0,layer.id.indexOf("_GROUP_")+6);
+                }
+
                 var operationalLayersForType = operationalLayers.filter(x => x.type == featureType).map(x => x.id);
-                if(operationalLayersForType.indexOf(layer.id) !== -1){
+                if(operationalLayersForType.indexOf(layerID) !== -1){
                     this.applySelection(layer, selectedObjectsRef);
                 }
             }
@@ -34,8 +39,13 @@ class SelectionLayer{
     }
 
     private applySelection = (featureLayer: FeatureLayer, selectedObjects: string[]) => {
-        const layerConfig = Config.operationalLayers.find(x => x.id == featureLayer.id);
-        if(layerConfig && layerConfig.idField){
+        
+        var layerID = featureLayer.id;
+        if(featureLayer.id.includes("_GROUP_")){
+            layerID = featureLayer.id.substring(0,featureLayer.id.indexOf("_GROUP_")+6);
+        }
+        const layerConfig = Config.operationalLayers.find(x => x.id == layerID);
+        if(layerConfig && layerConfig.idField){console.log(featureLayer)
             var whereClause = Utils.buildWhereClause(layerConfig.idField, selectedObjects);
             for (var prop in this.highlight) {
                 if (this.highlight.hasOwnProperty(prop)) { 
@@ -51,7 +61,7 @@ class SelectionLayer{
                     layerView.queryFeatures(query).then((results) => {
                         // remove existing highlighted features
                         this.highlight[featureLayer.id] = layerView.highlight(results.features);
-                        if(layerConfig.type == Config.TYPE_PTF){
+                        if(layerConfig.type == Config.TYPE_PTF || layerConfig.type == Config.TYPE_CRUISE){
                             this.view.goTo(results.features, {
                                 duration: 1000,
                                 easing: "linear"

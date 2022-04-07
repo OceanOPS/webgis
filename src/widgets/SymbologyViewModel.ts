@@ -19,6 +19,8 @@ class SymbologyViewModel extends Accessor{
     @property()
     layerId: string;
     @property()
+    sublayerId: string | null;
+    @property()
     histogramBins: number = 30;
 
     constructor(props ?: any){

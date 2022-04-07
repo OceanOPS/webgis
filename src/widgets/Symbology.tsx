@@ -39,6 +39,8 @@ class Symbology extends Widget{
     layer: SymbologyViewModel["layer"];
     @aliasOf("viewModel.layerId")
     layerId: SymbologyViewModel["layerId"];
+    @aliasOf("viewModel.sublayerId")
+    sublayerId: SymbologyViewModel["sublayerId"];
     @aliasOf("viewModel.histogramBins")
     histogramBins: SymbologyViewModel["histogramBins"];
     @property()
@@ -52,6 +54,7 @@ class Symbology extends Widget{
         this.view = this.map.mapView;
         this.layer = props.layer;
         this.layerId = this.layer.id;
+        this.sublayerId = null;
         this.uiEnabled = props.uiEnabled;
 
         // Filtering special cases here, for derived layers
@@ -70,21 +73,28 @@ class Symbology extends Widget{
         else if(this.layerId.startsWith("SOT_OBS")){
             this.layerId = "SOT_OBS";
         }
+        else if (this.layerId.includes("_GROUP_")){
+            this.sublayerId = this.layerId.substring(this.layerId.indexOf("_GROUP_")+7);
+            this.layerId = this.layerId.substring(0,this.layerId.indexOf("_GROUP_")+6);
+        }
     }
 
     render(){
         var layerInfo = Config.operationalLayers.find(x => x.id === this.layerId);
         if(layerInfo){
-            var symbologyFields = layerInfo.symbologyFields;
+            var symbologyFields: any = layerInfo.symbologyFields;
+            if(this.sublayerId){
+                symbologyFields = layerInfo.symbologyFields[this.sublayerId];
+            }
             if(symbologyFields && symbologyFields.length >0){
                 return (
                     <div id="symbologyWidget" afterCreate={this.renderSlider} class={this.classes([CSS.base, CSS.customDefault])}>
                         <form class='form-group'>
                             <label class="form-label" for="symbologySelect">Select a symbology - {this.layer.title}</label>
-                            <select class='form-control' id='symbologySelect' onchange={this.changerColourListener}>
+                            <select class='form-control' id='symbologySelect' onchange={this.changeSymbologyListener}>
                                 <option value='' disabled selected>--</option>
                                 {
-                                    symbologyFields.map((object, i) => {
+                                    symbologyFields.map((object: any, i: number) => {
                                         if((symbologyFields[i].startsWith("3D") && (this.map.is3D || this.map.is3DFlat)) || !symbologyFields[i].startsWith("3D")){
                                             return <option key={"symbology-" + symbologyFields[i]} value={symbologyFields[i]}>{symbologyFields[i]}</option>;
                                         }
@@ -135,13 +145,16 @@ class Symbology extends Widget{
     /*
     *   Listener when changing the colour.
     */
-    private changerColourListener = (event: any) => {
+    private changeSymbologyListener = (event: any) => {
         var field = event.target.value;
         // Getting theme for this layer
         var layerInfo = Config.operationalLayers.find(x => x.id === this.layerId);
         if(layerInfo){
             var theme = layerInfo.theme;
             var filename = theme + "-" + this.layerId + "-" + field + ".json";
+            if(this.sublayerId){
+                filename = theme + "-" + this.layerId + "_" + this.sublayerId + "-" + field + ".json";
+            }
             this.loadJsonSymbology(filename);
         }
     };

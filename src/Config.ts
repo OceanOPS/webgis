@@ -311,6 +311,12 @@ class Config{
         {'id': "integrated",'name': "Integrated", 'index': 70}
     ];
 
+    
+    // Put here the declarations of the groups (id/name) and then use the ID in the layers "'layerGroupMap': 'id'". Used by the map.
+    public static readonly layerGroupsMap = [
+        {'id': "cruises",'name': "Cruises"}
+    ];
+
     public static readonly layerType = [
         {"id": "PTF_LOC_0", "filterField": "PTF_REF", "type": Config.TYPE_PTF}, 
         {"id": "PTF_LOC_N", "filterField": "PTF_REF", "type": Config.TYPE_PTF},
@@ -325,7 +331,7 @@ class Config{
         {"id": "OCEANSITES_PTF_LOC_0", "filterField": "PTF_REF", "type": Config.TYPE_PTF}, 
         {"id": "GOSHIP_CRUISE_LINE", "filterField": "ID", "type": Config.TYPE_CRUISE},
         {"id": "GOSHIP_DESIGN", "filterField": "LINE_ID", "type": Config.TYPE_LINE},
-        {"id": "CRUISE_POLYGON", "filterField": "ID", "type": Config.TYPE_CRUISE},
+        {"id": "CRUISE_GROUP", "filterField": "ID", "type": Config.TYPE_CRUISE},
         {"id": "CRUISE_LINE", "filterField": "ID", "type": Config.TYPE_CRUISE},
         {"id": "CRUISE_POINT", "filterField": "ID", "type": Config.TYPE_CRUISE},
         {"id": "CRUISE_POLYGON", "filterField": "ID", "type": Config.TYPE_CRUISE},
@@ -336,6 +342,11 @@ class Config{
         {"id": "SITES", "filterField": "SITE_ID", "type": Config.TYPE_SITE}
     ];
 
+    /**
+     * Operational Layers
+     * If the entry is a group of layers (map service with sub layers): the url must end with '/MapServer/', the ID must end with '_GROUP'.
+     * LayerGroup for the Map must be defined in the object layerGroupsMap in this file.
+     */
     public static readonly operationalLayers = [
         {
             "id" : "PTF_LOC_0",
@@ -979,6 +990,32 @@ class Config{
             "selectionSymbol" : { "type": "esriSLS",    "style": "esriSLSSolid",    "color": [0,255,255,255],   "width": 2, "angle": 0, "xoffset": 0,   "yoffset": 0}
         },
         {
+            "id" : "CRUISE_GROUP",
+            "index": 88,
+            "theme": Config.THEME_ALL,
+            "group": "cruises",
+            "layerGroupMap": "cruises",
+            "name" : "Cruises",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/Cruises/MapServer/",
+            "symbologyFields" : {
+                0: ["TYPE","STATUS","GO-SHIP CLASS","DATES PENDING","ROUTE PENDING"]
+            },
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/Cruises/MapServer/export?bbox=-80%2C10%2C-20%2C30&bboxSR=&layers=show%3A0,1,2&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
+            "idField" : "ID",
+            "type" : Config.TYPE_CRUISE,
+            "popupTitle" : Config.POPUP_OPERATIONAL_CRUISE_TITLE,
+            "popupContent": Config.POPUP_OPERATIONAL_CRUISE_CONTENT,
+            "popupActions": [
+                {
+                  "title": "Details Page",
+                  "id": "cruise-inspect",
+                  "className": "esri-icon-review"
+                }
+            ],
+            "visible" : false,
+            "selectionSymbol" : { "type": "esriSLS",    "style": "esriSLSSolid",    "color": [0,255,255,255],   "width": 2, "angle": 0, "xoffset": 0,   "yoffset": 0}
+        }
+        /* {
             "id" : "CRUISE_LINE",
             "index": 88,
             "theme": Config.THEME_ALL,
@@ -1046,7 +1083,7 @@ class Config{
             ],
             "visible" : false,
             "selectionSymbol" : { "type": "esriSLS",    "style": "esriSLSSolid",    "color": [0,255,255,255],   "width": 2, "angle": 0, "xoffset": 0,   "yoffset": 0}
-        }
+        } */
     ];
 
     public static readonly dynamicLayers = [

@@ -195,18 +195,9 @@ class GISMap {
         this.bathymetryLayer = new ElevationLayer({url: "//elevation3d.arcgis.com/arcgis/rest/services/WorldElevation3D/TopoBathy3D/ImageServer"});
         
         var exaggeratedBathyLayer = ElevationExaggerationViewModel.getExaggeratedElevationLayer();
-
-        var highlightOptions = null;
-        if(this.settings.highlight){
-            highlightOptions = {
-                color: "#1423FC",
-                fillOpacity: 1,
-                haloColor: "#000000",
-                haloOpacity: 0
-            }
-        }
         
         if (this.settings.projection && this.settings.projection == "3D") {
+            
             // 3D view
             var mapParams: any = {};
             if(this.settings.basemap){
@@ -231,9 +222,9 @@ class GISMap {
                     }
                 }
             };
-            if(highlightOptions){
+            /*if(highlightOptions){
                 mapViewParams["highlightOptions"] = highlightOptions;
-            }
+            }*/
             this.mapView = new SceneView(mapViewParams);
 
             this.exaggerationWidget = new ElevationExaggeration({view: this.mapView, withElevationInfoLayerIDs: this.withElevationInfoLayerIDs});
@@ -267,9 +258,6 @@ class GISMap {
                 },
                 scale: 64360000
             };
-            if(highlightOptions){
-                mapViewParams["highlightOptions"] = highlightOptions;
-            }
             this.mapView = new SceneView(mapViewParams);
             this.exaggerationWidget = new ElevationExaggeration({view: this.mapView});
 
@@ -297,13 +285,8 @@ class GISMap {
 
                 mapViewParams["extent"] = newExtent;
                 mapViewParams["spatialReference"] = spatialRef;
-                mapViewParams["highlightOptions"] = highlightOptions;
             }
             
-            
-            if(highlightOptions){
-                mapViewParams["highlightOptions"] = highlightOptions;
-            }
             // Creating the map
             mapViewParams["map"] = new Map(mapParams);
             // Creating the 2D view
@@ -563,8 +546,15 @@ class GISMap {
             popupTemplate = existingLayer.popupTemplate;
         }
         else{
-            var layer: any = Config.operationalLayers.find(l => l.id === sourceLayerId);
-            url = layer.url;
+            var layer: any;
+            if(sourceLayerId.includes("_GROUP_")){
+                layer = Config.operationalLayers.find(l => l.id === sourceLayerId.substring(0,sourceLayerId.indexOf("_GROUP_")+6));
+                url = layer.url + sourceLayerId.substring(sourceLayerId.indexOf("_GROUP_")+7);
+            }
+            else{
+                layer = Config.operationalLayers.find(l => l.id === sourceLayerId);
+                url = layer.url;
+            }
             
             // Default popup templates
             var popupTemplatePtf = new PopupTemplate({title: Config.POPUP_OPERATIONAL_PTF_TITLE, content: Config.POPUP_OPERATIONAL_PTF_CONTENT});
@@ -1209,11 +1199,16 @@ class GISMap {
             if(featureType === Config.TYPE_PTF){
                 layerList = layerList.concat(Config.layerType.filter(l => l.type == Config.TYPE_TRACKLINE))
             }
-
+                        
             this.mapView.map.allLayers.forEach((layer: Layer): void => {
+                var layerID = layer.id;
+                if(layer.id.includes("_GROUP_")){
+                    layerID = layer.id.substring(0,layer.id.indexOf("_GROUP_")+6);
+                }
+
                 if(layer instanceof FeatureLayer){
-                    if(layerList.map(l => l.id).includes(layer.id)){
-                        var configLayer = Config.layerType.find(l => l.id == layer.id);
+                    if(layerList.map(l => l.id).includes(layerID)){
+                        var configLayer = Config.layerType.find(l => l.id == layerID);
                         if(configLayer){
                             layer.definitionExpression = this.getDefinitionExpression(configLayer.filterField, filterInfo);
                         }
@@ -1278,7 +1273,20 @@ class GISMap {
         if(!this.mapView.map.allLayers.map(l => l.id).includes(layerId)){
             // Testing layer category
             if(Config.operationalLayers.map(l => l.id).includes(layerId)){
-                this.addOperationalLayer(layerId, visibility, definitionExpression, renderer);
+                const config = Config.operationalLayers.find(l => l.id == layerId);
+                if(config && config.url.endsWith("/MapServer/")){
+                    fetch(config.url + "?f=pjson").then((data) => {
+                        // Json info on service
+                        data.json().then((info: any) => {
+                            info.layers.forEach((elt: any) => {
+                                this.addOperationalLayer(layerId, visibility, definitionExpression, renderer, elt);
+                            });
+                        });
+                    });
+                }
+                else{
+                    this.addOperationalLayer(layerId, visibility, definitionExpression, renderer);
+                }
             }
             else if(Config.dynamicLayers.map(l => l.id).includes(layerId)){
                 this.addOtherLayer(layerId, visibility);
@@ -1290,7 +1298,7 @@ class GISMap {
      * Add a layer from a given ID.
      * @param {string} layer ID
      */
-    public addOperationalLayer = (layerId: string, inVisibility?: boolean, inDefinitionExpression?: string, inRenderer?: any): void =>{
+    public addOperationalLayer = (layerId: string, inVisibility?: boolean, inDefinitionExpression?: string, inRenderer?: any, subLayerInfo?: any): void =>{
         // Get object refs from parent window
         var ptfRefs = [];
         var cruiseRefs = [];
@@ -1340,6 +1348,10 @@ class GISMap {
         var popupTemplateDefault = new PopupTemplate({title: "Attributes", content: Config.POPUP_OTHERS});
 
         var layer: any = Config.operationalLayers.find(l => l.id == layerId);
+        var newLayerID = layerId;
+        if(typeof(subLayerInfo) != 'undefined'){
+            newLayerID = layerId + "_" + subLayerInfo.id.toString();
+        }
         var maxScale = 0, minScale = 0;
         // If min/max scale are defined, setting them
         if(layer.maxScale){
@@ -1449,16 +1461,23 @@ class GISMap {
             timeInfo = layer.timeInfo;
         }
 
+        var url = layer.url;
+        var name = layer.name;
+        if(typeof(subLayerInfo) != 'undefined'){
+            url = layer.url + subLayerInfo.id.toString();
+            name = subLayerInfo.name;
+        }
+
         var params:any = {
-            id : layer.id,
+            id : newLayerID,
             outFields : ["*"],
             minScale: minScale,
             maxScale: maxScale,
             visible : visibility,
             timeInfo: timeInfo,
             useViewTime: layer.useViewTime,
-            url: layer.url,
-            title: layer.name,
+            url: url,
+            title: name,
             popupEnabled: (popupTemplate != null),
             popupTemplate : popupTemplate
         };
@@ -1498,7 +1517,7 @@ class GISMap {
         }
         
         // Looking for existing renderer
-        var savedRenderer = this.settings.getLayerRendererFromSessionStorage(layer.id);
+        var savedRenderer = this.settings.getLayerRendererFromSessionStorage(newLayerID);
         if(inRenderer){
             params.renderer = inRenderer;
         }
@@ -1508,32 +1527,41 @@ class GISMap {
         var currentLayer = new FeatureLayer(params);
         // If no renderer preset, applying the default one after layer initialization (async)
         if(!inRenderer && !savedRenderer){
-            if(layer.symbologyFields && layer.symbologyFields.length > 0){
-                var filename = layer.theme + "-" + layer.id + "-" + layer.symbologyFields[0] + ".json";
+            var symbologyFields = layer.symbologyFields;
+            if(subLayerInfo){
+                symbologyFields = layer.symbologyFields[subLayerInfo.id.toString()]
+            }
+            if(symbologyFields && symbologyFields.length > 0){
+                var filename = layer.theme + "-" + newLayerID + "-" + symbologyFields[0] + ".json";
                 this.loadJsonSymbology(currentLayer, filename);
             }
         }
 
         var groupLayer = null;
-        if(!this.operationalSubGroupLayerList[layer.group]){
+        if(!this.operationalSubGroupLayerList[layer.layerGroupMap]){
             // Creating Group layer
-            var groupInfo = $.grep(Config.layerGroups, function(elt, idx){
-                return elt.id === layer.group;
-            });
-            groupLayer = new GroupLayer({
-                id: layer.group,
-                title: groupInfo[0]["name"],
-                visible: true,
-                visibilityMode: "independent"
-            });
-            this.operationalSubGroupLayerList[layer.group] = groupLayer;
+            var groupInfo = Config.layerGroupsMap.find(elt => elt.id === layer.layerGroupMap);
+            if(groupInfo){
+                groupLayer = new GroupLayer({
+                    id: layer.layerGroupMap,
+                    title: groupInfo.name,
+                    visible: true,
+                    visibilityMode: "independent"
+                });
+                this.operationalSubGroupLayerList[layer.layerGroupMap] = groupLayer;
+            }
         }
         else{
-            groupLayer = this.operationalSubGroupLayerList[layer.group];
+            groupLayer = this.operationalSubGroupLayerList[layer.layerGroupMap];
         }
-
-        this.groupLayerOperational.add(currentLayer);
-        this.addedLayerIds.push(layerId);
+        if(groupLayer){
+            groupLayer.add(currentLayer);
+            this.groupLayerOperational.add(groupLayer);
+        }
+        else{
+            this.groupLayerOperational.add(currentLayer);
+        }
+        this.addedLayerIds.push(newLayerID);
 
         // Highlighting
         if(layerTypeInfo && (layerTypeInfo.type == Config.TYPE_PTF)){
@@ -2224,6 +2252,28 @@ class GISMap {
         }
     };
 
+    /**
+     * Determines recursively if a layer is under a group identified by the given ID.
+     * @param layer the layer subject to the test
+     * @param groupLayerID the group layer ID
+     * @returns true if the layer is under the group, false otherwise
+     */
+    private isUnderGroup = (layer: any, groupLayerID: string): boolean =>{
+        // if the current layer is a top level group, testing its ID
+        if(typeof(layer.parent.parent) == "undefined"){
+            return layer.id == groupLayerID;
+        }
+        // If the current layer is a group and is the one we are looking for
+        // If not, we still want to search recursively
+        else if(layer.type == "group" && layer.id == groupLayerID){
+            return true;
+        }
+        // Recursion
+        else{
+            return this.isUnderGroup(layer.parent, groupLayerID);
+        }
+    }
+
     /*
     *   Defines the actions related to each layer in the layer list
     */
@@ -2232,7 +2282,7 @@ class GISMap {
         var layer = event.item.layer;
 
         var actions: any[] = [];
-        if(layer.type == "feature" && layer.parent.id === this.groupLayerOperational.id){
+        if(layer.type == "feature" && this.isUnderGroup(layer,this.groupLayerOperational.id)){
             actions = [[],[]];
             actions[0].push({
                 title: "Remove",
@@ -2269,6 +2319,14 @@ class GISMap {
                     id: "change-elevation-expr"
                 });
             }
+        }
+        else if(layer.type == "group" && layer.parent.id === this.groupLayerOperational.id){
+            actions = [[],[]];
+            actions[0].push({
+                title: "Remove",
+                className: "esri-icon-close",
+                id: "remove-operational-layer"
+            });
         }
         else if(layer.parent.id === this.groupLayerOthers.id){
             actions = [[],[]];
