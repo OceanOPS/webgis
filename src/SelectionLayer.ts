@@ -45,7 +45,7 @@ class SelectionLayer{
             layerID = featureLayer.id.substring(0,featureLayer.id.indexOf("_GROUP_")+6);
         }
         const layerConfig = Config.operationalLayers.find(x => x.id == layerID);
-        if(layerConfig && layerConfig.idField){console.log(featureLayer)
+        if(layerConfig && layerConfig.idField){
             var whereClause = Utils.buildWhereClause(layerConfig.idField, selectedObjects);
             for (var prop in this.highlight) {
                 if (this.highlight.hasOwnProperty(prop)) { 
