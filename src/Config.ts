@@ -1247,6 +1247,28 @@ class Config{
             "index" : 21
         },
         {
+            "id" : "maritimeZones",
+            "group": "commons",
+            "theme" : Config.THEME_ALL,
+            "name" : "Maritime Zones",
+            "visible" : false,
+            "type": "tile",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/MaritimeZones/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/MaritimeZones/MapServer/export?bbox=-90%2C-65%2C-40%2C-40&bboxSR=4326&size=150%2C75&format=jpg&f=image",
+            "index" : 21
+        },
+        {
+            "id" : "seavoxSeaAreas",
+            "group": "commons",
+            "theme" : Config.THEME_ALL,
+            "name" : "SeaVoX Sea Areas",
+            "visible" : false,
+            "type": "tile",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/SeaVoX_Sea_Areas/MapServer",
+            "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/SeaVoX_Sea_Areas/MapServer/export?bbox=-90%2C-65%2C-40%2C-40&bboxSR=4326&size=150%2C75&format=jpg&f=image",
+            "index" : 21
+        },
+        {
             "id" : "pointsOfInterest",
             "group": "commons",
             "theme" : Config.THEME_ALL,

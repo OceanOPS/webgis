@@ -37,6 +37,7 @@ import Widget from "@arcgis/core/widgets/Widget";
 import KMLLayer from "@arcgis/core/layers/KMLLayer";
 import WMSLayer from "@arcgis/core/layers/WMSLayer";
 import CSVLayer from "@arcgis/core/layers/CSVLayer";
+import TileLayer from "@arcgis/core/layers/TileLayer";
 import SimpleMarkerSymbol from "@arcgis/core/symbols/SimpleMarkerSymbol";
 import * as webMercatorUtils from "@arcgis/core/geometry/support/webMercatorUtils";
 import AppInterface from "./AppInterface";
@@ -1617,6 +1618,9 @@ class GISMap {
                 }
             }
             currentLayer = new FeatureLayer(params);
+        }
+        else if(layer.type == "tile"){
+            currentLayer = new TileLayer(params);
         }
         else{
             if(layer.sublayers){
