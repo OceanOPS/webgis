@@ -337,6 +337,7 @@ class Config{
         {"id": "CRUISE_POLYGON", "filterField": "ID", "type": Config.TYPE_CRUISE},
         {"id": "ARGO_TRACKLINE", "filterField": "PTF_REF", "type": Config.TYPE_TRACKLINE},
         {"id": "DBCP_TRACKLINE", "filterField": "PTF_REF", "type": Config.TYPE_TRACKLINE},
+        {"id": "SOT_TRACKOBS", "filterField": "PTF_REF", "type": Config.TYPE_TRACKLINE},
         {"id": "ARGO_OBS", "filterField": "OBS_ID", "type": Config.TYPE_OBS},
         {"id": "DBCP_OBS", "filterField": "OBS_ID", "type": Config.TYPE_OBS},
         {"id": "SITES", "filterField": "SITE_ID", "type": Config.TYPE_SITE}
@@ -763,7 +764,7 @@ class Config{
             "selectionSymbol" : { "type": "esriSMS",    "style": "esriSMSSquare",   "color": [0,255,255,255],   "size": 8,  "angle": 0, "xoffset": 0,   "yoffset": 0,   "outline":  {       "color": [0,0,0,255],       "width": 1  } }
         },
         {
-            "id" : "SOT_OBS",
+            "id" : "SOT_TRACKOBS",
             "index": 83,
             "theme": "sot",
             "group": "sot",
@@ -771,7 +772,7 @@ class Config{
             "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/SOT/SOTObservations/MapServer/0",
             "symbologyFields" : ["DEFAULT"],
             "idField" : "OBS_ID",
-            "type" : Config.TYPE_OBS,
+            "type" : Config.TYPE_TRACKLINE,
             "popupTitle" : Config.POPUP_SOT_OBS_TITLE,
             "popupContent": Config.POPUP_SOT_OBS_CONTENT,
             "popupFieldInfos": Config.POPUP_SOT_OBS_FIELDINFOS,
