@@ -331,6 +331,7 @@ class Config{
         {"id": "OCEANSITES_PTF_LOC_0", "filterField": "PTF_REF", "type": Config.TYPE_PTF}, 
         {"id": "GOSHIP_CRUISE_LINE", "filterField": "ID", "type": Config.TYPE_CRUISE},
         {"id": "GOSHIP_DESIGN", "filterField": "LINE_ID", "type": Config.TYPE_LINE},
+        {"id": "DESIGN_LINE", "filterField": "ID", "type": Config.TYPE_LINE},
         {"id": "CRUISE_GROUP", "filterField": "ID", "type": Config.TYPE_CRUISE},
         {"id": "CRUISE_LINE", "filterField": "ID", "type": Config.TYPE_CRUISE},
         {"id": "CRUISE_POINT", "filterField": "ID", "type": Config.TYPE_CRUISE},
