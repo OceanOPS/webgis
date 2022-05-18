@@ -731,8 +731,8 @@ class Config{
             "index": 83,
             "theme": "sot",
             "group": "sot",
-            "name" : "SOOP XBT design lines",
-            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/SOT/SOOP_XBT_DESIGN/MapServer/0",
+            "name" : "SOOP XBT design lines (2021-2022)",
+            "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/SOT/SOOP_XBT_DESIGN/MapServer/3",
             "symbologyFields" : [],
             "idField" : "LINE_ID",
             "type" : Config.TYPE_LINE,
@@ -1188,35 +1188,6 @@ class Config{
             "visible" : false,
             "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/SOT/SOOP_XBT_DESIGN/MapServer",
             "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/SOT/SOOP_XBT_DESIGN/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
-            "sublayers": [
-                {
-                    "id": 0,
-                    "title": "SOOP-XBT Design 2019-2020",
-                    "popupTemplate": {"title": "XBT Line", "content": "<a href='javascript:openInspectLine(\"{LINE}\")'>Open Information Window</a>"},
-                    "source": {
-                      "mapLayerId": 0
-                    },
-                    "visible": true
-                },
-                {
-                    "id": 1,
-                    "title": "SOOP-XBT Design 2017-2018",
-                    "popupTemplate": {"title": "XBT Line", "content": "<a href='javascript:openInspectLine(\"{LINE}\")'>Open Information Window</a>"},
-                    "source": {
-                      "mapLayerId": 1
-                    },
-                    "visible": false
-                },
-                {
-                    "id": 2,
-                    "title": "SOOP-XBT Design 2015",
-                    "popupTemplate": {"title": "XBT Line", "content": "<a href='javascript:openInspectLine(\"{LINE}\")'>Open Information Window</a>"},
-                    "source": {
-                      "mapLayerId": 2
-                    },
-                    "visible": false
-                }
-            ],
             "index": 84
         },
         {
