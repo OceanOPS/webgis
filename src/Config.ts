@@ -1181,10 +1181,10 @@ class Config{
             "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/SOT/SOTCoverage/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
             "index": 83
         }, {
-            "id" : "soopXbtDesign",
-            "group": "referenceLines",
+            "id" : "soopXbtDesignAnalysis",
+            "group": "analysis",
             "theme" : "sot",
-            "name" : "SOOP-XBT design",
+            "name" : "SOOP-XBT design analysis",
             "visible" : false,
             "url" : Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/SOT/SOOP_XBT_DESIGN/MapServer",
             "thumbnailUrl": Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/SOT/SOOP_XBT_DESIGN/MapServer/export?bbox=20%2C-30%2C95%2C5&bboxSR=&layers=show%3A0&layerDefs=&size=150%2C75&imageSR=&format=jpg&transparent=false&dpi=&time=&layerTimeOptions=&dynamicLayers=&gdbVersion=&mapScale=&rotation=&datumTransformations=&layerParameterValues=&mapRangeValues=&layerRangeValues=&f=image",
