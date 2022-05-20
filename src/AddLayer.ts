@@ -33,7 +33,7 @@ class AddLayer{
 
         // Getting layer lists
         var operationalLayerList = Config.operationalLayers.filter(l => (this.map.getTheme() == l.theme || l.theme == Config.THEME_ALL) && l.type !== Config.TYPE_OBS_PTF);
-        var otherLayerList = Config.dynamicLayers.filter(l => this.map.getTheme() == Config.THEME_ALL || this.map.getTheme() == l.theme || l.theme == Config.THEME_ALL);
+        var otherLayerList = Config.dynamicLayers.filter(l => (this.map.getTheme() == Config.THEME_INTEGRATED && l.group == "analysis") || this.map.getTheme() == l.theme || l.theme == Config.THEME_ALL);
 
         // Filtering and ordering layer groups
         var layerGroups  = Config.layerGroups.filter(lg => otherLayerList.map(l => l.group).includes(lg.id)).concat(Config.layerGroups.filter(lg => operationalLayerList.map(l => l.group).includes(lg.id)));
