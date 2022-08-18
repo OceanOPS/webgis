@@ -6,7 +6,6 @@ import ElevationLayer from "@arcgis/core/layers/ElevationLayer";
 import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
 import GraphicsLayer from "@arcgis/core/layers/GraphicsLayer";
 import GroupLayer from "@arcgis/core/layers/GroupLayer";
-import GeometryService from "@arcgis/core/tasks/GeometryService";
 import AreaMeasurement2D from "@arcgis/core/widgets/AreaMeasurement2D";
 import AreaMeasurement3D from "@arcgis/core/widgets/AreaMeasurement3D";
 import CoordinateConversion from "@arcgis/core/widgets/CoordinateConversion";
@@ -161,8 +160,6 @@ class GISMap {
     // ========================================================================
     // Map view
     public mapView: MapView | SceneView;
-    // Remote geometry service
-    public geometryService: GeometryService;
     // Selection Tool
     public selectionLayer: SelectionLayer;
     // Bathymetry layer, for elevation
@@ -183,8 +180,6 @@ class GISMap {
 
     constructor(settingsInstance: Settings){
         this.settings = settingsInstance;
-        // Setting geometry service
-        this.geometryService = new GeometryService({url: Config.GEOMETRY_SERVICE});
         // Init sketch layer
         this.sketchLayer = new GraphicsLayer({
             id: "sketchLayer",
@@ -427,7 +422,7 @@ class GISMap {
      */
      public activateQueryElevation = () => {
         if(!this.queryElevation || (this.queryElevation && this.queryElevation.destroyed)){
-            this.queryElevation = new QueryElevation({view: this.mapView, elevationLayer: this.bathymetryLayer, geometryService: this.geometryService});
+            this.queryElevation = new QueryElevation({view: this.mapView, elevationLayer: this.bathymetryLayer});
             this.mapView.ui.add(this.queryElevation, {position: "bottom-left"});
             this.queryElevationDisplayed = true;
         }

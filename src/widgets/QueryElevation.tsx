@@ -5,13 +5,14 @@ import * as webMercatorUtils from "@arcgis/core/geometry/support/webMercatorUtil
 import ElevationLayer from "@arcgis/core/layers/ElevationLayer";
 import ElevationLayerElevationQueryResult from "@arcgis/core/layers/ElevationLayer";
 import ProjectParameters from"@arcgis/core/rest/support/ProjectParameters";
-import GeometryService from "@arcgis/core/tasks/GeometryService";
+import {project} from "@arcgis/core/rest/GeometryService";
 import MapView from "@arcgis/core/views/MapView";
 import SceneView from "@arcgis/core/views/SceneView";
 import { tsx } from "@arcgis/core/widgets/support/widget";
 
 import Widget from "@arcgis/core/widgets/Widget";
 import Utils from "../Utils";
+import Config from "../Config";
 
 const CSS = {
     base: "esri-widget",
@@ -22,8 +23,6 @@ const CSS = {
 class QueryElevation extends Widget{
     // Reference to the elevation layer
     private elevationLayer: ElevationLayer;
-    // Reference to the geometry service
-    private geometryService: GeometryService;
     // Reference to the view
     private view: MapView | SceneView;
     @property()
@@ -33,7 +32,6 @@ class QueryElevation extends Widget{
         super(props);
         this.view = props.view;
         this.elevationLayer = props.elevationLayer;
-        this.geometryService = props.geometryService;
         Utils.changeCursor("crosshair");
     }
 
@@ -88,7 +86,7 @@ class QueryElevation extends Widget{
                 var params = new ProjectParameters();
                 params.geometries = [position];
                 params.outSpatialReference = SpatialReference.WGS84;
-                this.geometryService.project(params).then((results) => {
+                project(Config.GEOMETRY_SERVICE, params).then((results) => {
                     var geom = results[0] as Point;
                     this.queryElevation(geom);
                 }).catch(function(result){
