@@ -2585,7 +2585,7 @@ class GISMap {
             });*/
         }
         else if(id === "cruise-submit"){
-            var geom = webMercatorUtils.webMercatorToGeographic(feature.geometry);      
+            var geom = webMercatorUtils.webMercatorToGeographic(feature.geometry, false);      
             AppInterface.openCruiseForm(Utils.polylineJsonToWKT(geom));
         }
         else if(id === "ptf-submit"){
