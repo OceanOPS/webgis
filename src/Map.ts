@@ -2042,6 +2042,7 @@ class GISMap {
         if(this.mapView.updating){
             Utils.setMainLoading(true);
         }
+        var initialLoading = true;
         // Handling loader based on the map status (do not control rendering time)
         this.mapView.watch("updating", (newValue, oldValue, property, object) => {
             if(newValue){
@@ -2049,6 +2050,12 @@ class GISMap {
             }
             else{
                 Utils.setMainLoading(false);
+                if(initialLoading){
+                    initialLoading = false;
+                    if(this.settings.zoomDataExtent){
+                        this.setExtent("data-extent");
+                    }
+                }
             }
         });
 
