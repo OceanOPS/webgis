@@ -37,7 +37,7 @@ class Settings {
     // Highlighting options
     public highlight: any;
     // Zoom to data extent
-    public zoomDataExtent: boolean = false;
+    public extent: any = false;
 
     // Should the sample be empty
     public emptyGisSample: boolean;
@@ -119,8 +119,14 @@ class Settings {
                 this.filter = {"platform": sqlClause};
             }
             else{
-                if(typeof(params.zoomDataExtent) != 'undefined'){
-                    this.zoomDataExtent = true;
+                if(typeof(params.extent) != 'undefined'){
+                    var extent: string = params.extent;
+                    if(extent.startsWith('[') || extent.startsWith('"')){
+                        this.extent = JSON.parse(extent);
+                    }
+                    else{
+                        this.extent = extent;
+                    }
                 }
                 if(params.filter){
                     try{
@@ -252,8 +258,8 @@ class Settings {
         else if(typeof(this.filter) != 'undefined'){
             stateObj["filter"] = JSON.stringify(this.filter);
         }
-        if(this.zoomDataExtent){
-            stateObj["zoomDataExtent"] = "true";
+        if(typeof(this.extent) != 'undefined'){
+            stateObj["extent"] = JSON.stringify(this.extent);
         }
 
         history.pushState(stateObj, "", "?" + Utils.htmlSerialize(stateObj));

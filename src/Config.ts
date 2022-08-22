@@ -1,4 +1,5 @@
 import Basemap from "@arcgis/core/Basemap";
+import SpatialReference from "@arcgis/core/geometry/SpatialReference";
 import WebTileLayer from "@arcgis/core/layers/WebTileLayer";
 import TextSymbol from "@arcgis/core/symbols/TextSymbol";
 
@@ -268,6 +269,13 @@ class Config{
 
     public static readonly OBSERVATIONS_SYMBOL = { "type": "simple-marker", "style": "circle", "color": [0,255,0,255], "size": 4, "outline":  {  "color": [255,255,255,255],  "width": 1 } };
     public static readonly TRACKLINE_SYMBOL = { "type": "esriSLS", "style": "esriSLSSolid", "color": [255,170,0,255], "size": 2, "angle": 0, "xoffset": 0, "yoffset": 0,  "outline":  {  "color": [255,255,255,255],  "width": 1 } };
+
+    public static readonly extentPresets = {
+        "medsea": {"xmin": -626838.5710523257, "ymin": 3567802.7989592813, "xmax": 3915355.3977647806, "ymax": 5744729.364520522, "spatialReference": SpatialReference.WebMercator},
+        "balticsea": {"xmax": 4863174.548500704, "xmin": 320980.5796835972, "ymax": 9252271.718469769, "ymin": 6997073.6359445285, "spatialReference": SpatialReference.WebMercator},
+        "blacksea": {"xmax": 5052738.378647884, "xmin": 2781641.3942393316, "ymax": 5923286.262594657, "ymin": 4821370.06283585, "spatialReference": SpatialReference.WebMercator},
+        "noos": {"xmax": 1671226.0169602437, "xmin": -2870967.9518568628, "ymax": 10089778.986000933, "ymin": 7841918.858191066, "spatialReference": SpatialReference.WebMercator} 
+    };
 
     public static readonly symbolsPoint = [
         {'value': 'esriSMSCircle', 'text': 'Circle'},

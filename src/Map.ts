@@ -2052,8 +2052,18 @@ class GISMap {
                 Utils.setMainLoading(false);
                 if(initialLoading){
                     initialLoading = false;
-                    if(this.settings.zoomDataExtent){
+                    if(this.settings.extent == "data"){
                         this.setExtent("data-extent");
+                    }
+                    else if(Object.keys(Config.extentPresets).indexOf(this.settings.extent)>=0){
+                        var extent = new Extent(Config.extentPresets[this.settings.extent]);
+                        this.setExtent("given-extent", extent);
+                    }
+                    else if(typeof(this.settings.extent) == 'object'){
+                        // Array [xmin, ymin, xmax, ymax] (4326)
+                        var extent = new Extent({"xmin": this.settings.extent[0], "ymin": this.settings.extent[1], "xmax": this.settings.extent[2], "ymax": this.settings.extent[3],
+                            "spatialReference": SpatialReference.WGS84});
+                        this.setExtent("given-extent", extent);
                     }
                 }
             }
@@ -2231,7 +2241,7 @@ class GISMap {
     /*
     * Set the extent of map
     */
-    private setExtent = (extentType: "data-extent" | "layer-extent", inputLayer ?: FeatureLayer): void => {
+    private setExtent = (extentType: "data-extent" | "layer-extent" | "given-extent", input ?: FeatureLayer | Extent): void => {
         if(extentType === "data-extent"){
             // Set the extent to the data extent, based on all feature layers
             let extents: Extent[] = [];
@@ -2254,12 +2264,15 @@ class GISMap {
                 });
             }
         }
-        else if(extentType == "layer-extent" && typeof(inputLayer) != 'undefined' && inputLayer instanceof FeatureLayer){
-            inputLayer.queryExtent({outSpatialReference: this.mapView.spatialReference, where: inputLayer.definitionExpression}).then((result: any) => {
+        else if(extentType == "layer-extent" && typeof(input) != 'undefined' && input instanceof FeatureLayer){
+            input.queryExtent({outSpatialReference: this.mapView.spatialReference, where: input.definitionExpression}).then((result: any) => {
                 if(result.count > 0){
                     this.mapView.goTo(result.extent);
                 }
             });
+        }
+        else if(extentType == "given-extent" && typeof(input) != 'undefined' && input instanceof Extent){
+            this.mapView.goTo(input);
         }
     };
 
