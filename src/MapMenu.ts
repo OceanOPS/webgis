@@ -34,6 +34,7 @@ class MapMenu{
         
         var projectionHtml = document.createElement("div");
         projectionHtml.classList.add("card");
+        projectionHtml.classList.add("dropdown-menu");
 
         for(var i = 0; i<Config.projections.length;i++){
             let projection = Config.projections[i];
@@ -58,6 +59,7 @@ class MapMenu{
             
         var layerManagementHtml = document.createElement("div");
         layerManagementHtml.classList.add("card");
+        layerManagementHtml.classList.add("dropdown-menu");
         var layerSwitch = document.createElement("a");
         layerSwitch.id = "layerListSwitch";
         layerSwitch.href = "#";
@@ -92,6 +94,7 @@ class MapMenu{
         // MORE TOOLS
         var moreToolsHtml = document.createElement("div");
         moreToolsHtml.classList.add("card");
+        moreToolsHtml.classList.add("dropdown-menu");
         moreToolsHtml.id = "moreToolsContent";
         
         

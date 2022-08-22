@@ -29,6 +29,7 @@ class AddLayer{
         this.modalContents.appendChild(instr);
         var panelGroup = document.createElement("div");
         panelGroup.id = "accordion";
+        panelGroup.classList.add("accordion");
         this.modalContents.appendChild(panelGroup);
 
         // Getting layer lists
