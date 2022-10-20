@@ -149,7 +149,7 @@ class Settings {
                     }
                     if(params.ptfStatuses){
                         var ptfStatuses = JSON.parse(params.ptfStatuses);
-                        sqlClause += " AND PTF_STATUS IN ('" + ptfStatuses.join("','") + "')";
+                        sqlClause += " AND PTF_STATUS IN (" + ptfStatuses.join(",") + ")";
                     }
                     if(params.ptfPrograms){
                         var ptfPrograms = JSON.parse(params.ptfPrograms);
