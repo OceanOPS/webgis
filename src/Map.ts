@@ -1712,6 +1712,8 @@ class GISMap {
                 }
             }
         });
+        // Overriding bug: time aware layers do not refresh their time extent automatically
+        this.timeSlider.fullTimeExtent.end = new Date();
         if(this.fullTimeExtent.start && this.fullTimeExtent.end){
             this.timeSlider.fullTimeExtent = this.fullTimeExtent;
             if(nbLayers == 1 && stops){
@@ -1719,7 +1721,7 @@ class GISMap {
             }
             // Resetting to full extent in any case
             this.timeSlider.timeExtent.start = this.timeSlider.fullTimeExtent.start;
-            this.timeSlider.timeExtent.end =this. timeSlider.fullTimeExtent.end;
+            this.timeSlider.timeExtent.end = this.timeSlider.fullTimeExtent.end;
             // Play/stop to force refresh the widget 
             this.timeSlider.play();
             this.timeSlider.stop();
