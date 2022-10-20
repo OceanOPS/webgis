@@ -1196,7 +1196,7 @@ class GISMap {
                 layerList = layerList.concat(Config.layerType.filter(l => l.type == Config.TYPE_TRACKLINE))
             }
                         
-            this.mapView.map.allLayers.forEach((layer: Layer): void => {
+            this.groupLayerOperational.allLayers.forEach((layer: Layer): void => {
                 var layerID = layer.id;
                 if(layer.id.includes("_GROUP_")){
                     layerID = layer.id.substring(0,layer.id.indexOf("_GROUP_")+6);
