@@ -847,7 +847,7 @@ class GISMap {
     *   Activate the print widget
     */
     public activatePrintWidget = (): any => {
-        if(!this.printerDisplayed){
+        if(!this.printerDisplayed && typeof(this.printer) != 'undefined'){
             this.mapView.ui.add(this.printer, {position: "bottom-left"});
             this.printerDisplayed = true;
         }
@@ -1036,7 +1036,7 @@ class GISMap {
             if(this.is3D || this.is3DFlat){
                 if(!this.measurementWidgetDistance3D){
                     this.measurementWidgetDistance3D = new DirectLineMeasurement3D({
-                        view: this.mapView
+                        view: this.mapView as SceneView
                     });
                 }
                 
@@ -1045,7 +1045,7 @@ class GISMap {
             else{
                 if(!this.measurementWidgetDistance2D){
                     this.measurementWidgetDistance2D = new DistanceMeasurement2D({
-                        view: this.mapView
+                        view: this.mapView as MapView
                     });
                 }
                 measurementWidget = this.measurementWidgetDistance2D;
@@ -1055,7 +1055,7 @@ class GISMap {
             if(this.is3D || this.is3DFlat){
                 if(!this.measurementWidgetArea3D){
                     this.measurementWidgetArea3D = new AreaMeasurement3D({
-                        view: this.mapView
+                        view: this.mapView as SceneView
                     });
                 }
                 measurementWidget = this.measurementWidgetArea3D;
@@ -1063,7 +1063,7 @@ class GISMap {
             else{
                 if(!this.measurementWidgetArea2D){
                     this.measurementWidgetArea2D = new AreaMeasurement2D({
-                        view: this.mapView
+                        view: this.mapView as MapView
                     });
                 }
                 measurementWidget = this.measurementWidgetArea2D;
@@ -2087,15 +2087,17 @@ class GISMap {
             listItemCreatedFunction: this.defineLayerListActions
         });
         this.layerList.on("trigger-action", this.layerListActionsHandler);
-        this.printer = new Print({
-            view: this.mapView,
-            templateOptions: {
-                copyright: "OceanOPS",
-                layout: "a4-landscape",
-                dpi: "300"
-            },
-            portal: {url: Config.PORTAL_URL}
-        });
+        if(!this.is3D && !this.is3DFlat){
+            this.printer = new Print({
+                view: this.mapView as MapView,
+                templateOptions: {
+                    copyright: "OceanOPS",
+                    layout: "a4-landscape",
+                    dpi: "300"
+                },
+                portal: {url: Config.PORTAL_URL}
+            });
+        }
         var today = new Date();
         var defaultFullTimeExtent = {
             start: new Date(1995, 0, 1),

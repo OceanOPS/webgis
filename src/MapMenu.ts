@@ -153,19 +153,20 @@ class MapMenu{
             this.updateExpandLabelTools();
         };
 
-        
-        var printLink = document.createElement("a");
-        printLink.id = "printLink";
-        printLink.href = "#";
-        printLink.classList.add("dropdown-item");
-        printLink.title = "Print the map into a preset template, or just as a simple map";
-        printLink.innerHTML = "<span class=\"esri-icon esri-icon-printer\" aria-label=\"print icon\"></span> print";
-        moreToolsHtml.appendChild(printLink);
-        printLink.onclick = (evt: any) => {
-            this.map.activatePrintWidget();
-            this.setActive(evt.target, this.map.isPrintWidgetActivated());
-            this.updateExpandLabelTools();
-        };
+        if(!this.map.is3D && !this.map.is3DFlat){
+            var printLink = document.createElement("a");
+            printLink.id = "printLink";
+            printLink.href = "#";
+            printLink.classList.add("dropdown-item");
+            printLink.title = "Print the map into a preset template, or just as a simple map";
+            printLink.innerHTML = "<span class=\"esri-icon esri-icon-printer\" aria-label=\"print icon\"></span> print";
+            moreToolsHtml.appendChild(printLink);
+            printLink.onclick = (evt: any) => {
+                this.map.activatePrintWidget();
+                this.setActive(evt.target, this.map.isPrintWidgetActivated());
+                this.updateExpandLabelTools();
+            };
+        }
 
         var coordinatesLink = document.createElement("a");
         coordinatesLink.id = "coordinatesLink";
