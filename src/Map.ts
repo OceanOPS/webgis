@@ -1583,7 +1583,7 @@ class GISMap {
      * Add a layer from a given ID.
      * @param {string} layer ID
      */
-    public addOtherLayer = (layerId: string, visibility: any): void => {
+    public addOtherLayer = (layerId: string, visibility: any): Layer => {
         var layer: any = Config.dynamicLayers.find(l => l.id == layerId);
 
         var currentLayer;
@@ -1660,7 +1660,9 @@ class GISMap {
                 }
             }
         });
-        this.addedLayerIds.push(layerId);        
+        this.addedLayerIds.push(layerId);   
+        
+        return currentLayer;
     }
 
     /**
@@ -1853,7 +1855,7 @@ class GISMap {
      */
     public processDraftPtfs = (arrayOfObjects: any[]): void => {
         if(arrayOfObjects){
-            if(!this.isEditGraphicDisplayed){
+            if(!this.isEditGraphicDisplayed()){
                 this.activateEditGraphic();
             }
             this.editGraphic.syncDraftPtfs(arrayOfObjects, "all");
@@ -1866,7 +1868,7 @@ class GISMap {
      */
     public deleteDraftPtfs = (arrayOfObjects: any[]): void => {
         if(arrayOfObjects){
-            if(!this.isEditGraphicDisplayed){
+            if(!this.isEditGraphicDisplayed()){
                 this.activateEditGraphic();
             }
             this.editGraphic.syncDraftPtfs(arrayOfObjects, "delete");
@@ -1971,6 +1973,52 @@ class GISMap {
 
     public removeAllWorkLayers = (): void =>{
         this.groupLayerWork.removeAll();
+    }
+
+    /**
+     * Activate the cruise editing mode, switching off all extra layers and activating the drawing tool in polyline mode
+     */
+    public activateCruiseEditingMode = (): void =>{
+        // Switch off all layers, except port layer
+        const portLayerID = "pointsOfInterest";
+        const subLayerID = 1;
+        var portLayerAdded = false;
+        this.groupLayerOperational.allLayers.forEach((layer: Layer): void => {
+            layer.visible = false;
+        });
+        this.groupLayerWork.allLayers.forEach((layer: Layer): void => {
+            if(layer.id !== this.sketchLayer.id){
+                layer.visible = false;
+            }
+        });
+        this.groupLayerOthers.allLayers.forEach((layer: Layer): void => {
+            if(layer.id === portLayerID){
+                var portLayer = layer as MapImageLayer;
+                var subLayer = portLayer.sublayers.find(sl => sl.id === subLayerID);
+                if(subLayer){
+                    subLayer.visible = true;
+                    portLayerAdded = true;
+                }
+            }
+            else{
+                layer.visible = false;
+            }
+        });
+        // Check and add ports layers if needed
+        if(!portLayerAdded){
+            var portLayer = this.addOtherLayer(portLayerID, true) as MapImageLayer;
+            portLayer.when(() => {
+                var subLayer = portLayer.sublayers.find(sl => sl.id === subLayerID);
+                if(subLayer){
+                    subLayer.visible = true;
+                }
+            })
+        }
+        // Add editor/drawing tool and activate line drawing with snapping
+        if(!this.isEditGraphicDisplayed()){
+            this.activateEditGraphic();
+            this.editGraphic.activateDrawingTool("polyline");
+        }
     }
     // #endregion
 

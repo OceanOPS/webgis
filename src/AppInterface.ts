@@ -133,6 +133,11 @@ class AppInterface{
         App.map.selectDraftPtfs(draftsArray);
     }
 
+
+    public static activateCruiseEditingMode = () : void => {
+        App.map.activateCruiseEditingMode();
+    }
+
 }
 
 export default AppInterface;

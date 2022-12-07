@@ -27,6 +27,8 @@ class EditGraphic extends Widget{
     private onUpdateCompleteHandler: IHandle;
     private onDeleteCompleteHandler: IHandle;
     
+    private justCopied: boolean = false;
+    
     @aliasOf("viewModel.map")
     map: EditGraphicViewModel["map"];
 
@@ -167,6 +169,15 @@ class EditGraphic extends Widget{
     };
 
     /**
+     * Activates the drawing tool with the given shape
+     * @param tool 
+     */
+    public activateDrawingTool = (tool: "circle" | "point" | "polyline" | "polygon" | "rectangle") => {
+        this.sketchWidget.create(tool);
+        this.sketchWidget.creationMode = "single";
+    };
+
+    /**
     * Computes the HTML required for the tool panel
     */
     private getDraftHtml = () => {
@@ -223,6 +234,13 @@ class EditGraphic extends Widget{
                     </p>
                     <p>
                         <button id='cruiseFormLink' key='cruiseFormLink' class='btn btn-sm btn-primary' onclick={this.openCruiseForm}><span class='esri-icon-upload'></span>&nbsp;save draft cruise plan</button>
+                        &nbsp;/&nbsp;
+                        {   
+                            ((this.justCopied) &&
+                            <button id='cruiseCopyWKTLink' key='cruiseCopyWKTLink' class='btn btn-sm btn-success'><span class='esri-icon-share2'></span>&nbsp;copied!</button>
+                            )
+                            || <button id='cruiseCopyWKTLink' key='cruiseCopyWKTLink' class='btn btn-sm btn-primary' onclick={this.cruiseCopyWKT}><span class='esri-icon-share2'></span>&nbsp;copy WKT</button>
+                        }
                     </p>
                     <p>
                         <button id='cruiseOrthodromy' class='btn btn-sm btn-secondary' onclick={this.cruiseGeodesicDensify}><span class='esri-icon-globe'></span> orthodromy</button>
@@ -262,6 +280,27 @@ class EditGraphic extends Widget{
             var geom = webMercatorUtils.webMercatorToGeographic(graphic.geometry);
             var wkt = Utils.polylineJsonToWKT(geom);
             AppInterface.openCruiseForm(wkt);
+        }
+    }
+
+    /**
+     * Helper function copyinh the cruise WKT to the clipboard
+     */
+    private cruiseCopyWKT = () => {
+        var graphic = this.sketchWidget.layer.graphics.find((g: Graphic) => {
+            return g.geometry.type == "polyline" && (!this.cruiseIdSelected || g.attributes.draftId == this.cruiseIdSelected)
+        });  
+        if(graphic){
+            var geom = webMercatorUtils.webMercatorToGeographic(graphic.geometry);
+            var wkt = Utils.polylineJsonToWKT(geom);
+            navigator.clipboard.writeText(wkt);
+            this.justCopied = true;
+            var me = this;
+            setTimeout((() => {
+                this.justCopied = false;
+                // Forcing rendering to take into account the timeout code
+                this.renderNow();
+            }).bind(this), 2000);
         }
     }
 

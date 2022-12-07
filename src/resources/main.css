@@ -127,6 +127,10 @@ span.esri-popup__action-text{
     align-items: flex-start;
 }
 
+.esri-ui-bottom-left .esri-component {
+    margin-top: 10px;
+}
+
 .esri-ui-top-right{
     flex-flow: row-reverse nowrap;
     align-items: flex-start;
