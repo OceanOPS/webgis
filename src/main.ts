@@ -12,8 +12,7 @@ import GISMap from "./Map";
 
 
 class App {
-    //@todo auto debug based on vite dev/build
-    private static readonly debug: boolean = true;
+    private static readonly debug: boolean = false;
     public static settings: Settings;
     public static map: GISMap;
 
