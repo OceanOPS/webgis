@@ -13,7 +13,6 @@
       "resolveJsonModule": true,
       "strict": true,
       "strictPropertyInitialization": false,
-      "suppressImplicitAnyIndexErrors": true,
       "importHelpers": true,
       "moduleResolution": "node"
     },

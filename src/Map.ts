@@ -58,6 +58,7 @@ import QueryLayer from "./widgets/QueryLayer";
 import ElevationExaggerationViewModel from "./widgets/ElevationExaggerationViewModel";
 import ElevationExaggeration from "./widgets/ElevationExaggeration";
 import LayerElevationExpr from "./widgets/LayerElevationExpr";
+import Popup from "@arcgis/core/widgets/Popup.js";
 
 class GISMap {
     // ========================================================================
@@ -2120,6 +2121,7 @@ class GISMap {
         });
 
         // Popup actions event
+        this.mapView.popup = new Popup();
         this.mapView.popup.on("trigger-action", this.popupActionsHandler);
 
         // Initializing layers (order is important here, adding the bottom ones first)
