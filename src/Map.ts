@@ -2145,7 +2145,7 @@ class GISMap {
                     layout: "a4-landscape",
                     dpi: "300"
                 },
-                portal: {url: Config.PORTAL_URL}
+                printServiceUrl: Config.PRINT_SERVICE
             });
         }
         var today = new Date();

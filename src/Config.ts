@@ -255,7 +255,6 @@ class Config{
     public static readonly PARAMETER_NAME_PTF_NETWORKS = "ptfNetworks";
     public static readonly GEOMETRY_SERVICE = Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Utilities/Geometry/GeometryServer";
     public static readonly PRINT_SERVICE = Config.PROTOCOL + "//www.ocean-ops.org/arcgis/rest/services/Commons/ExportWebMap/GPServer/Export%20Web%20Map";
-    public static readonly PORTAL_URL = Config.PROTOCOL + "//www.ocean-ops.org/arcgisportal/";
     public static readonly DEFAULT_NETWORKS_FIELD = "NETWORK";
     public static readonly TYPE_PTF = "platform";
     public static readonly TYPE_OBS = "observation";
