@@ -26,6 +26,7 @@ Will compile and serve the project on localhost (consol will indicate port):
 
 
 # Release
+To do in main branch.
 ## Incrementing version
 Use [npm version command](https://docs.npmjs.com/cli/v9/commands/npm-version?v=true).
 It will increment the project version, commit and tag it.
@@ -43,3 +44,9 @@ or
 This will create the files to deploy, in dist
 
     npm run build
+
+## Deploy
+Copy generated files to maps/interactive
+
+## Publish release on GitHub
+throught he release menu, following previous releases pattern.
