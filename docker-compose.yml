@@ -1,9 +1,9 @@
 version: "3.9"
 
 services:
-    oceanops-gis:
-        container_name: oceanops-gis
-        image: oceanops-gis
+    oceanops-interactivemap:
+        container_name: oceanops-interactivemap
+        image: oceanops-interactivemap
         build:
             context: .
             dockerfile: Dockerfile
