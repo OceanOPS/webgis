@@ -1,9 +1,9 @@
 version: "3.9"
 
 services:
-    app:
-        container_name: gis
-        image: gis
+    oceanops-gis:
+        container_name: oceanops-gis
+        image: oceanops-gis
         build:
             context: .
             dockerfile: Dockerfile
